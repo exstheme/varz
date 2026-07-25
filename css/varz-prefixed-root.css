@@ -1,0 +1,1723 @@
+@charset "utf-8";
+/*
+This file isn’t needed in production.
+Connect it to your project only during development so your IDE can recognize the names of CSS variables
+(also known as “custom properties”).
+*/
+:root{
+	/********************************/
+	/* Main Properties - responsive */
+	/********************************/
+	/* margin */
+	--vz-m: ;
+	/* padding */
+	--vz-p: ;
+	/* margin-block-start */
+	--vz-mbs: ;
+	/* margin-block-end */
+	--vz-mbe: ;
+	/* margin-inline-start */
+	--vz-mis: ;
+	/* margin-inline-end */
+	--vz-mie: ;
+	/* padding-block-start */
+	--vz-pbs: ;
+	/* padding-block-end */
+	--vz-pbe: ;
+	/* padding-inline-start */
+	--vz-pis: ;
+	/* padding-inline-end */
+	--vz-pie: ;
+	/* border */
+	--vz-bor: ;
+	/* border-width */
+	--vz-bw: ;
+	/* border-style */
+	--vz-bs: ;
+	/* border-color */
+	--vz-bc: ;
+	/* border-radius */
+	--vz-br: ;
+	/* box-shadow */
+	--vz-bsh: ;
+	/* outline */
+	--vz-ol: ;
+	/* width */
+	--vz-w: ;
+	/* height */
+	--vz-h: ;
+	/* min-width */
+	--vz-miw: ;
+	/* min-height */
+	--vz-mih: ;
+	/* max-width */
+	--vz-maw: ;
+	/* max-height */
+	--vz-mah: ;
+	/* aspect-ratio */
+	--vz-ar: ;
+	/* display */
+	--vz-d: ;
+	/* position */
+	--vz-pos: ;
+	/* visibility */
+	--vz-v: ;
+	/* opacity */
+	--vz-o: ;
+	/* z-index */
+	--vz-z: ;
+	/* float */
+	--vz-f: ;
+	/* overflow */
+	--vz-of: ;
+	/* overflow-x */
+	--vz-ox: ;
+	/* overflow-y */
+	--vz-oy: ;
+	/* top */
+	--vz-t: ;
+	/* right */
+	--vz-r: ;
+	/* bottom */
+	--vz-b: ;
+	/* left */
+	--vz-l: ;
+	/* inset-block-start */
+	--vz-ibs: ;
+	/* inset-block-end */
+	--vz-ibe: ;
+	/* inset-inline-start */
+	--vz-iis: ;
+	/* inset-inline-end */
+	--vz-iie: ;
+	/* color */
+	--vz-c: ;
+	/* text-align */
+	--vz-ta: ;
+	/* text-transform */
+	--vz-tt: ;
+	/* text-decoration */
+	--vz-td: ;
+	/* font-size */
+	--vz-fs: ;
+	/* font-family */
+	--vz-ff: ;
+	/* font-style */
+	--vz-fst: ;
+	/* font-weight */
+	--vz-fw: ;
+	/* line-height */
+	--vz-lh: ;
+	/* letter-spacing */
+	--vz-ls: ;
+	/* white-space */
+	--vz-ws: ;
+	/* word-break */
+	--vz-wb: ;
+	/* overflow-wrap */
+	--vz-ow: ;
+	/* text-overflow */
+	--vz-to: ;
+	/* direction */
+	--vz-dir: ;
+	/* writing-mode */
+	--vz-wm: ;
+	/* text-orientation */
+	--vz-tor: ;
+	/* flex */
+	--vz-fl: ;
+	/* flex-direction */
+	--vz-fld: ;
+	/* flex-wrap */
+	--vz-flw: ;
+	/* flex-grow */
+	--vz-flg: ;
+	/* flex-shrink */
+	--vz-fls: ;
+	/* flex-basis */
+	--vz-flb: ;
+	/* order */
+	--vz-or: ;
+	/* justify-content */
+	--vz-jc: ;
+	/* justify-self */
+	--vz-js: ;
+	/* align-items */
+	--vz-ai: ;
+	/* align-content */
+	--vz-ac: ;
+	/* align-self */
+	--vz-as: ;
+	/* gap */
+	--vz-g: ;
+	/* row-gap */
+	--vz-rg: ;
+	/* column-gap */
+	--vz-cg: ;
+	/* grid-template-columns */
+	--vz-gtc: ;
+	/* grid-template-rows */
+	--vz-gtr: ;
+	/* grid-template-areas */
+	--vz-gta: ;
+	/* grid-auto-columns */
+	--vz-gac: ;
+	/* grid-auto-rows */
+	--vz-gar: ;
+	/* justify-items */
+	--vz-ji: ;
+	/* grid-column */
+	--vz-gc: ;
+	/* grid-row */
+	--vz-gr: ;
+	/* grid-area */
+	--vz-ga: ;
+	/* background */
+	--vz-bg: ;
+	/* background-color */
+	--vz-bgc: ;
+	/* background-clip */
+	--vz-bgcl: ;
+	/* background-image */
+	--vz-bgi: ;
+	/* background-position */
+	--vz-bgp: ;
+	/* background-attachment */
+	--vz-bga: ;
+	/* background-repeat */
+	--vz-bgr: ;
+	/* background-size */
+	--vz-bgs: ;
+	/* background-blend-mode */
+	--vz-bgb: ;
+	/* transform */
+	--vz-tf: ;
+	/* transition */
+	--vz-tr: ;
+	/* mask */
+	--vz-msk: ;
+	/* mask-image */
+	--vz-mki: ;
+	/* mask-size */
+	--vz-mks: ;
+	/* mask-repeat */
+	--vz-mkr: ;
+	/* mask-composite */
+	--vz-mco: ;
+	/* cursor */
+	--vz-cur: ;
+	/* pointer-events */
+	--vz-pe: ;
+	/* mix-blend-mode */
+	--vz-mbm: ;
+	/* filter */
+	--vz-fil: ;
+	/* backdrop-filter */
+	--vz-bfil: ;
+	/* object-fit */
+	--vz-obf: ;
+	/* 1399px and below */
+	/* margin on 1399px and below */
+	--vz-m-g: ;
+	/* padding on 1399px and below */
+	--vz-p-g: ;
+	/* margin-block-start on 1399px and below */
+	--vz-mbs-g: ;
+	/* margin-block-end on 1399px and below */
+	--vz-mbe-g: ;
+	/* margin-inline-start on 1399px and below */
+	--vz-mis-g: ;
+	/* margin-inline-end on 1399px and below */
+	--vz-mie-g: ;
+	/* padding-block-start on 1399px and below */
+	--vz-pbs-g: ;
+	/* padding-block-end on 1399px and below */
+	--vz-pbe-g: ;
+	/* padding-inline-start on 1399px and below */
+	--vz-pis-g: ;
+	/* padding-inline-end on 1399px and below */
+	--vz-pie-g: ;
+	/* border on 1399px and below */
+	--vz-bor-g: ;
+	/* border-width on 1399px and below */
+	--vz-bw-g: ;
+	/* border-style on 1399px and below */
+	--vz-bs-g: ;
+	/* border-color on 1399px and below */
+	--vz-bc-g: ;
+	/* border-radius on 1399px and below */
+	--vz-br-g: ;
+	/* box-shadow on 1399px and below */
+	--vz-bsh-g: ;
+	/* outline on 1399px and below */
+	--vz-ol-g: ;
+	/* width on 1399px and below */
+	--vz-w-g: ;
+	/* height on 1399px and below */
+	--vz-h-g: ;
+	/* min-width on 1399px and below */
+	--vz-miw-g: ;
+	/* min-height on 1399px and below */
+	--vz-mih-g: ;
+	/* max-width on 1399px and below */
+	--vz-maw-g: ;
+	/* max-height on 1399px and below */
+	--vz-mah-g: ;
+	/* aspect-ratio on 1399px and below */
+	--vz-ar-g: ;
+	/* display on 1399px and below */
+	--vz-d-g: ;
+	/* position on 1399px and below */
+	--vz-pos-g: ;
+	/* visibility on 1399px and below */
+	--vz-v-g: ;
+	/* opacity on 1399px and below */
+	--vz-o-g: ;
+	/* z-index on 1399px and below */
+	--vz-z-g: ;
+	/* float on 1399px and below */
+	--vz-f-g: ;
+	/* overflow on 1399px and below */
+	--vz-of-g: ;
+	/* overflow-x on 1399px and below */
+	--vz-ox-g: ;
+	/* overflow-y on 1399px and below */
+	--vz-oy-g: ;
+	/* top on 1399px and below */
+	--vz-t-g: ;
+	/* right on 1399px and below */
+	--vz-r-g: ;
+	/* bottom on 1399px and below */
+	--vz-b-g: ;
+	/* left on 1399px and below */
+	--vz-l-g: ;
+	/* inset-block-start on 1399px and below */
+	--vz-ibs-g: ;
+	/* inset-block-end on 1399px and below */
+	--vz-ibe-g: ;
+	/* inset-inline-start on 1399px and below */
+	--vz-iis-g: ;
+	/* inset-inline-end on 1399px and below */
+	--vz-iie-g: ;
+	/* color on 1399px and below */
+	--vz-c-g: ;
+	/* text-align on 1399px and below */
+	--vz-ta-g: ;
+	/* text-transform on 1399px and below */
+	--vz-tt-g: ;
+	/* text-decoration on 1399px and below */
+	--vz-td-g: ;
+	/* font-size on 1399px and below */
+	--vz-fs-g: ;
+	/* font-family on 1399px and below */
+	--vz-ff-g: ;
+	/* font-style on 1399px and below */
+	--vz-fst-g: ;
+	/* font-weight on 1399px and below */
+	--vz-fw-g: ;
+	/* line-height on 1399px and below */
+	--vz-lh-g: ;
+	/* letter-spacing on 1399px and below */
+	--vz-ls-g: ;
+	/* white-space on 1399px and below */
+	--vz-ws-g: ;
+	/* word-break on 1399px and below */
+	--vz-wb-g: ;
+	/* overflow-wrap on 1399px and below */
+	--vz-ow-g: ;
+	/* text-overflow on 1399px and below */
+	--vz-to-g: ;
+	/* direction on 1399px and below */
+	--vz-dir-g: ;
+	/* writing-mode on 1399px and below */
+	--vz-wm-g: ;
+	/* text-orientation on 1399px and below */
+	--vz-tor-g: ;
+	/* flex on 1399px and below */
+	--vz-fl-g: ;
+	/* flex-direction on 1399px and below */
+	--vz-fld-g: ;
+	/* flex-wrap on 1399px and below */
+	--vz-flw-g: ;
+	/* flex-grow on 1399px and below */
+	--vz-flg-g: ;
+	/* flex-shrink on 1399px and below */
+	--vz-fls-g: ;
+	/* flex-basis on 1399px and below */
+	--vz-flb-g: ;
+	/* order on 1399px and below */
+	--vz-or-g: ;
+	/* justify-content on 1399px and below */
+	--vz-jc-g: ;
+	/* justify-self on 1399px and below */
+	--vz-js-g: ;
+	/* align-items on 1399px and below */
+	--vz-ai-g: ;
+	/* align-content on 1399px and below */
+	--vz-ac-g: ;
+	/* align-self on 1399px and below */
+	--vz-as-g: ;
+	/* gap on 1399px and below */
+	--vz-g-g: ;
+	/* row-gap on 1399px and below */
+	--vz-rg-g: ;
+	/* column-gap on 1399px and below */
+	--vz-cg-g: ;
+	/* grid-template-columns on 1399px and below */
+	--vz-gtc-g: ;
+	/* grid-template-rows on 1399px and below */
+	--vz-gtr-g: ;
+	/* grid-template-areas on 1399px and below */
+	--vz-gta-g: ;
+	/* grid-auto-columns on 1399px and below */
+	--vz-gac-g: ;
+	/* grid-auto-rows on 1399px and below */
+	--vz-gar-g: ;
+	/* justify-items on 1399px and below */
+	--vz-ji-g: ;
+	/* grid-column on 1399px and below */
+	--vz-gc-g: ;
+	/* grid-row on 1399px and below */
+	--vz-gr-g: ;
+	/* grid-area on 1399px and below */
+	--vz-ga-g: ;
+	/* background on 1399px and below */
+	--vz-bg-g: ;
+	/* background-color on 1399px and below */
+	--vz-bgc-g: ;
+	/* background-clip on 1399px and below */
+	--vz-bgcl-g: ;
+	/* background-image on 1399px and below */
+	--vz-bgi-g: ;
+	/* background-position on 1399px and below */
+	--vz-bgp-g: ;
+	/* background-attachment on 1399px and below */
+	--vz-bga-g: ;
+	/* background-repeat on 1399px and below */
+	--vz-bgr-g: ;
+	/* background-size on 1399px and below */
+	--vz-bgs-g: ;
+	/* background-blend-mode on 1399px and below */
+	--vz-bgb-g: ;
+	/* transform on 1399px and below */
+	--vz-tf-g: ;
+	/* transition on 1399px and below */
+	--vz-tr-g: ;
+	/* mask on 1399px and below */
+	--vz-msk-g: ;
+	/* mask-image on 1399px and below */
+	--vz-mki-g: ;
+	/* mask-size on 1399px and below */
+	--vz-mks-g: ;
+	/* mask-repeat on 1399px and below */
+	--vz-mkr-g: ;
+	/* mask-composite on 1399px and below */
+	--vz-mco-g: ;
+	/* cursor on 1399px and below */
+	--vz-cur-g: ;
+	/* pointer-events on 1399px and below */
+	--vz-pe-g: ;
+	/* mix-blend-mode on 1399px and below */
+	--vz-mbm-g: ;
+	/* filter on 1399px and below */
+	--vz-fil-g: ;
+	/* backdrop-filter on 1399px and below */
+	--vz-bfil-g: ;
+	/* object-fit on 1399px and below */
+	--vz-obf-g: ;
+	/* 1199px and below */
+	/* margin on 1199px and below */
+	--vz-m-x: ;
+	/* padding on 1199px and below */
+	--vz-p-x: ;
+	/* margin-block-start on 1199px and below */
+	--vz-mbs-x: ;
+	/* margin-block-end on 1199px and below */
+	--vz-mbe-x: ;
+	/* margin-inline-start on 1199px and below */
+	--vz-mis-x: ;
+	/* margin-inline-end on 1199px and below */
+	--vz-mie-x: ;
+	/* padding-block-start on 1199px and below */
+	--vz-pbs-x: ;
+	/* padding-block-end on 1199px and below */
+	--vz-pbe-x: ;
+	/* padding-inline-start on 1199px and below */
+	--vz-pis-x: ;
+	/* padding-inline-end on 1199px and below */
+	--vz-pie-x: ;
+	/* border on 1199px and below */
+	--vz-bor-x: ;
+	/* border-width on 1199px and below */
+	--vz-bw-x: ;
+	/* border-style on 1199px and below */
+	--vz-bs-x: ;
+	/* border-color on 1199px and below */
+	--vz-bc-x: ;
+	/* border-radius on 1199px and below */
+	--vz-br-x: ;
+	/* box-shadow on 1199px and below */
+	--vz-bsh-x: ;
+	/* outline on 1199px and below */
+	--vz-ol-x: ;
+	/* width on 1199px and below */
+	--vz-w-x: ;
+	/* height on 1199px and below */
+	--vz-h-x: ;
+	/* min-width on 1199px and below */
+	--vz-miw-x: ;
+	/* min-height on 1199px and below */
+	--vz-mih-x: ;
+	/* max-width on 1199px and below */
+	--vz-maw-x: ;
+	/* max-height on 1199px and below */
+	--vz-mah-x: ;
+	/* aspect-ratio on 1199px and below */
+	--vz-ar-x: ;
+	/* display on 1199px and below */
+	--vz-d-x: ;
+	/* position on 1199px and below */
+	--vz-pos-x: ;
+	/* visibility on 1199px and below */
+	--vz-v-x: ;
+	/* opacity on 1199px and below */
+	--vz-o-x: ;
+	/* z-index on 1199px and below */
+	--vz-z-x: ;
+	/* float on 1199px and below */
+	--vz-f-x: ;
+	/* overflow on 1199px and below */
+	--vz-of-x: ;
+	/* overflow-x on 1199px and below */
+	--vz-ox-x: ;
+	/* overflow-y on 1199px and below */
+	--vz-oy-x: ;
+	/* top on 1199px and below */
+	--vz-t-x: ;
+	/* right on 1199px and below */
+	--vz-r-x: ;
+	/* bottom on 1199px and below */
+	--vz-b-x: ;
+	/* left on 1199px and below */
+	--vz-l-x: ;
+	/* inset-block-start on 1199px and below */
+	--vz-ibs-x: ;
+	/* inset-block-end on 1199px and below */
+	--vz-ibe-x: ;
+	/* inset-inline-start on 1199px and below */
+	--vz-iis-x: ;
+	/* inset-inline-end on 1199px and below */
+	--vz-iie-x: ;
+	/* color on 1199px and below */
+	--vz-c-x: ;
+	/* text-align on 1199px and below */
+	--vz-ta-x: ;
+	/* text-transform on 1199px and below */
+	--vz-tt-x: ;
+	/* text-decoration on 1199px and below */
+	--vz-td-x: ;
+	/* font-size on 1199px and below */
+	--vz-fs-x: ;
+	/* font-family on 1199px and below */
+	--vz-ff-x: ;
+	/* font-style on 1199px and below */
+	--vz-fst-x: ;
+	/* font-weight on 1199px and below */
+	--vz-fw-x: ;
+	/* line-height on 1199px and below */
+	--vz-lh-x: ;
+	/* letter-spacing on 1199px and below */
+	--vz-ls-x: ;
+	/* white-space on 1199px and below */
+	--vz-ws-x: ;
+	/* word-break on 1199px and below */
+	--vz-wb-x: ;
+	/* overflow-wrap on 1199px and below */
+	--vz-ow-x: ;
+	/* text-overflow on 1199px and below */
+	--vz-to-x: ;
+	/* direction on 1199px and below */
+	--vz-dir-x: ;
+	/* writing-mode on 1199px and below */
+	--vz-wm-x: ;
+	/* text-orientation on 1199px and below */
+	--vz-tor-x: ;
+	/* flex on 1199px and below */
+	--vz-fl-x: ;
+	/* flex-direction on 1199px and below */
+	--vz-fld-x: ;
+	/* flex-wrap on 1199px and below */
+	--vz-flw-x: ;
+	/* flex-grow on 1199px and below */
+	--vz-flg-x: ;
+	/* flex-shrink on 1199px and below */
+	--vz-fls-x: ;
+	/* flex-basis on 1199px and below */
+	--vz-flb-x: ;
+	/* order on 1199px and below */
+	--vz-or-x: ;
+	/* justify-content on 1199px and below */
+	--vz-jc-x: ;
+	/* justify-self on 1199px and below */
+	--vz-js-x: ;
+	/* align-items on 1199px and below */
+	--vz-ai-x: ;
+	/* align-content on 1199px and below */
+	--vz-ac-x: ;
+	/* align-self on 1199px and below */
+	--vz-as-x: ;
+	/* gap on 1199px and below */
+	--vz-g-x: ;
+	/* row-gap on 1199px and below */
+	--vz-rg-x: ;
+	/* column-gap on 1199px and below */
+	--vz-cg-x: ;
+	/* grid-template-columns on 1199px and below */
+	--vz-gtc-x: ;
+	/* grid-template-rows on 1199px and below */
+	--vz-gtr-x: ;
+	/* grid-template-areas on 1199px and below */
+	--vz-gta-x: ;
+	/* grid-auto-columns on 1199px and below */
+	--vz-gac-x: ;
+	/* grid-auto-rows on 1199px and below */
+	--vz-gar-x: ;
+	/* justify-items on 1199px and below */
+	--vz-ji-x: ;
+	/* grid-column on 1199px and below */
+	--vz-gc-x: ;
+	/* grid-row on 1199px and below */
+	--vz-gr-x: ;
+	/* grid-area on 1199px and below */
+	--vz-ga-x: ;
+	/* background on 1199px and below */
+	--vz-bg-x: ;
+	/* background-color on 1199px and below */
+	--vz-bgc-x: ;
+	/* background-clip on 1199px and below */
+	--vz-bgcl-x: ;
+	/* background-image on 1199px and below */
+	--vz-bgi-x: ;
+	/* background-position on 1199px and below */
+	--vz-bgp-x: ;
+	/* background-attachment on 1199px and below */
+	--vz-bga-x: ;
+	/* background-repeat on 1199px and below */
+	--vz-bgr-x: ;
+	/* background-size on 1199px and below */
+	--vz-bgs-x: ;
+	/* background-blend-mode on 1199px and below */
+	--vz-bgb-x: ;
+	/* transform on 1199px and below */
+	--vz-tf-x: ;
+	/* transition on 1199px and below */
+	--vz-tr-x: ;
+	/* mask on 1199px and below */
+	--vz-msk-x: ;
+	/* mask-image on 1199px and below */
+	--vz-mki-x: ;
+	/* mask-size on 1199px and below */
+	--vz-mks-x: ;
+	/* mask-repeat on 1199px and below */
+	--vz-mkr-x: ;
+	/* mask-composite on 1199px and below */
+	--vz-mco-x: ;
+	/* cursor on 1199px and below */
+	--vz-cur-x: ;
+	/* pointer-events on 1199px and below */
+	--vz-pe-x: ;
+	/* mix-blend-mode on 1199px and below */
+	--vz-mbm-x: ;
+	/* filter on 1199px and below */
+	--vz-fil-x: ;
+	/* backdrop-filter on 1199px and below */
+	--vz-bfil-x: ;
+	/* object-fit on 1199px and below */
+	--vz-obf-x: ;
+	/* 991px and below */
+	/* margin on 991px and below */
+	--vz-m-l: ;
+	/* padding on 991px and below */
+	--vz-p-l: ;
+	/* margin-block-start on 991px and below */
+	--vz-mbs-l: ;
+	/* margin-block-end on 991px and below */
+	--vz-mbe-l: ;
+	/* margin-inline-start on 991px and below */
+	--vz-mis-l: ;
+	/* margin-inline-end on 991px and below */
+	--vz-mie-l: ;
+	/* padding-block-start on 991px and below */
+	--vz-pbs-l: ;
+	/* padding-block-end on 991px and below */
+	--vz-pbe-l: ;
+	/* padding-inline-start on 991px and below */
+	--vz-pis-l: ;
+	/* padding-inline-end on 991px and below */
+	--vz-pie-l: ;
+	/* border on 991px and below */
+	--vz-bor-l: ;
+	/* border-width on 991px and below */
+	--vz-bw-l: ;
+	/* border-style on 991px and below */
+	--vz-bs-l: ;
+	/* border-color on 991px and below */
+	--vz-bc-l: ;
+	/* border-radius on 991px and below */
+	--vz-br-l: ;
+	/* box-shadow on 991px and below */
+	--vz-bsh-l: ;
+	/* outline on 991px and below */
+	--vz-ol-l: ;
+	/* width on 991px and below */
+	--vz-w-l: ;
+	/* height on 991px and below */
+	--vz-h-l: ;
+	/* min-width on 991px and below */
+	--vz-miw-l: ;
+	/* min-height on 991px and below */
+	--vz-mih-l: ;
+	/* max-width on 991px and below */
+	--vz-maw-l: ;
+	/* max-height on 991px and below */
+	--vz-mah-l: ;
+	/* aspect-ratio on 991px and below */
+	--vz-ar-l: ;
+	/* display on 991px and below */
+	--vz-d-l: ;
+	/* position on 991px and below */
+	--vz-pos-l: ;
+	/* visibility on 991px and below */
+	--vz-v-l: ;
+	/* opacity on 991px and below */
+	--vz-o-l: ;
+	/* z-index on 991px and below */
+	--vz-z-l: ;
+	/* float on 991px and below */
+	--vz-f-l: ;
+	/* overflow on 991px and below */
+	--vz-of-l: ;
+	/* overflow-x on 991px and below */
+	--vz-ox-l: ;
+	/* overflow-y on 991px and below */
+	--vz-oy-l: ;
+	/* top on 991px and below */
+	--vz-t-l: ;
+	/* right on 991px and below */
+	--vz-r-l: ;
+	/* bottom on 991px and below */
+	--vz-b-l: ;
+	/* left on 991px and below */
+	--vz-l-l: ;
+	/* inset-block-start on 991px and below */
+	--vz-ibs-l: ;
+	/* inset-block-end on 991px and below */
+	--vz-ibe-l: ;
+	/* inset-inline-start on 991px and below */
+	--vz-iis-l: ;
+	/* inset-inline-end on 991px and below */
+	--vz-iie-l: ;
+	/* color on 991px and below */
+	--vz-c-l: ;
+	/* text-align on 991px and below */
+	--vz-ta-l: ;
+	/* text-transform on 991px and below */
+	--vz-tt-l: ;
+	/* text-decoration on 991px and below */
+	--vz-td-l: ;
+	/* font-size on 991px and below */
+	--vz-fs-l: ;
+	/* font-family on 991px and below */
+	--vz-ff-l: ;
+	/* font-style on 991px and below */
+	--vz-fst-l: ;
+	/* font-weight on 991px and below */
+	--vz-fw-l: ;
+	/* line-height on 991px and below */
+	--vz-lh-l: ;
+	/* letter-spacing on 991px and below */
+	--vz-ls-l: ;
+	/* white-space on 991px and below */
+	--vz-ws-l: ;
+	/* word-break on 991px and below */
+	--vz-wb-l: ;
+	/* overflow-wrap on 991px and below */
+	--vz-ow-l: ;
+	/* text-overflow on 991px and below */
+	--vz-to-l: ;
+	/* direction on 991px and below */
+	--vz-dir-l: ;
+	/* writing-mode on 991px and below */
+	--vz-wm-l: ;
+	/* text-orientation on 991px and below */
+	--vz-tor-l: ;
+	/* flex on 991px and below */
+	--vz-fl-l: ;
+	/* flex-direction on 991px and below */
+	--vz-fld-l: ;
+	/* flex-wrap on 991px and below */
+	--vz-flw-l: ;
+	/* flex-grow on 991px and below */
+	--vz-flg-l: ;
+	/* flex-shrink on 991px and below */
+	--vz-fls-l: ;
+	/* flex-basis on 991px and below */
+	--vz-flb-l: ;
+	/* order on 991px and below */
+	--vz-or-l: ;
+	/* justify-content on 991px and below */
+	--vz-jc-l: ;
+	/* justify-self on 991px and below */
+	--vz-js-l: ;
+	/* align-items on 991px and below */
+	--vz-ai-l: ;
+	/* align-content on 991px and below */
+	--vz-ac-l: ;
+	/* align-self on 991px and below */
+	--vz-as-l: ;
+	/* gap on 991px and below */
+	--vz-g-l: ;
+	/* row-gap on 991px and below */
+	--vz-rg-l: ;
+	/* column-gap on 991px and below */
+	--vz-cg-l: ;
+	/* grid-template-columns on 991px and below */
+	--vz-gtc-l: ;
+	/* grid-template-rows on 991px and below */
+	--vz-gtr-l: ;
+	/* grid-template-areas on 991px and below */
+	--vz-gta-l: ;
+	/* grid-auto-columns on 991px and below */
+	--vz-gac-l: ;
+	/* grid-auto-rows on 991px and below */
+	--vz-gar-l: ;
+	/* justify-items on 991px and below */
+	--vz-ji-l: ;
+	/* grid-column on 991px and below */
+	--vz-gc-l: ;
+	/* grid-row on 991px and below */
+	--vz-gr-l: ;
+	/* grid-area on 991px and below */
+	--vz-ga-l: ;
+	/* background on 991px and below */
+	--vz-bg-l: ;
+	/* background-color on 991px and below */
+	--vz-bgc-l: ;
+	/* background-clip on 991px and below */
+	--vz-bgcl-l: ;
+	/* background-image on 991px and below */
+	--vz-bgi-l: ;
+	/* background-position on 991px and below */
+	--vz-bgp-l: ;
+	/* background-attachment on 991px and below */
+	--vz-bga-l: ;
+	/* background-repeat on 991px and below */
+	--vz-bgr-l: ;
+	/* background-size on 991px and below */
+	--vz-bgs-l: ;
+	/* background-blend-mode on 991px and below */
+	--vz-bgb-l: ;
+	/* transform on 991px and below */
+	--vz-tf-l: ;
+	/* transition on 991px and below */
+	--vz-tr-l: ;
+	/* mask on 991px and below */
+	--vz-msk-l: ;
+	/* mask-image on 991px and below */
+	--vz-mki-l: ;
+	/* mask-size on 991px and below */
+	--vz-mks-l: ;
+	/* mask-repeat on 991px and below */
+	--vz-mkr-l: ;
+	/* mask-composite on 991px and below */
+	--vz-mco-l: ;
+	/* cursor on 991px and below */
+	--vz-cur-l: ;
+	/* pointer-events on 991px and below */
+	--vz-pe-l: ;
+	/* mix-blend-mode on 991px and below */
+	--vz-mbm-l: ;
+	/* filter on 991px and below */
+	--vz-fil-l: ;
+	/* backdrop-filter on 991px and below */
+	--vz-bfil-l: ;
+	/* object-fit on 991px and below */
+	--vz-obf-l: ;
+	/* 767px and below */
+	/* margin on 767px and below */
+	--vz-m-m: ;
+	/* padding on 767px and below */
+	--vz-p-m: ;
+	/* margin-block-start on 767px and below */
+	--vz-mbs-m: ;
+	/* margin-block-end on 767px and below */
+	--vz-mbe-m: ;
+	/* margin-inline-start on 767px and below */
+	--vz-mis-m: ;
+	/* margin-inline-end on 767px and below */
+	--vz-mie-m: ;
+	/* padding-block-start on 767px and below */
+	--vz-pbs-m: ;
+	/* padding-block-end on 767px and below */
+	--vz-pbe-m: ;
+	/* padding-inline-start on 767px and below */
+	--vz-pis-m: ;
+	/* padding-inline-end on 767px and below */
+	--vz-pie-m: ;
+	/* border on 767px and below */
+	--vz-bor-m: ;
+	/* border-width on 767px and below */
+	--vz-bw-m: ;
+	/* border-style on 767px and below */
+	--vz-bs-m: ;
+	/* border-color on 767px and below */
+	--vz-bc-m: ;
+	/* border-radius on 767px and below */
+	--vz-br-m: ;
+	/* box-shadow on 767px and below */
+	--vz-bsh-m: ;
+	/* outline on 767px and below */
+	--vz-ol-m: ;
+	/* width on 767px and below */
+	--vz-w-m: ;
+	/* height on 767px and below */
+	--vz-h-m: ;
+	/* min-width on 767px and below */
+	--vz-miw-m: ;
+	/* min-height on 767px and below */
+	--vz-mih-m: ;
+	/* max-width on 767px and below */
+	--vz-maw-m: ;
+	/* max-height on 767px and below */
+	--vz-mah-m: ;
+	/* aspect-ratio on 767px and below */
+	--vz-ar-m: ;
+	/* display on 767px and below */
+	--vz-d-m: ;
+	/* position on 767px and below */
+	--vz-pos-m: ;
+	/* visibility on 767px and below */
+	--vz-v-m: ;
+	/* opacity on 767px and below */
+	--vz-o-m: ;
+	/* z-index on 767px and below */
+	--vz-z-m: ;
+	/* float on 767px and below */
+	--vz-f-m: ;
+	/* overflow on 767px and below */
+	--vz-of-m: ;
+	/* overflow-x on 767px and below */
+	--vz-ox-m: ;
+	/* overflow-y on 767px and below */
+	--vz-oy-m: ;
+	/* top on 767px and below */
+	--vz-t-m: ;
+	/* right on 767px and below */
+	--vz-r-m: ;
+	/* bottom on 767px and below */
+	--vz-b-m: ;
+	/* left on 767px and below */
+	--vz-l-m: ;
+	/* inset-block-start on 767px and below */
+	--vz-ibs-m: ;
+	/* inset-block-end on 767px and below */
+	--vz-ibe-m: ;
+	/* inset-inline-start on 767px and below */
+	--vz-iis-m: ;
+	/* inset-inline-end on 767px and below */
+	--vz-iie-m: ;
+	/* color on 767px and below */
+	--vz-c-m: ;
+	/* text-align on 767px and below */
+	--vz-ta-m: ;
+	/* text-transform on 767px and below */
+	--vz-tt-m: ;
+	/* text-decoration on 767px and below */
+	--vz-td-m: ;
+	/* font-size on 767px and below */
+	--vz-fs-m: ;
+	/* font-family on 767px and below */
+	--vz-ff-m: ;
+	/* font-style on 767px and below */
+	--vz-fst-m: ;
+	/* font-weight on 767px and below */
+	--vz-fw-m: ;
+	/* line-height on 767px and below */
+	--vz-lh-m: ;
+	/* letter-spacing on 767px and below */
+	--vz-ls-m: ;
+	/* white-space on 767px and below */
+	--vz-ws-m: ;
+	/* word-break on 767px and below */
+	--vz-wb-m: ;
+	/* overflow-wrap on 767px and below */
+	--vz-ow-m: ;
+	/* text-overflow on 767px and below */
+	--vz-to-m: ;
+	/* direction on 767px and below */
+	--vz-dir-m: ;
+	/* writing-mode on 767px and below */
+	--vz-wm-m: ;
+	/* text-orientation on 767px and below */
+	--vz-tor-m: ;
+	/* flex on 767px and below */
+	--vz-fl-m: ;
+	/* flex-direction on 767px and below */
+	--vz-fld-m: ;
+	/* flex-wrap on 767px and below */
+	--vz-flw-m: ;
+	/* flex-grow on 767px and below */
+	--vz-flg-m: ;
+	/* flex-shrink on 767px and below */
+	--vz-fls-m: ;
+	/* flex-basis on 767px and below */
+	--vz-flb-m: ;
+	/* order on 767px and below */
+	--vz-or-m: ;
+	/* justify-content on 767px and below */
+	--vz-jc-m: ;
+	/* justify-self on 767px and below */
+	--vz-js-m: ;
+	/* align-items on 767px and below */
+	--vz-ai-m: ;
+	/* align-content on 767px and below */
+	--vz-ac-m: ;
+	/* align-self on 767px and below */
+	--vz-as-m: ;
+	/* gap on 767px and below */
+	--vz-g-m: ;
+	/* row-gap on 767px and below */
+	--vz-rg-m: ;
+	/* column-gap on 767px and below */
+	--vz-cg-m: ;
+	/* grid-template-columns on 767px and below */
+	--vz-gtc-m: ;
+	/* grid-template-rows on 767px and below */
+	--vz-gtr-m: ;
+	/* grid-template-areas on 767px and below */
+	--vz-gta-m: ;
+	/* grid-auto-columns on 767px and below */
+	--vz-gac-m: ;
+	/* grid-auto-rows on 767px and below */
+	--vz-gar-m: ;
+	/* justify-items on 767px and below */
+	--vz-ji-m: ;
+	/* grid-column on 767px and below */
+	--vz-gc-m: ;
+	/* grid-row on 767px and below */
+	--vz-gr-m: ;
+	/* grid-area on 767px and below */
+	--vz-ga-m: ;
+	/* background on 767px and below */
+	--vz-bg-m: ;
+	/* background-color on 767px and below */
+	--vz-bgc-m: ;
+	/* background-clip on 767px and below */
+	--vz-bgcl-m: ;
+	/* background-image on 767px and below */
+	--vz-bgi-m: ;
+	/* background-position on 767px and below */
+	--vz-bgp-m: ;
+	/* background-attachment on 767px and below */
+	--vz-bga-m: ;
+	/* background-repeat on 767px and below */
+	--vz-bgr-m: ;
+	/* background-size on 767px and below */
+	--vz-bgs-m: ;
+	/* background-blend-mode on 767px and below */
+	--vz-bgb-m: ;
+	/* transform on 767px and below */
+	--vz-tf-m: ;
+	/* transition on 767px and below */
+	--vz-tr-m: ;
+	/* mask on 767px and below */
+	--vz-msk-m: ;
+	/* mask-image on 767px and below */
+	--vz-mki-m: ;
+	/* mask-size on 767px and below */
+	--vz-mks-m: ;
+	/* mask-repeat on 767px and below */
+	--vz-mkr-m: ;
+	/* mask-composite on 767px and below */
+	--vz-mco-m: ;
+	/* cursor on 767px and below */
+	--vz-cur-m: ;
+	/* pointer-events on 767px and below */
+	--vz-pe-m: ;
+	/* mix-blend-mode on 767px and below */
+	--vz-mbm-m: ;
+	/* filter on 767px and below */
+	--vz-fil-m: ;
+	/* backdrop-filter on 767px and below */
+	--vz-bfil-m: ;
+	/* object-fit on 767px and below */
+	--vz-obf-m: ;
+	/* 575px and below */
+	/* margin on 575px and below */
+	--vz-m-s: ;
+	/* padding on 575px and below */
+	--vz-p-s: ;
+	/* margin-block-start on 575px and below */
+	--vz-mbs-s: ;
+	/* margin-block-end on 575px and below */
+	--vz-mbe-s: ;
+	/* margin-inline-start on 575px and below */
+	--vz-mis-s: ;
+	/* margin-inline-end on 575px and below */
+	--vz-mie-s: ;
+	/* padding-block-start on 575px and below */
+	--vz-pbs-s: ;
+	/* padding-block-end on 575px and below */
+	--vz-pbe-s: ;
+	/* padding-inline-start on 575px and below */
+	--vz-pis-s: ;
+	/* padding-inline-end on 575px and below */
+	--vz-pie-s: ;
+	/* border on 575px and below */
+	--vz-bor-s: ;
+	/* border-width on 575px and below */
+	--vz-bw-s: ;
+	/* border-style on 575px and below */
+	--vz-bs-s: ;
+	/* border-color on 575px and below */
+	--vz-bc-s: ;
+	/* border-radius on 575px and below */
+	--vz-br-s: ;
+	/* box-shadow on 575px and below */
+	--vz-bsh-s: ;
+	/* outline on 575px and below */
+	--vz-ol-s: ;
+	/* width on 575px and below */
+	--vz-w-s: ;
+	/* height on 575px and below */
+	--vz-h-s: ;
+	/* min-width on 575px and below */
+	--vz-miw-s: ;
+	/* min-height on 575px and below */
+	--vz-mih-s: ;
+	/* max-width on 575px and below */
+	--vz-maw-s: ;
+	/* max-height on 575px and below */
+	--vz-mah-s: ;
+	/* aspect-ratio on 575px and below */
+	--vz-ar-s: ;
+	/* display on 575px and below */
+	--vz-d-s: ;
+	/* position on 575px and below */
+	--vz-pos-s: ;
+	/* visibility on 575px and below */
+	--vz-v-s: ;
+	/* opacity on 575px and below */
+	--vz-o-s: ;
+	/* z-index on 575px and below */
+	--vz-z-s: ;
+	/* float on 575px and below */
+	--vz-f-s: ;
+	/* overflow on 575px and below */
+	--vz-of-s: ;
+	/* overflow-x on 575px and below */
+	--vz-ox-s: ;
+	/* overflow-y on 575px and below */
+	--vz-oy-s: ;
+	/* top on 575px and below */
+	--vz-t-s: ;
+	/* right on 575px and below */
+	--vz-r-s: ;
+	/* bottom on 575px and below */
+	--vz-b-s: ;
+	/* left on 575px and below */
+	--vz-l-s: ;
+	/* inset-block-start on 575px and below */
+	--vz-ibs-s: ;
+	/* inset-block-end on 575px and below */
+	--vz-ibe-s: ;
+	/* inset-inline-start on 575px and below */
+	--vz-iis-s: ;
+	/* inset-inline-end on 575px and below */
+	--vz-iie-s: ;
+	/* color on 575px and below */
+	--vz-c-s: ;
+	/* text-align on 575px and below */
+	--vz-ta-s: ;
+	/* text-transform on 575px and below */
+	--vz-tt-s: ;
+	/* text-decoration on 575px and below */
+	--vz-td-s: ;
+	/* font-size on 575px and below */
+	--vz-fs-s: ;
+	/* font-family on 575px and below */
+	--vz-ff-s: ;
+	/* font-style on 575px and below */
+	--vz-fst-s: ;
+	/* font-weight on 575px and below */
+	--vz-fw-s: ;
+	/* line-height on 575px and below */
+	--vz-lh-s: ;
+	/* letter-spacing on 575px and below */
+	--vz-ls-s: ;
+	/* white-space on 575px and below */
+	--vz-ws-s: ;
+	/* word-break on 575px and below */
+	--vz-wb-s: ;
+	/* overflow-wrap on 575px and below */
+	--vz-ow-s: ;
+	/* text-overflow on 575px and below */
+	--vz-to-s: ;
+	/* direction on 575px and below */
+	--vz-dir-s: ;
+	/* writing-mode on 575px and below */
+	--vz-wm-s: ;
+	/* text-orientation on 575px and below */
+	--vz-tor-s: ;
+	/* flex on 575px and below */
+	--vz-fl-s: ;
+	/* flex-direction on 575px and below */
+	--vz-fld-s: ;
+	/* flex-wrap on 575px and below */
+	--vz-flw-s: ;
+	/* flex-grow on 575px and below */
+	--vz-flg-s: ;
+	/* flex-shrink on 575px and below */
+	--vz-fls-s: ;
+	/* flex-basis on 575px and below */
+	--vz-flb-s: ;
+	/* order on 575px and below */
+	--vz-or-s: ;
+	/* justify-content on 575px and below */
+	--vz-jc-s: ;
+	/* justify-self on 575px and below */
+	--vz-js-s: ;
+	/* align-items on 575px and below */
+	--vz-ai-s: ;
+	/* align-content on 575px and below */
+	--vz-ac-s: ;
+	/* align-self on 575px and below */
+	--vz-as-s: ;
+	/* gap on 575px and below */
+	--vz-g-s: ;
+	/* row-gap on 575px and below */
+	--vz-rg-s: ;
+	/* column-gap on 575px and below */
+	--vz-cg-s: ;
+	/* grid-template-columns on 575px and below */
+	--vz-gtc-s: ;
+	/* grid-template-rows on 575px and below */
+	--vz-gtr-s: ;
+	/* grid-template-areas on 575px and below */
+	--vz-gta-s: ;
+	/* grid-auto-columns on 575px and below */
+	--vz-gac-s: ;
+	/* grid-auto-rows on 575px and below */
+	--vz-gar-s: ;
+	/* justify-items on 575px and below */
+	--vz-ji-s: ;
+	/* grid-column on 575px and below */
+	--vz-gc-s: ;
+	/* grid-row on 575px and below */
+	--vz-gr-s: ;
+	/* grid-area on 575px and below */
+	--vz-ga-s: ;
+	/* background on 575px and below */
+	--vz-bg-s: ;
+	/* background-color on 575px and below */
+	--vz-bgc-s: ;
+	/* background-clip on 575px and below */
+	--vz-bgcl-s: ;
+	/* background-image on 575px and below */
+	--vz-bgi-s: ;
+	/* background-position on 575px and below */
+	--vz-bgp-s: ;
+	/* background-attachment on 575px and below */
+	--vz-bga-s: ;
+	/* background-repeat on 575px and below */
+	--vz-bgr-s: ;
+	/* background-size on 575px and below */
+	--vz-bgs-s: ;
+	/* background-blend-mode on 575px and below */
+	--vz-bgb-s: ;
+	/* transform on 575px and below */
+	--vz-tf-s: ;
+	/* transition on 575px and below */
+	--vz-tr-s: ;
+	/* mask on 575px and below */
+	--vz-msk-s: ;
+	/* mask-image on 575px and below */
+	--vz-mki-s: ;
+	/* mask-size on 575px and below */
+	--vz-mks-s: ;
+	/* mask-repeat on 575px and below */
+	--vz-mkr-s: ;
+	/* mask-composite on 575px and below */
+	--vz-mco-s: ;
+	/* cursor on 575px and below */
+	--vz-cur-s: ;
+	/* pointer-events on 575px and below */
+	--vz-pe-s: ;
+	/* mix-blend-mode on 575px and below */
+	--vz-mbm-s: ;
+	/* filter on 575px and below */
+	--vz-fil-s: ;
+	/* backdrop-filter on 575px and below */
+	--vz-bfil-s: ;
+	/* object-fit on 575px and below */
+	--vz-obf-s: ;
+	/*****************************************/
+	/* State pseudo classes - not responsive */
+	/*****************************************/
+	/*
+  ** selector:hover
+  */
+	/*selector:hover color*/
+	--vz-hov-c: ;
+	/*selector:hover border-color*/
+	--vz-hov-bc: ;
+	/*selector:hover background-color*/
+	--vz-hov-bgc: ;
+	/*selector:hover box-shadow*/
+	--vz-hov-bs: ;
+	/*selector:hover outline*/
+	--vz-hov-ol: ;
+	/*selector:hover opacity*/
+	--vz-hov-o: ;
+	/*selector:hover overflow*/
+	--vz-hov-of: ;
+	/*selector:hover width*/
+	--vz-hov-w: ;
+	/*selector:hover visibility*/
+	--vz-hov-v: ;
+	/*selector:hover top*/
+	--vz-hov-t: ;
+	/*selector:hover right*/
+	--vz-hov-r: ;
+	/*selector:hover bottom*/
+	--vz-hov-b: ;
+	/*selector:hover left*/
+	--vz-hov-l: ;
+	/*selector:hover display*/
+	--vz-hov-d: ;
+	/*selector:hover z-index*/
+	--vz-hov-z: ;
+	/*selector:hover transform*/
+	--vz-hov-tf: ;
+	/*selector:hover text-decoration*/
+	--vz-hov-td: ;
+	/*
+  ** *:hover > selector
+  */
+	/*selector:hover child color */
+	--vz-p-hov-c: ;
+	/*selector:hover child border-color */
+	--vz-p-hov-bc: ;
+	/*selector:hover child background-color */
+	--vz-p-hov-bgc: ;
+	/*selector:hover child opacity */
+	--vz-p-hov-o: ;
+	/*selector:hover child width */
+	--vz-p-hov-w: ;
+	/*selector:hover child max-height */
+	--vz-p-hov-mah: ;
+	/*selector:hover child visibility */
+	--vz-p-hov-v: ;
+	/*selector:hover child top */
+	--vz-p-hov-t: ;
+	/*selector:hover child right */
+	--vz-p-hov-r: ;
+	/*selector:hover child bottom */
+	--vz-p-hov-b: ;
+	/*selector:hover child left */
+	--vz-p-hov-l: ;
+	/*selector:hover child display */
+	--vz-p-hov-d: ;
+	/*selector:hover child z-index */
+	--vz-p-hov-z: ;
+	/*selector:hover child transform */
+	--vz-p-hov-tf: ;
+	/*
+  ** selector:focus
+  */
+	/*selector:focus color*/
+	--vz-foc-c: ;
+	/*selector:focus border-color*/
+	--vz-foc-bc: ;
+	/*selector:focus background-color*/
+	--vz-foc-bgc: ;
+	/*selector:focus box-shadow*/
+	--vz-foc-bs: ;
+	/*selector:focus outline*/
+	--vz-foc-ol: ;
+	/*selector:focus opacity*/
+	--vz-foc-o: ;
+	/*selector:focus overflow*/
+	--vz-foc-of: ;
+	/*selector:focus width*/
+	--vz-foc-w: ;
+	/*selector:focus visibility*/
+	--vz-foc-v: ;
+	/*selector:focus top*/
+	--vz-foc-t: ;
+	/*selector:focus right*/
+	--vz-foc-r: ;
+	/*selector:focus bottom*/
+	--vz-foc-b: ;
+	/*selector:focus left*/
+	--vz-foc-l: ;
+	/*selector:focus display*/
+	--vz-foc-d: ;
+	/*selector:focus z-index*/
+	--vz-foc-z: ;
+	/*selector:focus transform*/
+	--vz-foc-tf: ;
+	/*
+  ** selector:focus-within
+  */
+	/*selector:focus-within color*/
+	--vz-fwi-c: ;
+	/*selector:focus-within border-color*/
+	--vz-fwi-bc: ;
+	/*selector:focus-within background-color*/
+	--vz-fwi-bgc: ;
+	/*selector:focus-within box-shadow*/
+	--vz-fwi-bs: ;
+	/*selector:focus-within outline*/
+	--vz-fwi-ol: ;
+	/*selector:focus-within opacity*/
+	--vz-fwi-o: ;
+	/*selector:focus-within overflow*/
+	--vz-fwi-of: ;
+	/*selector:focus-within width*/
+	--vz-fwi-w: ;
+	/*selector:focus-within visibility*/
+	--vz-fwi-v: ;
+	/*selector:focus-within top*/
+	--vz-fwi-t: ;
+	/*selector:focus-within right*/
+	--vz-fwi-r: ;
+	/*selector:focus-within bottom*/
+	--vz-fwi-b: ;
+	/*selector:focus-within left*/
+	--vz-fwi-l: ;
+	/*selector:focus-within display*/
+	--vz-fwi-d: ;
+	/*selector:focus-within z-index*/
+	--vz-fwi-z: ;
+	/*selector:focus-within transform*/
+	--vz-fwi-tf: ;
+	/*
+  ** *:focus-within > selector
+  */
+	/*selector:focus-within child color */
+	--vz-p-fwi-c: ;
+	/*selector:focus-within child border-color */
+	--vz-p-fwi-bc: ;
+	/*selector:focus-within child background-color */
+	--vz-p-fwi-bgc: ;
+	/*selector:focus-within child box-shadow */
+	--vz-p-fwi-bs: ;
+	/*selector:focus-within child outline */
+	--vz-p-fwi-ol: ;
+	/*selector:focus-within child opacity */
+	--vz-p-fwi-o: ;
+	/*selector:focus-within child overflow */
+	--vz-p-fwi-of: ;
+	/*selector:focus-within child width */
+	--vz-p-fwi-w: ;
+	/*selector:focus-within child visibility */
+	--vz-p-fwi-v: ;
+	/*selector:focus-within child top */
+	--vz-p-fwi-t: ;
+	/*selector:focus-within child right */
+	--vz-p-fwi-r: ;
+	/*selector:focus-within child bottom */
+	--vz-p-fwi-b: ;
+	/*selector:focus-within child left */
+	--vz-p-fwi-l: ;
+	/*selector:focus-within child display */
+	--vz-p-fwi-d: ;
+	/*selector:focus-within child z-index */
+	--vz-p-fwi-z: ;
+	/*selector:focus-within child transform */
+	--vz-p-fwi-tf: ;
+	/*
+  ** *:focus ~ selector
+  */
+	/*selector:focus-within sibling color*/
+	--vz-s-foc-c: ;
+	/*selector:focus-within sibling border-color*/
+	--vz-s-foc-bc: ;
+	/*selector:focus-within sibling background-color*/
+	--vz-s-foc-bgc: ;
+	/*selector:focus-within sibling box-shadow*/
+	--vz-s-foc-bs: ;
+	/*selector:focus-within sibling outline*/
+	--vz-s-foc-ol: ;
+	/*selector:focus-within sibling opacity*/
+	--vz-s-foc-o: ;
+	/*selector:focus-within sibling overflow*/
+	--vz-s-foc-of: ;
+	/*selector:focus-within sibling width*/
+	--vz-s-foc-w: ;
+	/*selector:focus-within sibling visibility*/
+	--vz-s-foc-v: ;
+	/*selector:focus-within sibling top*/
+	--vz-s-foc-t: ;
+	/*selector:focus-within sibling right*/
+	--vz-s-foc-r: ;
+	/*selector:focus-within sibling bottom*/
+	--vz-s-foc-b: ;
+	/*selector:focus-within sibling left*/
+	--vz-s-foc-l: ;
+	/*selector:focus-within sibling display*/
+	--vz-s-foc-d: ;
+	/*selector:focus-within sibling z-index*/
+	--vz-s-foc-z: ;
+	/*selector:focus-within sibling transform*/
+	--vz-s-foc-tf: ;
+	/*
+  ** selector:checked
+  */
+	/*selector:checked color */
+	--vz-ch-c: ;
+	/*selector:checked border-color */
+	--vz-ch-bc: ;
+	/*selector:checked background-color */
+	--vz-ch-bgc: ;
+	/*selector:checked box-shadow */
+	--vz-ch-bs: ;
+	/*selector:checked outline */
+	--vz-ch-ol: ;
+	/*selector:checked opacity */
+	--vz-ch-o: ;
+	/*selector:checked overflow */
+	--vz-ch-of: ;
+	/*selector:checked width */
+	--vz-ch-w: ;
+	/*selector:checked visibility */
+	--vz-ch-v: ;
+	/*selector:checked top */
+	--vz-ch-t: ;
+	/*selector:checked right */
+	--vz-ch-r: ;
+	/*selector:checked bottom */
+	--vz-ch-b: ;
+	/*selector:checked left */
+	--vz-ch-l: ;
+	/*selector:checked display */
+	--vz-ch-d: ;
+	/*selector:checked z-index */
+	--vz-ch-z: ;
+	/*selector:checked transform */
+	--vz-ch-tf: ;
+	/*
+  ** *:checked ~ selector
+  */
+	/*selector:checked sibling color*/
+	--vz-s-ch-c: ;
+	/*selector:checked sibling border-color*/
+	--vz-s-ch-bc: ;
+	/*selector:checked sibling background-color*/
+	--vz-s-ch-bgc: ;
+	/*selector:checked sibling box-shadow*/
+	--vz-s-ch-bs: ;
+	/*selector:checked sibling outline*/
+	--vz-s-ch-ol: ;
+	/*selector:checked sibling opacity*/
+	--vz-s-ch-o: ;
+	/*selector:checked sibling overflow*/
+	--vz-s-ch-of: ;
+	/*selector:checked sibling width*/
+	--vz-s-ch-w: ;
+	/*selector:checked sibling visibility*/
+	--vz-s-ch-v: ;
+	/*selector:checked sibling top*/
+	--vz-s-ch-t: ;
+	/*selector:checked sibling right*/
+	--vz-s-ch-r: ;
+	/*selector:checked sibling bottom*/
+	--vz-s-ch-b: ;
+	/*selector:checked sibling left*/
+	--vz-s-ch-l: ;
+	/*selector:checked sibling display*/
+	--vz-s-ch-d: ;
+	/*selector:checked sibling z-index*/
+	--vz-s-ch-z: ;
+	/*selector:checked sibling transform*/
+	--vz-s-ch-tf: ;
+	/*
+  ** selector:not(:placeholder-shown)
+  */
+	/* selector:not(:placeholder-shown) color */
+	--vz-nps-c: ;
+	/* selector:not(:placeholder-shown) border-color */
+	--vz-nps-bc: ;
+	/* selector:not(:placeholder-shown) background-color */
+	--vz-nps-bgc: ;
+	/* selector:not(:placeholder-shown) box-shadow */
+	--vz-nps-bs: ;
+	/* selector:not(:placeholder-shown) outline */
+	--vz-nps-ol: ;
+	/* selector:not(:placeholder-shown) opacity */
+	--vz-nps-o: ;
+	/* selector:not(:placeholder-shown) overflow */
+	--vz-nps-of: ;
+	/* selector:not(:placeholder-shown) width */
+	--vz-nps-w: ;
+	/* selector:not(:placeholder-shown) visibility */
+	--vz-nps-v: ;
+	/* selector:not(:placeholder-shown) top */
+	--vz-nps-t: ;
+	/* selector:not(:placeholder-shown) right */
+	--vz-nps-r: ;
+	/* selector:not(:placeholder-shown) bottom */
+	--vz-nps-b: ;
+	/* selector:not(:placeholder-shown) left */
+	--vz-nps-l: ;
+	/* selector:not(:placeholder-shown) display */
+	--vz-nps-d: ;
+	/* selector:not(:placeholder-shown) z-index */
+	--vz-nps-z: ;
+	/* selector:not(:placeholder-shown) transform */
+	--vz-nps-tf: ;
+	/*
+  ** *:not(:placeholder-shown) ~ selector
+  */
+	/* *:not(:placeholder-shown) sibling color*/
+	--vz-s-nps-c: ;
+	/* *:not(:placeholder-shown) sibling border-color*/
+	--vz-s-nps-bc: ;
+	/* *:not(:placeholder-shown) sibling background-color*/
+	--vz-s-nps-bgc: ;
+	/* *:not(:placeholder-shown) sibling box-shadow*/
+	--vz-s-nps-bs: ;
+	/* *:not(:placeholder-shown) sibling outline*/
+	--vz-s-nps-ol: ;
+	/* *:not(:placeholder-shown) sibling opacity*/
+	--vz-s-nps-o: ;
+	/* *:not(:placeholder-shown) sibling overflow*/
+	--vz-s-nps-of: ;
+	/* *:not(:placeholder-shown) sibling width*/
+	--vz-s-nps-w: ;
+	/* *:not(:placeholder-shown) sibling visibility*/
+	--vz-s-nps-v: ;
+	/* *:not(:placeholder-shown) sibling top*/
+	--vz-s-nps-t: ;
+	/* *:not(:placeholder-shown) sibling right*/
+	--vz-s-nps-r: ;
+	/* *:not(:placeholder-shown) sibling bottom*/
+	--vz-s-nps-b: ;
+	/* *:not(:placeholder-shown) sibling left*/
+	--vz-s-nps-l: ;
+	/* *:not(:placeholder-shown) sibling display*/
+	--vz-s-nps-d: ;
+	/* *:not(:placeholder-shown) sibling z-index*/
+	--vz-s-nps-z: ;
+	/* *:not(:placeholder-shown) sibling transform*/
+	--vz-s-nps-tf: ;
+	/*********************************/
+	/* .vz (custom active) css class */
+	/*********************************/
+	/*
+  ** selector.vz
+  */
+	/* .vz class color*/
+	--vz-vz-c: ;
+	/* .vz class border-color*/
+	--vz-vz-bc: ;
+	/* .vz class background-color*/
+	--vz-vz-bgc: ;
+	/* .vz class box-shadow*/
+	--vz-vz-bs: ;
+	/* .vz class outline*/
+	--vz-vz-ol: ;
+	/* .vz class opacity*/
+	--vz-vz-o: ;
+	/* .vz class overflow*/
+	--vz-vz-of: ;
+	/* .vz class width*/
+	--vz-vz-w: ;
+	/* .vz class visibility*/
+	--vz-vz-v: ;
+	/* .vz class top*/
+	--vz-vz-t: ;
+	/* .vz class right*/
+	--vz-vz-r: ;
+	/* .vz class bottom*/
+	--vz-vz-b: ;
+	/* .vz class left*/
+	--vz-vz-l: ;
+	/* .vz class display*/
+	--vz-vz-d: ;
+	/* .vz class z-index*/
+	--vz-vz-z: ;
+	/* .vz class transform*/
+	--vz-vz-tf: ;
+	/* .vz class text-decoration*/
+	--vz-vz-td: ;
+	/* .vz class cursor*/
+	--vz-vz-cur: ;
+	/*
+  ** .vz > selector
+  */
+	/* .vz child color */
+	--vz-p-vz-c: ;
+	/* .vz child border-color */
+	--vz-p-vz-bc: ;
+	/* .vz child background-color */
+	--vz-p-vz-bgc: ;
+	/* .vz child opacity */
+	--vz-p-vz-o: ;
+	/* .vz child height */
+	--vz-p-vz-h: ;
+	/* .vz child width */
+	--vz-p-vz-w: ;
+	/* .vz child max-height */
+	--vz-p-vz-mah: ;
+	/* .vz child visibility */
+	--vz-p-vz-v: ;
+	/* .vz child top */
+	--vz-p-vz-t: ;
+	/* .vz child right */
+	--vz-p-vz-r: ;
+	/* .vz child bottom */
+	--vz-p-vz-b: ;
+	/* .vz child left */
+	--vz-p-vz-l: ;
+	/* .vz child display */
+	--vz-p-vz-d: ;
+	/* .vz child z-index */
+	--vz-p-vz-z: ;
+	/* .vz child transform */
+	--vz-p-vz-tf: ;
+	/*
+  ** .vz > * > selector
+  */
+	/* .vz child child color */
+	--vz-a-vz-c: ;
+	/* .vz child child border-color */
+	--vz-a-vz-bc: ;
+	/* .vz child child background-color */
+	--vz-a-vz-bgc: ;
+	/* .vz child child opacity */
+	--vz-a-vz-o: ;
+	/* .vz child child height */
+	--vz-a-vz-h: ;
+	/* .vz child child width */
+	--vz-a-vz-w: ;
+	/* .vz child child max-height */
+	--vz-a-vz-mah: ;
+	/* .vz child child visibility */
+	--vz-a-vz-v: ;
+	/* .vz child child top */
+	--vz-a-vz-t: ;
+	/* .vz child child right */
+	--vz-a-vz-r: ;
+	/* .vz child child bottom */
+	--vz-a-vz-b: ;
+	/* .vz child child left */
+	--vz-a-vz-l: ;
+	/* .vz child child display */
+	--vz-a-vz-d: ;
+	/* .vz child child z-index */
+	--vz-a-vz-z: ;
+	/* .vz child child transform */
+	--vz-a-vz-tf: ;
+}
