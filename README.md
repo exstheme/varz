@@ -14,8 +14,8 @@
 
 ## Quick Start
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/exstheme/varz@main/css/varz.css">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/exstheme/varz@main/css/min/varz.css">
+<!-- display:grid; grid-template-columns:1fr 1fr; gap: 40px; gap (>992px screens): 20px; grid-template-columns (>992px screens): 1fr; -->
 <div style="
   --d: grid;
   --gtc: 1fr 1fr;
