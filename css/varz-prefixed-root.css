@@ -216,6 +216,16 @@ Connect it to your project only during development so your IDE can recognize the
 	--vz-bfil: ;
 	/* object-fit */
 	--vz-obf: ;
+	/* scroll-snap-type */
+	--vz-sst: ;
+	/* scroll-snap-align */
+	--vz-ssa: ;
+	/* scroll-padding */
+	--vz-scp: ;
+	/* scroll-margin */
+	--vz-scm: ;
+	/* scrollbar-width */
+	--vz-sbw: ;
 	/* 1399px and below */
 	/* margin on 1399px and below */
 	--vz-m-g: ;
@@ -425,6 +435,16 @@ Connect it to your project only during development so your IDE can recognize the
 	--vz-bfil-g: ;
 	/* object-fit on 1399px and below */
 	--vz-obf-g: ;
+	/* scroll-snap-type on 1399px and below */
+	--vz-sst-g: ;
+	/* scroll-snap-align on 1399px and below */
+	--vz-ssa-g: ;
+	/* scroll-padding on 1399px and below */
+	--vz-scp-g: ;
+	/* scroll-margin on 1399px and below */
+	--vz-scm-g: ;
+	/* scrollbar-width on 1399px and below */
+	--vz-sbw-g: ;
 	/* 1199px and below */
 	/* margin on 1199px and below */
 	--vz-m-x: ;
@@ -634,6 +654,16 @@ Connect it to your project only during development so your IDE can recognize the
 	--vz-bfil-x: ;
 	/* object-fit on 1199px and below */
 	--vz-obf-x: ;
+	/* scroll-snap-type on 1199px and below */
+	--vz-sst-x: ;
+	/* scroll-snap-align on 1199px and below */
+	--vz-ssa-x: ;
+	/* scroll-padding on 1199px and below */
+	--vz-scp-x: ;
+	/* scroll-margin on 1199px and below */
+	--vz-scm-x: ;
+	/* scrollbar-width on 1199px and below */
+	--vz-sbw-x: ;
 	/* 991px and below */
 	/* margin on 991px and below */
 	--vz-m-l: ;
@@ -843,6 +873,16 @@ Connect it to your project only during development so your IDE can recognize the
 	--vz-bfil-l: ;
 	/* object-fit on 991px and below */
 	--vz-obf-l: ;
+	/* scroll-snap-type on 991px and below */
+	--vz-sst-l: ;
+	/* scroll-snap-align on 991px and below */
+	--vz-ssa-l: ;
+	/* scroll-padding on 991px and below */
+	--vz-scp-l: ;
+	/* scroll-margin on 991px and below */
+	--vz-scm-l: ;
+	/* scrollbar-width on 991px and below */
+	--vz-sbw-l: ;
 	/* 767px and below */
 	/* margin on 767px and below */
 	--vz-m-m: ;
@@ -1052,6 +1092,16 @@ Connect it to your project only during development so your IDE can recognize the
 	--vz-bfil-m: ;
 	/* object-fit on 767px and below */
 	--vz-obf-m: ;
+	/* scroll-snap-type on 767px and below */
+	--vz-sst-m: ;
+	/* scroll-snap-align on 767px and below */
+	--vz-ssa-m: ;
+	/* scroll-padding on 767px and below */
+	--vz-scp-m: ;
+	/* scroll-margin on 767px and below */
+	--vz-scm-m: ;
+	/* scrollbar-width on 767px and below */
+	--vz-sbw-m: ;
 	/* 575px and below */
 	/* margin on 575px and below */
 	--vz-m-s: ;
@@ -1261,6 +1311,16 @@ Connect it to your project only during development so your IDE can recognize the
 	--vz-bfil-s: ;
 	/* object-fit on 575px and below */
 	--vz-obf-s: ;
+	/* scroll-snap-type on 575px and below */
+	--vz-sst-s: ;
+	/* scroll-snap-align on 575px and below */
+	--vz-ssa-s: ;
+	/* scroll-padding on 575px and below */
+	--vz-scp-s: ;
+	/* scroll-margin on 575px and below */
+	--vz-scm-s: ;
+	/* scrollbar-width on 575px and below */
+	--vz-sbw-s: ;
 	/*****************************************/
 	/* State pseudo classes - not responsive */
 	/*****************************************/
@@ -1345,6 +1405,8 @@ Connect it to your project only during development so your IDE can recognize the
 	--vz-foc-bs: ;
 	/*selector:focus outline*/
 	--vz-foc-ol: ;
+	/*selector:focus outline-offset*/
+	--vz-foc-olo: ;
 	/*selector:focus opacity*/
 	--vz-foc-o: ;
 	/*selector:focus overflow*/

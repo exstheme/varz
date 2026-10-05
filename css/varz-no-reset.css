@@ -431,6 +431,58 @@
 	object-fit: var(--obf);
 }
 
+[style*="--sst:"]{
+	-ms-scroll-snap-type: var(--sst);
+	scroll-snap-type: var(--sst);
+}
+
+[style*="--ssa:"]{
+	scroll-snap-align: var(--ssa);
+}
+
+[style*="--scp:"]{
+	scroll-padding: var(--scp);
+}
+
+[style*="--scm:"]{
+	scroll-margin: var(--scm);
+}
+
+[style*="--sbw:"]{
+	scrollbar-width: var(--sbw);
+}
+
+[style*="--sss:"]{
+	scroll-snap-stop: var(--sss);
+}
+
+[style*="--sbh:"]{
+	scroll-behavior: var(--sbh);
+}
+
+[style*="--osb:"]{
+	-ms-scroll-chaining: var(--osb);
+	overscroll-behavior: var(--osb);
+}
+
+[style*="--lst:"]{
+	list-style: var(--lst);
+}
+
+[style*="--olo:"]{
+	outline-offset: var(--olo);
+}
+
+[style*="--tca:"]{
+	touch-action: var(--tca);
+}
+
+[style*="--us:"]{
+	-webkit-user-select: var(--us);
+	-ms-user-select: var(--us);
+	user-select: var(--us);
+}
+
 @media (max-width: 1399px) {
 	[style*="--m-g:"]{
 		margin: var(--m-g);
@@ -862,6 +914,27 @@
 
 	[style*="--obf-g:"]{
 		object-fit: var(--obf-g);
+	}
+
+	[style*="--sst-g:"]{
+		-ms-scroll-snap-type: var(--sst-g);
+		scroll-snap-type: var(--sst-g);
+	}
+
+	[style*="--ssa-g:"]{
+		scroll-snap-align: var(--ssa-g);
+	}
+
+	[style*="--scp-g:"]{
+		scroll-padding: var(--scp-g);
+	}
+
+	[style*="--scm-g:"]{
+		scroll-margin: var(--scm-g);
+	}
+
+	[style*="--sbw-g:"]{
+		scrollbar-width: var(--sbw-g);
 	}
 }
 
@@ -1297,6 +1370,27 @@
 	[style*="--obf-x:"]{
 		object-fit: var(--obf-x);
 	}
+
+	[style*="--sst-x:"]{
+		-ms-scroll-snap-type: var(--sst-x);
+		scroll-snap-type: var(--sst-x);
+	}
+
+	[style*="--ssa-x:"]{
+		scroll-snap-align: var(--ssa-x);
+	}
+
+	[style*="--scp-x:"]{
+		scroll-padding: var(--scp-x);
+	}
+
+	[style*="--scm-x:"]{
+		scroll-margin: var(--scm-x);
+	}
+
+	[style*="--sbw-x:"]{
+		scrollbar-width: var(--sbw-x);
+	}
 }
 
 @media (max-width: 991px) {
@@ -1730,6 +1824,27 @@
 
 	[style*="--obf-l:"]{
 		object-fit: var(--obf-l);
+	}
+
+	[style*="--sst-l:"]{
+		-ms-scroll-snap-type: var(--sst-l);
+		scroll-snap-type: var(--sst-l);
+	}
+
+	[style*="--ssa-l:"]{
+		scroll-snap-align: var(--ssa-l);
+	}
+
+	[style*="--scp-l:"]{
+		scroll-padding: var(--scp-l);
+	}
+
+	[style*="--scm-l:"]{
+		scroll-margin: var(--scm-l);
+	}
+
+	[style*="--sbw-l:"]{
+		scrollbar-width: var(--sbw-l);
 	}
 }
 
@@ -2165,6 +2280,27 @@
 	[style*="--obf-m:"]{
 		object-fit: var(--obf-m);
 	}
+
+	[style*="--sst-m:"]{
+		-ms-scroll-snap-type: var(--sst-m);
+		scroll-snap-type: var(--sst-m);
+	}
+
+	[style*="--ssa-m:"]{
+		scroll-snap-align: var(--ssa-m);
+	}
+
+	[style*="--scp-m:"]{
+		scroll-padding: var(--scp-m);
+	}
+
+	[style*="--scm-m:"]{
+		scroll-margin: var(--scm-m);
+	}
+
+	[style*="--sbw-m:"]{
+		scrollbar-width: var(--sbw-m);
+	}
 }
 
 @media (max-width: 575px) {
@@ -2599,6 +2735,27 @@
 	[style*="--obf-s:"]{
 		object-fit: var(--obf-s);
 	}
+
+	[style*="--sst-s:"]{
+		-ms-scroll-snap-type: var(--sst-s);
+		scroll-snap-type: var(--sst-s);
+	}
+
+	[style*="--ssa-s:"]{
+		scroll-snap-align: var(--ssa-s);
+	}
+
+	[style*="--scp-s:"]{
+		scroll-padding: var(--scp-s);
+	}
+
+	[style*="--scm-s:"]{
+		scroll-margin: var(--scm-s);
+	}
+
+	[style*="--sbw-s:"]{
+		scrollbar-width: var(--sbw-s);
+	}
 }
 /*states - not responsive CSS styles*/
 [style*="--hov-c:"]:hover{
@@ -2744,6 +2901,10 @@
 
 [style*="--foc-ol:"]:focus{
 	outline: var(--foc-ol);
+}
+
+[style*="--foc-olo:"]:focus{
+	outline-offset: var(--foc-olo);
 }
 
 [style*="--foc-o:"]:focus{

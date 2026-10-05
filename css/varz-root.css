@@ -216,6 +216,16 @@ Connect it to your project only during development so your IDE can recognize the
 	--bfil: ;
 	/* object-fit */
 	--obf: ;
+	/* scroll-snap-type */
+	--sst: ;
+	/* scroll-snap-align */
+	--ssa: ;
+	/* scroll-padding */
+	--scp: ;
+	/* scroll-margin */
+	--scm: ;
+	/* scrollbar-width */
+	--sbw: ;
 	/* 1399px and below */
 	/* margin on 1399px and below */
 	--m-g: ;
@@ -425,6 +435,16 @@ Connect it to your project only during development so your IDE can recognize the
 	--bfil-g: ;
 	/* object-fit on 1399px and below */
 	--obf-g: ;
+	/* scroll-snap-type on 1399px and below */
+	--sst-g: ;
+	/* scroll-snap-align on 1399px and below */
+	--ssa-g: ;
+	/* scroll-padding on 1399px and below */
+	--scp-g: ;
+	/* scroll-margin on 1399px and below */
+	--scm-g: ;
+	/* scrollbar-width on 1399px and below */
+	--sbw-g: ;
 	/* 1199px and below */
 	/* margin on 1199px and below */
 	--m-x: ;
@@ -634,6 +654,16 @@ Connect it to your project only during development so your IDE can recognize the
 	--bfil-x: ;
 	/* object-fit on 1199px and below */
 	--obf-x: ;
+	/* scroll-snap-type on 1199px and below */
+	--sst-x: ;
+	/* scroll-snap-align on 1199px and below */
+	--ssa-x: ;
+	/* scroll-padding on 1199px and below */
+	--scp-x: ;
+	/* scroll-margin on 1199px and below */
+	--scm-x: ;
+	/* scrollbar-width on 1199px and below */
+	--sbw-x: ;
 	/* 991px and below */
 	/* margin on 991px and below */
 	--m-l: ;
@@ -843,6 +873,16 @@ Connect it to your project only during development so your IDE can recognize the
 	--bfil-l: ;
 	/* object-fit on 991px and below */
 	--obf-l: ;
+	/* scroll-snap-type on 991px and below */
+	--sst-l: ;
+	/* scroll-snap-align on 991px and below */
+	--ssa-l: ;
+	/* scroll-padding on 991px and below */
+	--scp-l: ;
+	/* scroll-margin on 991px and below */
+	--scm-l: ;
+	/* scrollbar-width on 991px and below */
+	--sbw-l: ;
 	/* 767px and below */
 	/* margin on 767px and below */
 	--m-m: ;
@@ -1052,6 +1092,16 @@ Connect it to your project only during development so your IDE can recognize the
 	--bfil-m: ;
 	/* object-fit on 767px and below */
 	--obf-m: ;
+	/* scroll-snap-type on 767px and below */
+	--sst-m: ;
+	/* scroll-snap-align on 767px and below */
+	--ssa-m: ;
+	/* scroll-padding on 767px and below */
+	--scp-m: ;
+	/* scroll-margin on 767px and below */
+	--scm-m: ;
+	/* scrollbar-width on 767px and below */
+	--sbw-m: ;
 	/* 575px and below */
 	/* margin on 575px and below */
 	--m-s: ;
@@ -1261,6 +1311,16 @@ Connect it to your project only during development so your IDE can recognize the
 	--bfil-s: ;
 	/* object-fit on 575px and below */
 	--obf-s: ;
+	/* scroll-snap-type on 575px and below */
+	--sst-s: ;
+	/* scroll-snap-align on 575px and below */
+	--ssa-s: ;
+	/* scroll-padding on 575px and below */
+	--scp-s: ;
+	/* scroll-margin on 575px and below */
+	--scm-s: ;
+	/* scrollbar-width on 575px and below */
+	--sbw-s: ;
 	/*****************************************/
 	/* State pseudo classes - not responsive */
 	/*****************************************/
@@ -1345,6 +1405,8 @@ Connect it to your project only during development so your IDE can recognize the
 	--foc-bs: ;
 	/*selector:focus outline*/
 	--foc-ol: ;
+	/*selector:focus outline-offset*/
+	--foc-olo: ;
 	/*selector:focus opacity*/
 	--foc-o: ;
 	/*selector:focus overflow*/
