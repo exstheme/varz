@@ -1,0 +1,122 @@
+/*
+VARZ design tokens - optional add-on for varz.css (any variant: full, slim, prefixed...).
+
+Elements reference tokens with a fallback, so markup stays portable without this file:
+  <a style="--p:var(--vz-btn-p, 10px 20px);--bgc:var(--vz-btn-bgc, var(--vz-c-accent));">
+
+Naming: --vz-{component}[-{variant}]-{varz prop key}
+  state tokens use the varz state prefix: --vz-btn-hov-bgc -> used as --hov-bgc:var(--vz-btn-hov-bgc)
+Responsive values use only the m/s breakpoints, present in both varz.css and varz-slim.css.
+Override any token in your own :root (VARZ Builder: Global -> Variables).
+*/
+:root{
+	/* ---------- scales (numbered: letter suffixes are VARZ breakpoints -g -x -l -m -s) ---------- */
+	--vz-space-1: 4px;
+	--vz-space-2: 8px;
+	--vz-space-3: 16px;
+	--vz-space-4: 24px;
+	--vz-space-5: 40px;
+	--vz-space-6: 64px;
+	--vz-radius-1: 4px;
+	--vz-radius-2: 8px;
+	--vz-radius-3: 16px;
+	--vz-radius-full: 999px;
+	--vz-fs-1: 12px;
+	--vz-fs-2: 14px;
+	--vz-fs-3: 16px;
+	--vz-fs-4: 20px;
+	--vz-fs-5: 24px;
+	--vz-fs-6: 32px;
+	--vz-fs-7: 48px;
+	--vz-shadow-1: 0 1px 3px rgba(0, 0, 0, .12);
+	--vz-shadow-2: 0 6px 20px rgba(0, 0, 0, .12);
+	--vz-shadow-3: 0 16px 48px rgba(0, 0, 0, .18);
+	--vz-transition: all .2s ease;
+	/* ---------- layout ---------- */
+	--vz-container-maw: 1200px;
+	--vz-container-p: 0 20px;
+	--vz-section-p: 80px 0;
+	/* ---------- button: primary ---------- */
+	--vz-btn-d: inline-flex;
+	--vz-btn-ai: center;
+	--vz-btn-jc: center;
+	--vz-btn-g: var(--vz-space-2);
+	--vz-btn-p: 10px 22px;
+	--vz-btn-fs: var(--vz-fs-3);
+	--vz-btn-fw: 600;
+	--vz-btn-lh: 1.25;
+	--vz-btn-td: none;
+	--vz-btn-br: var(--vz-radius-2);
+	--vz-btn-bw: 2px;
+	--vz-btn-bs: solid;
+	--vz-btn-bc: var(--vz-c-accent);
+	--vz-btn-bgc: var(--vz-c-accent);
+	--vz-btn-c: var(--vz-c-white);
+	--vz-btn-bsh: none;
+	--vz-btn-tr: var(--vz-transition);
+	--vz-btn-hov-bc: var(--vz-c-accent2);
+	--vz-btn-hov-bgc: var(--vz-c-accent2);
+	--vz-btn-hov-c: var(--vz-c-white);
+	/* button: outline */
+	--vz-btn-outline-bc: var(--vz-c-accent);
+	--vz-btn-outline-bgc: transparent;
+	--vz-btn-outline-c: var(--vz-c-accent);
+	--vz-btn-outline-hov-bc: var(--vz-c-accent);
+	--vz-btn-outline-hov-bgc: var(--vz-c-accent);
+	--vz-btn-outline-hov-c: var(--vz-c-white);
+	/* button: secondary */
+	--vz-btn-secondary-bc: var(--vz-c-border);
+	--vz-btn-secondary-bgc: var(--vz-c-bg);
+	--vz-btn-secondary-c: var(--vz-c-dark);
+	--vz-btn-secondary-hov-bc: var(--vz-c-muted);
+	--vz-btn-secondary-hov-bgc: var(--vz-c-border);
+	--vz-btn-secondary-hov-c: var(--vz-c-dark);
+	/* ---------- form fields: input, select, textarea ---------- */
+	--vz-input-w: 100%;
+	--vz-input-mih: 42px;
+	--vz-input-p: 8px 12px;
+	--vz-input-fs: var(--vz-fs-3);
+	--vz-input-br: var(--vz-radius-1);
+	--vz-input-bw: 1px;
+	--vz-input-bs: solid;
+	--vz-input-bc: var(--vz-c-border);
+	--vz-input-bgc: var(--vz-c-light);
+	--vz-input-c: var(--vz-c-font);
+	--vz-input-tr: var(--vz-transition);
+	--vz-input-foc-bc: var(--vz-c-accent);
+	--vz-input-foc-ol: none;
+	--vz-input-foc-bs: 0 0 0 3px rgba(241, 72, 54, .2);
+	--vz-label-d: block;
+	--vz-label-fs: var(--vz-fs-2);
+	--vz-label-fw: 600;
+	--vz-label-mbe: 6px;
+	/* ---------- card ---------- */
+	--vz-card-d: flex;
+	--vz-card-fld: column;
+	--vz-card-g: 12px;
+	--vz-card-p: var(--vz-space-4);
+	--vz-card-br: var(--vz-radius-2);
+	--vz-card-bw: 1px;
+	--vz-card-bs: solid;
+	--vz-card-bc: var(--vz-c-border);
+	--vz-card-bgc: var(--vz-c-light);
+	--vz-card-bsh: none;
+	--vz-card-tr: var(--vz-transition);
+	--vz-card-hov-bs: var(--vz-shadow-2);
+}
+
+/* responsive tokens: elements need no breakpoint props of their own */
+@media (max-width: 767px) {
+	:root{
+		--vz-section-p: 60px 0;
+		--vz-card-p: var(--vz-space-3);
+	}
+}
+
+@media (max-width: 575px) {
+	:root{
+		--vz-container-p: 0 16px;
+		--vz-section-p: 40px 0;
+		--vz-btn-p: 9px 18px;
+	}
+}
