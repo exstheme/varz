@@ -1322,6 +1322,23 @@ Connect it to your project only during development so your IDE can recognize the
 	/* scrollbar-width on 575px and below */
 	--vz-sbw-s: ;
 	/*****************************************/
+	/* Single properties - not responsive    */
+	/*****************************************/
+	/* scroll-snap-stop */
+	--vz-sss: ;
+	/* scroll-behavior */
+	--vz-sbh: ;
+	/* overscroll-behavior */
+	--vz-osb: ;
+	/* list-style */
+	--vz-lst: ;
+	/* outline-offset */
+	--vz-olo: ;
+	/* touch-action */
+	--vz-tca: ;
+	/* user-select */
+	--vz-us: ;
+	/*****************************************/
 	/* State pseudo classes - not responsive */
 	/*****************************************/
 	/*
