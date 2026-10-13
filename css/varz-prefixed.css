@@ -85,8 +85,11 @@ small{
 	font-size: smaller;
 }
 
-svg{
+svg:where(:not([fill=none])){
 	fill: currentColor;
+}
+
+svg{
 	pointer-events: none;
 }
 
