@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>VARZ video</title>
+	<meta name="description" content="Click-to-play video facade with VARZ inline styles: the YouTube / Vimeo player loads only when it is played. Videos in the lightbox gallery.">
+	<!-- VARZ from this repository; on your site use the CDN: https://cdn.jsdelivr.net/gh/exstheme/varz@main/css/min/varz.css -->
+	<link rel="stylesheet" href="../css/min/varz.css">
+	<script src="../js/varz.js" defer></script>
+	<script src="../js/varz-video.js" defer></script>
+	<script src="../js/varz-lightbox.js" defer></script>
+	<script src="../js/varz-slider.js" defer></script>
+</head>
+<body style="--bgc:var(--vz-c-light);--c:var(--vz-c-font);">
+
+<header style="--bw:0 0 1px;--bs:solid;--bc:var(--vz-c-border);">
+	<nav style="--d:flex;--flw:wrap;--jc:space-between;--ai:center;--g:12px;--maw:1100px;--m:0 auto;--p:16px 20px;">
+		<strong style="--fs:18px;--c:var(--vz-c-dark);">VARZ components</strong>
+		<span style="--d:flex;--g:16px;">
+			<a href="slider.html" style="--c:inherit;">Slider</a>
+			<a href="lightbox.html" style="--c:inherit;">Lightbox</a>
+			<a href="video.html" aria-current="page" style="--c:var(--vz-c-dark);--fw:700;">Video</a>
+		</span>
+	</nav>
+</header>
+
+<main style="--maw:1100px;--m:0 auto;--p:40px 20px 80px;--p-s:24px 16px 60px;">
+	<h1 style="--c:var(--vz-c-dark);--fs:40px;--fs-s:30px;--mbe:8px;">Video</h1>
+	<p style="--maw:720px;--fs:18px;--mbe:40px;">
+		A YouTube or Vimeo embed loads 0.5-1 MB of scripts before anyone presses play. <code>varz-video.js</code> shows a poster link
+		instead and loads the player only on click. Nothing is requested from YouTube or Vimeo until then - without JavaScript the link opens the video page.
+	</p>
+
+	<!-- ========== 1. facades ========== -->
+	<section aria-labelledby="facade-title" style="--mbe:64px;">
+		<h2 id="facade-title" style="--c:var(--vz-c-dark);--fs:24px;--mbe:16px;">Click to play</h2>
+		<div style="--d:grid;--gtc:1fr 1fr;--gtc-m:1fr;--g:24px;">
+			<a href="https://www.youtube.com/watch?v=aqz-KE-bpKQ" data-varz-video style="--pos:relative;--d:block;--ar:16/9;--br:12px;--of:hidden;--bgc:#000;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;">
+				<img src="img/video-1.svg" alt="Big Buck Bunny (YouTube)" loading="lazy" style="--d:block;--w:100%;--h:100%;--obf:cover;--o:.85;--tr:opacity .2s;--p-hov-o:1;">
+				<span aria-hidden="true" style="--pos:absolute;--t:50%;--l:50%;--tf:translate(-50%,-50%);--d:flex;--ai:center;--jc:center;--w:72px;--h:72px;--br:50%;--bgc:rgba(0,0,0,.6);--c:#fff;--tr:transform .2s,background-color .2s;--p-hov-tf:translate(-50%,-50%) scale(1.1);--p-hov-bgc:var(--vz-c-accent);">
+					<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="--mis:4px;"><path d="M8 5v14l11-7z"/></svg>
+				</span>
+				<span style="--pos:absolute;--l:0;--r:0;--b:0;--p:32px 16px 12px;--c:#fff;--fw:600;--bgi:linear-gradient(transparent,rgba(0,0,0,.7));">Big Buck Bunny · YouTube</span>
+			</a>
+			<a href="https://vimeo.com/76979871" data-varz-video style="--pos:relative;--d:block;--ar:16/9;--br:12px;--of:hidden;--bgc:#000;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;">
+				<img src="img/video-2.svg" alt="The New Vimeo Player (Vimeo)" loading="lazy" style="--d:block;--w:100%;--h:100%;--obf:cover;--o:.85;--tr:opacity .2s;--p-hov-o:1;">
+				<span aria-hidden="true" style="--pos:absolute;--t:50%;--l:50%;--tf:translate(-50%,-50%);--d:flex;--ai:center;--jc:center;--w:72px;--h:72px;--br:50%;--bgc:rgba(0,0,0,.6);--c:#fff;--tr:transform .2s,background-color .2s;--p-hov-tf:translate(-50%,-50%) scale(1.1);--p-hov-bgc:var(--vz-c-accent);">
+					<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="--mis:4px;"><path d="M8 5v14l11-7z"/></svg>
+				</span>
+				<span style="--pos:absolute;--l:0;--r:0;--b:0;--p:32px 16px 12px;--c:#fff;--fw:600;--bgi:linear-gradient(transparent,rgba(0,0,0,.7));">The New Vimeo Player · Vimeo</span>
+			</a>
+		</div>
+	</section>
+
+	<!-- ========== 2. self-hosted video file ========== -->
+	<section aria-labelledby="file-title" style="--mbe:64px;">
+		<h2 id="file-title" style="--c:var(--vz-c-dark);--fs:24px;--mbe:16px;">Self-hosted video</h2>
+		<div style="--d:grid;--gtc:1fr 1fr;--gtc-m:1fr;--g:24px;--ai:center;">
+			<a href="media/sample.webm" data-varz-video data-vz-captions="media/sample.vtt" data-vz-captions-lang="en" style="--pos:relative;--d:block;--ar:16/9;--br:12px;--of:hidden;--bgc:#000;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;">
+				<img src="img/video-3.svg" alt="VARZ sample video (5 seconds)" loading="lazy" style="--d:block;--w:100%;--h:100%;--obf:cover;--o:.85;--tr:opacity .2s;--p-hov-o:1;">
+				<span aria-hidden="true" style="--pos:absolute;--t:50%;--l:50%;--tf:translate(-50%,-50%);--d:flex;--ai:center;--jc:center;--w:72px;--h:72px;--br:50%;--bgc:rgba(0,0,0,.6);--c:#fff;--tr:transform .2s,background-color .2s;--p-hov-tf:translate(-50%,-50%) scale(1.1);--p-hov-bgc:var(--vz-c-accent);">
+					<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="--mis:4px;"><path d="M8 5v14l11-7z"/></svg>
+				</span>
+			</a>
+			<p style="--m:0;">A link to a video file (.mp4, .webm, .ogv, .mov) plays in the browser's own player - nothing from a third party.
+				The link's image becomes the video poster, so there is no black flash while the file loads.
+				<code>data-vz-captions</code> adds a WebVTT captions track, shown by default.</p>
+		</div>
+	</section>
+
+	<!-- ========== 3. videos in a slider ========== -->
+	<section aria-labelledby="slider-title" style="--mbe:64px;">
+		<h2 id="slider-title" style="--c:var(--vz-c-dark);--fs:24px;--mbe:16px;">Videos in a slider</h2>
+		<p style="--maw:720px;--mbe:16px;">A video stops when its slide leaves (a file pauses, YouTube / Vimeo return to the poster). The first slide has <code>data-vz-autoplay</code>:
+			it starts muted when the slide comes in. The slider's own autoplay waits while a video plays.</p>
+		<div data-varz-slider data-vz-autoplay="6000" data-vz-loop aria-label="Videos" style="--pos:relative;">
+			<div style="--pos:relative;">
+			<div data-varz-track style="--d:flex;--ox:auto;--br:12px;--sst:x mandatory;--sbw:none;--osb:contain;">
+				<div style="--flb:100%;--fls:0;--ssa:start;">
+					<a href="media/sample.webm" data-varz-video data-vz-autoplay data-vz-captions="media/sample.vtt" style="--pos:relative;--d:block;--ar:16/9;--bgc:#000;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:-3px;"><img src="img/video-3.svg" alt="VARZ sample video" style="--d:block;--w:100%;--h:100%;--obf:cover;--o:.85;"><span aria-hidden="true" style="--pos:absolute;--t:50%;--l:50%;--tf:translate(-50%,-50%);--d:flex;--ai:center;--jc:center;--w:72px;--h:72px;--br:50%;--bgc:rgba(0,0,0,.6);--c:#fff;--tr:transform .2s,background-color .2s;--p-hov-tf:translate(-50%,-50%) scale(1.1);--p-hov-bgc:var(--vz-c-accent);"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="--mis:4px;"><path d="M8 5v14l11-7z"/></svg></span></a>
+				</div>
+				<div style="--flb:100%;--fls:0;--ssa:start;">
+					<a href="https://www.youtube.com/watch?v=aqz-KE-bpKQ" data-varz-video style="--pos:relative;--d:block;--ar:16/9;--bgc:#000;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:-3px;"><img src="img/video-1.svg" alt="Big Buck Bunny (YouTube)" loading="lazy" style="--d:block;--w:100%;--h:100%;--obf:cover;--o:.85;"><span aria-hidden="true" style="--pos:absolute;--t:50%;--l:50%;--tf:translate(-50%,-50%);--d:flex;--ai:center;--jc:center;--w:72px;--h:72px;--br:50%;--bgc:rgba(0,0,0,.6);--c:#fff;--tr:transform .2s,background-color .2s;--p-hov-tf:translate(-50%,-50%) scale(1.1);--p-hov-bgc:var(--vz-c-accent);"><svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="--mis:4px;"><path d="M8 5v14l11-7z"/></svg></span></a>
+				</div>
+				<div style="--flb:100%;--fls:0;--ssa:start;">
+					<img src="img/photo-3.svg" alt="Forest trail" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:16/9;--obf:cover;">
+				</div>
+			</div>
+			<button type="button" data-varz-prev style="--pos:absolute;--t:50%;--tf:translateY(-50%);--d:inline-flex;--ai:center;--jc:center;--w:44px;--h:44px;--p:0;--bw:0;--br:50%;--bgc:rgba(0,0,0,.45);--c:#fff;--cur:pointer;--hov-bgc:rgba(0,0,0,.7);--l:12px;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="--d:block;"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4-4.6-4.6z"/></svg></button>
+			<button type="button" data-varz-next style="--pos:absolute;--t:50%;--tf:translateY(-50%);--d:inline-flex;--ai:center;--jc:center;--w:44px;--h:44px;--p:0;--bw:0;--br:50%;--bgc:rgba(0,0,0,.45);--c:#fff;--cur:pointer;--hov-bgc:rgba(0,0,0,.7);--r:12px;"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="--d:block;"><path d="M8.6 7.4 10 6l6 6-6 6-1.4-1.4 4.6-4.6z"/></svg></button>
+			</div>
+		</div>
+	</section>
+
+	<!-- ========== 4. lightbox gallery with videos ========== -->
+	<section aria-labelledby="gallery-title" style="--mbe:64px;">
+		<h2 id="gallery-title" style="--c:var(--vz-c-dark);--fs:24px;--mbe:16px;">Photos and videos in the lightbox</h2>
+		<p style="--maw:720px;--mbe:16px;">A <code>data-varz-lightbox</code> link to a video page or file plays the video in the viewer. Moving to the next item or closing stops it.</p>
+		<ul style="--d:grid;--gtc:repeat(4,minmax(0,1fr));--gtc-s:repeat(2,minmax(0,1fr));--g:12px;--m:0;--p:0;--lst:none;">
+			<li><a href="img/photo-1.svg" data-varz-lightbox="mixed" style="--d:block;--br:8px;--of:hidden;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;"><img src="img/photo-1.svg" alt="Mountains at dawn" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:1;--obf:cover;"></a></li>
+			<li><a href="https://www.youtube.com/watch?v=aqz-KE-bpKQ&amp;t=60" data-varz-lightbox="mixed" data-vz-caption="Big Buck Bunny - from 1:00" style="--pos:relative;--d:block;--br:8px;--of:hidden;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;">
+				<img src="img/video-1.svg" alt="Big Buck Bunny (video)" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:1;--obf:cover;">
+				<span aria-hidden="true" style="--pos:absolute;--t:50%;--l:50%;--tf:translate(-50%,-50%);--d:flex;--ai:center;--jc:center;--w:48px;--h:48px;--br:50%;--bgc:rgba(0,0,0,.6);--c:#fff;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+			</a></li>
+			<li><a href="media/sample.webm" data-varz-lightbox="mixed" data-vz-captions="media/sample.vtt" data-vz-caption="Self-hosted video with captions" style="--pos:relative;--d:block;--br:8px;--of:hidden;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;">
+				<img src="img/video-3.svg" alt="VARZ sample video" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:1;--obf:cover;">
+				<span aria-hidden="true" style="--pos:absolute;--t:50%;--l:50%;--tf:translate(-50%,-50%);--d:flex;--ai:center;--jc:center;--w:48px;--h:48px;--br:50%;--bgc:rgba(0,0,0,.6);--c:#fff;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+			</a></li>
+			<li><a href="https://vimeo.com/76979871" data-varz-lightbox="mixed" style="--pos:relative;--d:block;--br:8px;--of:hidden;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;">
+				<img src="img/video-2.svg" alt="The New Vimeo Player (video)" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:1;--obf:cover;">
+				<span aria-hidden="true" style="--pos:absolute;--t:50%;--l:50%;--tf:translate(-50%,-50%);--d:flex;--ai:center;--jc:center;--w:48px;--h:48px;--br:50%;--bgc:rgba(0,0,0,.6);--c:#fff;"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+			</a></li>
+		</ul>
+	</section>
+
+	<!-- ========== reference ========== -->
+	<section aria-labelledby="ref-title">
+		<h2 id="ref-title" style="--c:var(--vz-c-dark);--fs:24px;--mbe:16px;">Markup</h2>
+		<pre style="--p:16px;--br:8px;--bgc:var(--vz-c-bg);--fs:14px;--lh:1.6;--ox:auto;--mbe:24px;"><code>&lt;a href="https://www.youtube.com/watch?v=ID" data-varz-video
+   style="--pos:relative;--d:block;--ar:16/9;"&gt;
+  &lt;img src="poster.jpg" alt="Video: How it works" style="--w:100%;--h:100%;--obf:cover;"&gt;
+  &lt;span aria-hidden="true"&gt;▶&lt;/span&gt;
+&lt;/a&gt;
+&lt;script src="varz.js" defer&gt;&lt;/script&gt;
+&lt;script src="varz-video.js" defer&gt;&lt;/script&gt;</code></pre>
+
+		<div style="--ox:auto;">
+			<table style="--w:100%;--fs:15px;">
+				<thead><tr><th style="--ta:start;">Attribute</th><th style="--ta:start;">What it does</th></tr></thead>
+				<tbody>
+					<tr><td><code>data-varz-video</code></td><td>On click the link is replaced by the player (same style attribute), which autoplays and gets the focus.</td></tr>
+					<tr><td><code>data-vz-title</code></td><td>Player title for screen readers; without it the poster's alt text is used.</td></tr>
+					<tr><td><code>data-vz-autoplay</code></td><td>Starts the video muted when its container is activated - a slide coming into view, a tab or accordion panel opening (varz.js), or a wrapper with <code>data-vz-event="inview"</code>. A playing video always stops when its container is deactivated.</td></tr>
+					<tr><td><code>data-vz-captions</code></td><td>Video files: a WebVTT captions file (<code>.vtt</code>), shown by default. <code>data-vz-captions-lang</code> - its language (default: the page language), <code>data-vz-captions-label</code> - its name in the player menu (default "Captions").</td></tr>
+					<tr><td><code>href</code></td><td>YouTube (watch, youtu.be, shorts, embed links; <code>?t=</code> start time - played from youtube-nocookie.com), Vimeo (also unlisted links), or a video file: .mp4, .webm, .ogv, .mov.</td></tr>
+				</tbody>
+			</table>
+		</div>
+		<p style="--fs:14px;--c:var(--vz-c-muted);--mbs:16px;">
+			Ctrl / Cmd-click opens the video page as a normal link. The poster is your own image - a YouTube thumbnail URL would contact Google before the click.
+			Texts: <code>varz.video.i18n</code>. <code>varz.media.parse( url )</code> is shared with <code>varz-lightbox.js</code>.
+		</p>
+	</section>
+</main>
+
+</body>
+</html>

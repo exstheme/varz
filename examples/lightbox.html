@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>VARZ lightbox</title>
+	<meta name="description" content="Image gallery lightbox on the native dialog element with VARZ inline styles: keyboard, swipe, captions, no dependencies.">
+	<!-- VARZ from this repository; on your site use the CDN: https://cdn.jsdelivr.net/gh/exstheme/varz@main/css/min/varz.css -->
+	<link rel="stylesheet" href="../css/min/varz.css">
+	<script src="../js/varz.js" defer></script>
+	<script src="../js/varz-lightbox.js" defer></script>
+</head>
+<body style="--bgc:var(--vz-c-light);--c:var(--vz-c-font);">
+
+<header style="--bw:0 0 1px;--bs:solid;--bc:var(--vz-c-border);">
+	<nav style="--d:flex;--flw:wrap;--jc:space-between;--ai:center;--g:12px;--maw:1100px;--m:0 auto;--p:16px 20px;">
+		<strong style="--fs:18px;--c:var(--vz-c-dark);">VARZ components</strong>
+		<span style="--d:flex;--g:16px;">
+			<a href="slider.html" style="--c:inherit;">Slider</a>
+			<a href="lightbox.html" aria-current="page" style="--c:var(--vz-c-dark);--fw:700;">Lightbox</a>
+			<a href="video.html" style="--c:inherit;">Video</a>
+		</span>
+	</nav>
+</header>
+
+<main style="--maw:1100px;--m:0 auto;--p:40px 20px 80px;--p-s:24px 16px 60px;">
+	<h1 style="--c:var(--vz-c-dark);--fs:40px;--fs-s:30px;--mbe:8px;">Image lightbox</h1>
+	<p style="--maw:720px;--fs:18px;--mbe:40px;">
+		Thumbnails are plain links to the full images - without a script they open the image.
+		<code>varz-lightbox.js</code> (2.6 kB minified + gzipped) shows them in a native <code>&lt;dialog&gt;</code>: focus stays inside, Esc closes,
+		← → keys, swipe and mouse drag, captions, counter.
+	</p>
+
+	<!-- ========== 1. gallery grid ========== -->
+	<section aria-labelledby="gallery-title" style="--mbe:64px;">
+		<h2 id="gallery-title" style="--c:var(--vz-c-dark);--fs:24px;--mbe:16px;">Gallery</h2>
+		<ul style="--d:grid;--gtc:repeat(4,minmax(0,1fr));--gtc-l:repeat(3,minmax(0,1fr));--gtc-s:repeat(2,minmax(0,1fr));--g:12px;--m:0;--p:0;--lst:none;">
+			<li><a href="img/photo-1.svg" data-varz-lightbox="trip" data-vz-caption="Mountains at dawn - day one of the trip" style="--d:block;--br:8px;--of:hidden;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;"><img src="img/photo-1.svg" alt="Mountains at dawn" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:1;--obf:cover;--tr:transform .3s;--hov-tf:scale(1.05);"></a></li>
+			<li><a href="img/photo-2.svg" data-varz-lightbox="trip" style="--d:block;--br:8px;--of:hidden;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;"><img src="img/photo-2.svg" alt="Ocean coast" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:1;--obf:cover;--tr:transform .3s;--hov-tf:scale(1.05);"></a></li>
+			<li><a href="img/photo-3.svg" data-varz-lightbox="trip" style="--d:block;--br:8px;--of:hidden;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;"><img src="img/photo-3.svg" alt="Forest trail" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:1;--obf:cover;--tr:transform .3s;--hov-tf:scale(1.05);"></a></li>
+			<li><a href="img/photo-4.svg" data-varz-lightbox="trip" style="--d:block;--br:8px;--of:hidden;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;"><img src="img/photo-4.svg" alt="Desert dunes" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:1;--obf:cover;--tr:transform .3s;--hov-tf:scale(1.05);"></a></li>
+			<li><a href="img/photo-5.svg" data-varz-lightbox="trip" style="--d:block;--br:8px;--of:hidden;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;"><img src="img/photo-5.svg" alt="City lights" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:1;--obf:cover;--tr:transform .3s;--hov-tf:scale(1.05);"></a></li>
+			<li><a href="img/photo-6.svg" data-varz-lightbox="trip" style="--d:block;--br:8px;--of:hidden;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;"><img src="img/photo-6.svg" alt="Sunset over the bay" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:1;--obf:cover;--tr:transform .3s;--hov-tf:scale(1.05);"></a></li>
+			<li><a href="img/photo-7.svg" data-varz-lightbox="trip" style="--d:block;--br:8px;--of:hidden;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;"><img src="img/photo-7.svg" alt="Meadow" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:1;--obf:cover;--tr:transform .3s;--hov-tf:scale(1.05);"></a></li>
+			<li><a href="img/photo-8.svg" data-varz-lightbox="trip" style="--d:block;--br:8px;--of:hidden;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;"><img src="img/photo-8.svg" alt="Glacier" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:1;--obf:cover;--tr:transform .3s;--hov-tf:scale(1.05);"></a></li>
+		</ul>
+	</section>
+
+	<!-- ========== 2. single image in text ========== -->
+	<section aria-labelledby="single-title" style="--mbe:64px;">
+		<h2 id="single-title" style="--c:var(--vz-c-dark);--fs:24px;--mbe:16px;">Single image</h2>
+		<div style="--d:grid;--gtc:1fr 1fr;--gtc-m:1fr;--g:24px;--ai:center;">
+			<a href="img/photo-6.svg" data-varz-lightbox data-vz-caption="Click outside the image or press Esc to close." style="--d:block;--br:12px;--of:hidden;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;">
+				<img src="img/photo-6.svg" alt="Sunset over the bay" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;">
+			</a>
+			<p style="--m:0;">An empty <code>data-varz-lightbox</code> value opens one image without arrows and counter. Captions come from <code>data-vz-caption</code> or the image's alt text.</p>
+		</div>
+	</section>
+
+	<!-- ========== reference ========== -->
+	<section aria-labelledby="ref-title">
+		<h2 id="ref-title" style="--c:var(--vz-c-dark);--fs:24px;--mbe:16px;">Markup</h2>
+		<pre style="--p:16px;--br:8px;--bgc:var(--vz-c-bg);--fs:14px;--lh:1.6;--ox:auto;--mbe:24px;"><code>&lt;a href="large-1.jpg" data-varz-lightbox="trip" data-vz-caption="Day one"&gt;
+  &lt;img src="thumb-1.jpg" alt="Mountains at dawn"&gt;
+&lt;/a&gt;
+&lt;a href="large-2.jpg" data-varz-lightbox="trip"&gt;
+  &lt;img src="thumb-2.jpg" alt="Ocean coast"&gt;
+&lt;/a&gt;
+&lt;script src="varz.js" defer&gt;&lt;/script&gt;
+&lt;script src="varz-lightbox.js" defer&gt;&lt;/script&gt;</code></pre>
+
+		<div style="--ox:auto;">
+			<table style="--w:100%;--fs:15px;">
+				<thead><tr><th style="--ta:start;">Attribute</th><th style="--ta:start;">What it does</th></tr></thead>
+				<tbody>
+					<tr><td><code>data-varz-lightbox="group"</code></td><td>Opens the link's image in the viewer. Links with the same value form one gallery (arrows, counter); empty value: single image.</td></tr>
+					<tr><td><code>data-vz-caption</code></td><td>Caption under the image; without it the thumbnail's alt text is used.</td></tr>
+					<tr><td><code>data-vz-srcset</code></td><td>Sizes of the full image for the viewer, e.g. <code>large.jpg 1600w, huge.jpg 3200w</code> - the browser picks the one for the screen.</td></tr>
+					<tr><td><code>href</code> to a video</td><td>A YouTube / Vimeo page or a video file plays in the viewer (see video.html).</td></tr>
+				</tbody>
+			</table>
+		</div>
+		<p style="--fs:14px;--c:var(--vz-c-muted);--mbs:16px;">
+			Keys: ← → previous / next, Esc closes, Tab stays in the viewer; swipe on touch screens; a click on the dark area closes.
+			The viewer gets <code>.vz</code> while open (<code>varz-activated</code> / <code>varz-deactivated</code> events).
+			Look: <code>varz.lightbox.styles</code> (VARZ inline variables), texts: <code>varz.lightbox.i18n</code>.
+		</p>
+	</section>
+</main>
+
+</body>
+</html>

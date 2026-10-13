@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>VARZ slider</title>
+	<meta name="description" content="Accessible carousel on CSS scroll-snap with VARZ inline styles and a small script: arrows, dots, autoplay with pause, loop, keyboard.">
+	<!-- VARZ from this repository; on your site use the CDN: https://cdn.jsdelivr.net/gh/exstheme/varz@main/css/min/varz.css -->
+	<link rel="stylesheet" href="../css/min/varz.css">
+	<script src="../js/varz.js" defer></script>
+	<script src="../js/varz-slider.js" defer></script>
+</head>
+<body style="--bgc:var(--vz-c-light);--c:var(--vz-c-font);">
+
+<header style="--bw:0 0 1px;--bs:solid;--bc:var(--vz-c-border);">
+	<nav style="--d:flex;--flw:wrap;--jc:space-between;--ai:center;--g:12px;--maw:1100px;--m:0 auto;--p:16px 20px;">
+		<strong style="--fs:18px;--c:var(--vz-c-dark);">VARZ components</strong>
+		<span style="--d:flex;--g:16px;">
+			<a href="slider.html" aria-current="page" style="--c:var(--vz-c-dark);--fw:700;">Slider</a>
+			<a href="lightbox.html" style="--c:inherit;">Lightbox</a>
+			<a href="video.html" style="--c:inherit;">Video</a>
+		</span>
+	</nav>
+</header>
+
+<main style="--maw:1100px;--m:0 auto;--p:40px 20px 80px;--p-s:24px 16px 60px;">
+	<h1 style="--c:var(--vz-c-dark);--fs:40px;--fs-s:30px;--mbe:8px;">Slider</h1>
+	<p style="--maw:720px;--fs:18px;--mbe:40px;">
+		A native horizontal scroller with CSS scroll-snap - swipe, trackpad and keyboard work without any script.
+		<code>varz-slider.js</code> (3.8 kB minified + gzipped) adds arrows, dots, mouse drag, autoplay with a pause button, loop and accessible labels.
+	</p>
+
+	<!-- ========== 1. hero: one slide in view, autoplay, loop ========== -->
+	<section aria-labelledby="hero-title" style="--mbe:64px;">
+		<h2 id="hero-title" style="--c:var(--vz-c-dark);--fs:24px;--mbe:16px;">One slide, autoplay, loop</h2>
+
+		<div data-varz-slider data-vz-autoplay="5000" data-vz-loop aria-label="Featured places" style="--pos:relative;">
+			<div style="--pos:relative;">
+			<div data-varz-track style="--d:flex;--ox:auto;--br:12px;--cur:grab;--sst:x mandatory;--sbw:none;--osb:contain;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;">
+				<figure style="--pos:relative;--flb:100%;--fls:0;--m:0;--ssa:start;">
+					<img src="img/photo-1.svg" alt="Mountains at dawn" width="1600" height="1000" style="--d:block;--w:100%;--h:auto;--ar:16/9;--obf:cover;">
+					<figcaption style="--pos:absolute;--l:0;--r:0;--b:0;--p:48px 24px 20px;--bgi:linear-gradient(transparent,rgba(0,0,0,.6));--c:#fff;--fs:20px;--fw:600;">Mountains at dawn</figcaption>
+				</figure>
+				<figure style="--pos:relative;--flb:100%;--fls:0;--m:0;--ssa:start;">
+					<img src="img/photo-2.svg" alt="Ocean coast" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:16/9;--obf:cover;">
+					<figcaption style="--pos:absolute;--l:0;--r:0;--b:0;--p:48px 24px 20px;--bgi:linear-gradient(transparent,rgba(0,0,0,.6));--c:#fff;--fs:20px;--fw:600;">Ocean coast</figcaption>
+				</figure>
+				<figure style="--pos:relative;--flb:100%;--fls:0;--m:0;--ssa:start;">
+					<img src="img/photo-3.svg" alt="Forest trail" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:16/9;--obf:cover;">
+					<figcaption style="--pos:absolute;--l:0;--r:0;--b:0;--p:48px 24px 20px;--bgi:linear-gradient(transparent,rgba(0,0,0,.6));--c:#fff;--fs:20px;--fw:600;">Forest trail</figcaption>
+				</figure>
+				<figure style="--pos:relative;--flb:100%;--fls:0;--m:0;--ssa:start;">
+					<img src="img/photo-4.svg" alt="Desert dunes" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:16/9;--obf:cover;">
+					<figcaption style="--pos:absolute;--l:0;--r:0;--b:0;--p:48px 24px 20px;--bgi:linear-gradient(transparent,rgba(0,0,0,.6));--c:#fff;--fs:20px;--fw:600;">Desert dunes</figcaption>
+				</figure>
+			</div>
+
+			<button type="button" data-varz-prev style="--pos:absolute;--l:12px;--t:50%;--tf:translateY(-50%);--d:inline-flex;--ai:center;--jc:center;--w:44px;--h:44px;--p:0;--bw:0;--br:50%;--bgc:rgba(0,0,0,.45);--c:#fff;--fs:28px;--lh:1;--cur:pointer;--hov-bgc:rgba(0,0,0,.7);"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="--d:block;"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4-4.6-4.6z"/></svg></button>
+			<button type="button" data-varz-next style="--pos:absolute;--r:12px;--t:50%;--tf:translateY(-50%);--d:inline-flex;--ai:center;--jc:center;--w:44px;--h:44px;--p:0;--bw:0;--br:50%;--bgc:rgba(0,0,0,.45);--c:#fff;--fs:28px;--lh:1;--cur:pointer;--hov-bgc:rgba(0,0,0,.7);"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="--d:block;"><path d="M8.6 7.4 10 6l6 6-6 6-1.4-1.4 4.6-4.6z"/></svg></button>
+			</div>
+
+			<div style="--d:flex;--jc:center;--ai:center;--g:8px;--mbs:12px;">
+				<button type="button" data-varz-play hidden style="--d:inline-flex;--ai:center;--jc:center;--w:32px;--h:32px;--p:0;--bw:1px;--bs:solid;--bc:var(--vz-c-border);--br:50%;--bgc:transparent;--c:var(--vz-c-dark);--cur:pointer;">
+					<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="--d:block;--p-vz-d:none;"><path d="M8 5v14l11-7z"/></svg>
+					<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="--d:none;--p-vz-d:block;"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+				</button>
+				<div data-varz-dots style="--d:flex;--g:2px;">
+					<button type="button" data-varz-dot hidden style="--d:inline-flex;--ai:center;--jc:center;--w:24px;--h:24px;--p:0;--bw:0;--bgc:transparent;--cur:pointer;">
+						<span style="--d:block;--w:10px;--h:10px;--br:50%;--bgc:var(--vz-c-border);--p-vz-bgc:var(--vz-c-accent);--tr:background-color .2s,transform .2s;--p-vz-tf:scale(1.3);"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ========== 2. cards: 3 / 2 / 1.15 in view, arrows in the heading row ========== -->
+	<section aria-labelledby="cards-title" style="--mbe:64px;">
+		<div data-varz-slider aria-labelledby="cards-title">
+			<div style="--d:flex;--jc:space-between;--ai:center;--g:12px;--mbe:16px;">
+				<h2 id="cards-title" style="--c:var(--vz-c-dark);--fs:24px;--m:0;">Several slides in view</h2>
+				<span style="--d:flex;--g:8px;">
+					<button type="button" data-varz-prev style="--d:inline-flex;--ai:center;--jc:center;--w:40px;--h:40px;--p:0;--bw:1px;--bs:solid;--bc:var(--vz-c-border);--br:50%;--bgc:transparent;--c:var(--vz-c-dark);--fs:22px;--lh:1;--cur:pointer;--hov-bc:var(--vz-c-accent);"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="--d:block;"><path d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4-4.6-4.6z"/></svg></button>
+					<button type="button" data-varz-next style="--d:inline-flex;--ai:center;--jc:center;--w:40px;--h:40px;--p:0;--bw:1px;--bs:solid;--bc:var(--vz-c-border);--br:50%;--bgc:transparent;--c:var(--vz-c-dark);--fs:22px;--lh:1;--cur:pointer;--hov-bc:var(--vz-c-accent);"><svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="--d:block;"><path d="M8.6 7.4 10 6l6 6-6 6-1.4-1.4 4.6-4.6z"/></svg></button>
+				</span>
+			</div>
+			<ul data-varz-track style="--cur:grab;--d:flex;--g:16px;--ox:auto;--m:0;--p:0 0 8px;--lst:none;--sst:x mandatory;--sbw:none;--osb:contain;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;">
+				<li style="--flb:calc((100% - 32px) / 3);--flb-l:calc((100% - 16px) / 2);--flb-s:85%;--fls:0;--ssa:start;--d:flex;--fld:column;--br:12px;--of:hidden;--bw:1px;--bs:solid;--bc:var(--vz-c-border);--bgc:var(--vz-c-bg);--o:.55;--vz-o:1;--tr:opacity .3s;">
+					<img src="img/photo-5.svg" alt="" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:16/10;--obf:cover;">
+					<div style="--p:16px;"><h3 style="--fs:18px;--c:var(--vz-c-dark);--mbe:6px;">City lights</h3><p style="--m:0;">Night walk through the old town.</p></div>
+				</li>
+				<li style="--flb:calc((100% - 32px) / 3);--flb-l:calc((100% - 16px) / 2);--flb-s:85%;--fls:0;--ssa:start;--d:flex;--fld:column;--br:12px;--of:hidden;--bw:1px;--bs:solid;--bc:var(--vz-c-border);--bgc:var(--vz-c-bg);--o:.55;--vz-o:1;--tr:opacity .3s;">
+					<img src="img/photo-6.svg" alt="" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:16/10;--obf:cover;">
+					<div style="--p:16px;"><h3 style="--fs:18px;--c:var(--vz-c-dark);--mbe:6px;">Sunset</h3><p style="--m:0;">The last light over the bay.</p></div>
+				</li>
+				<li style="--flb:calc((100% - 32px) / 3);--flb-l:calc((100% - 16px) / 2);--flb-s:85%;--fls:0;--ssa:start;--d:flex;--fld:column;--br:12px;--of:hidden;--bw:1px;--bs:solid;--bc:var(--vz-c-border);--bgc:var(--vz-c-bg);--o:.55;--vz-o:1;--tr:opacity .3s;">
+					<img src="img/photo-7.svg" alt="" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:16/10;--obf:cover;">
+					<div style="--p:16px;"><h3 style="--fs:18px;--c:var(--vz-c-dark);--mbe:6px;">Meadow</h3><p style="--m:0;">Wild flowers in early summer.</p></div>
+				</li>
+				<li style="--flb:calc((100% - 32px) / 3);--flb-l:calc((100% - 16px) / 2);--flb-s:85%;--fls:0;--ssa:start;--d:flex;--fld:column;--br:12px;--of:hidden;--bw:1px;--bs:solid;--bc:var(--vz-c-border);--bgc:var(--vz-c-bg);--o:.55;--vz-o:1;--tr:opacity .3s;">
+					<img src="img/photo-8.svg" alt="" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:16/10;--obf:cover;">
+					<div style="--p:16px;"><h3 style="--fs:18px;--c:var(--vz-c-dark);--mbe:6px;">Glacier</h3><p style="--m:0;">Blue ice at the end of the valley.</p></div>
+				</li>
+				<li style="--flb:calc((100% - 32px) / 3);--flb-l:calc((100% - 16px) / 2);--flb-s:85%;--fls:0;--ssa:start;--d:flex;--fld:column;--br:12px;--of:hidden;--bw:1px;--bs:solid;--bc:var(--vz-c-border);--bgc:var(--vz-c-bg);--o:.55;--vz-o:1;--tr:opacity .3s;">
+					<img src="img/photo-1.svg" alt="" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:16/10;--obf:cover;">
+					<div style="--p:16px;"><h3 style="--fs:18px;--c:var(--vz-c-dark);--mbe:6px;">Mountains</h3><p style="--m:0;">Two days on the ridge.</p></div>
+				</li>
+				<li style="--flb:calc((100% - 32px) / 3);--flb-l:calc((100% - 16px) / 2);--flb-s:85%;--fls:0;--ssa:start;--d:flex;--fld:column;--br:12px;--of:hidden;--bw:1px;--bs:solid;--bc:var(--vz-c-border);--bgc:var(--vz-c-bg);--o:.55;--vz-o:1;--tr:opacity .3s;">
+					<img src="img/photo-2.svg" alt="" width="1600" height="1000" loading="lazy" style="--d:block;--w:100%;--h:auto;--ar:16/10;--obf:cover;">
+					<div style="--p:16px;"><h3 style="--fs:18px;--c:var(--vz-c-dark);--mbe:6px;">Ocean</h3><p style="--m:0;">Surf school week.</p></div>
+				</li>
+			</ul>
+			<div data-varz-dots style="--d:flex;--jc:center;--g:2px;--mbs:8px;">
+				<button type="button" data-varz-dot hidden style="--d:inline-flex;--ai:center;--jc:center;--w:24px;--h:24px;--p:0;--bw:0;--bgc:transparent;--cur:pointer;">
+					<span style="--d:block;--w:8px;--h:8px;--br:4px;--bgc:var(--vz-c-border);--p-vz-bgc:var(--vz-c-accent);--p-vz-w:20px;--tr:width .2s,background-color .2s;"></span>
+				</button>
+			</div>
+		</div>
+		<p style="--fs:14px;--c:var(--vz-c-muted);--mbs:8px;">Slides out of view are dimmed with <code>--o:.55;--vz-o:1</code> - the script adds <code>.vz</code> to the slides in view.</p>
+	</section>
+
+	<!-- ========== control looks ========== -->
+	<section aria-labelledby="looks-title" style="--mbe:64px;">
+		<h2 id="looks-title" style="--c:var(--vz-c-dark);--fs:24px;--mbe:8px;">Control looks</h2>
+		<p style="--mbe:16px;">Generated controls (<code>data-vz-controls</code>) in six dot looks and four arrow looks - <code>bar</code> puts the arrows next to the dots.</p>
+		<div style="--d:grid;--gtc:repeat(3,minmax(0,1fr));--gtc-l:repeat(2,minmax(0,1fr));--gtc-s:1fr;--g:24px;">
+			<figure style="--m:0;">
+				<div data-varz-slider data-vz-controls="arrows,dots" data-vz-dots="pill" data-vz-arrows="round" aria-label="Look: dots pill, arrows round">
+					<div data-varz-track style="--d:flex;--ox:auto;--sst:x mandatory;--sbw:none;--br:8px;"><img src="img/photo-3.svg" alt="Photo 3" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-4.svg" alt="Photo 4" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-5.svg" alt="Photo 5" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-6.svg" alt="Photo 6" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"></div>
+				</div>
+				<figcaption style="--fs:13px;--c:var(--vz-c-muted);--mbs:8px;--ta:center;"><code>data-vz-dots="pill" data-vz-arrows="round"</code></figcaption>
+			</figure>
+			<figure style="--m:0;">
+				<div data-varz-slider data-vz-controls="arrows,dots" data-vz-dots="round" data-vz-arrows="square" aria-label="Look: dots round, arrows square">
+					<div data-varz-track style="--d:flex;--ox:auto;--sst:x mandatory;--sbw:none;--br:8px;"><img src="img/photo-3.svg" alt="Photo 3" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-4.svg" alt="Photo 4" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-5.svg" alt="Photo 5" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-6.svg" alt="Photo 6" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"></div>
+				</div>
+				<figcaption style="--fs:13px;--c:var(--vz-c-muted);--mbs:8px;--ta:center;"><code>data-vz-dots="round" data-vz-arrows="square"</code></figcaption>
+			</figure>
+			<figure style="--m:0;">
+				<div data-varz-slider data-vz-controls="arrows,dots" data-vz-dots="square" data-vz-arrows="outline" aria-label="Look: dots square, arrows outline">
+					<div data-varz-track style="--d:flex;--ox:auto;--sst:x mandatory;--sbw:none;--br:8px;"><img src="img/photo-3.svg" alt="Photo 3" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-4.svg" alt="Photo 4" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-5.svg" alt="Photo 5" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-6.svg" alt="Photo 6" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"></div>
+				</div>
+				<figcaption style="--fs:13px;--c:var(--vz-c-muted);--mbs:8px;--ta:center;"><code>data-vz-dots="square" data-vz-arrows="outline"</code></figcaption>
+			</figure>
+			<figure style="--m:0;">
+				<div data-varz-slider data-vz-controls="arrows,dots" data-vz-dots="line" data-vz-arrows="plain" aria-label="Look: dots line, arrows plain">
+					<div data-varz-track style="--d:flex;--ox:auto;--sst:x mandatory;--sbw:none;--br:8px;"><img src="img/photo-3.svg" alt="Photo 3" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-4.svg" alt="Photo 4" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-5.svg" alt="Photo 5" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-6.svg" alt="Photo 6" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"></div>
+				</div>
+				<figcaption style="--fs:13px;--c:var(--vz-c-muted);--mbs:8px;--ta:center;"><code>data-vz-dots="line" data-vz-arrows="plain"</code></figcaption>
+			</figure>
+			<figure style="--m:0;">
+				<div data-varz-slider data-vz-controls="arrows,dots" data-vz-dots="ring" data-vz-arrows="round bar" aria-label="Look: dots ring, arrows round bar">
+					<div data-varz-track style="--d:flex;--ox:auto;--sst:x mandatory;--sbw:none;--br:8px;"><img src="img/photo-3.svg" alt="Photo 3" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-4.svg" alt="Photo 4" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-5.svg" alt="Photo 5" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-6.svg" alt="Photo 6" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"></div>
+				</div>
+				<figcaption style="--fs:13px;--c:var(--vz-c-muted);--mbs:8px;--ta:center;"><code>data-vz-dots="ring" data-vz-arrows="round bar"</code></figcaption>
+			</figure>
+			<figure style="--m:0;">
+				<div data-varz-slider data-vz-controls="arrows,dots" data-vz-dots="number" data-vz-arrows="outline bar" aria-label="Look: dots number, arrows outline bar">
+					<div data-varz-track style="--d:flex;--ox:auto;--sst:x mandatory;--sbw:none;--br:8px;"><img src="img/photo-3.svg" alt="Photo 3" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-4.svg" alt="Photo 4" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-5.svg" alt="Photo 5" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"><img src="img/photo-6.svg" alt="Photo 6" loading="lazy" style="--flb:100%;--fls:0;--miw:0;--w:100%;--h:auto;--ar:16/7;--obf:cover;--ssa:start;"></div>
+				</div>
+				<figcaption style="--fs:13px;--c:var(--vz-c-muted);--mbs:8px;--ta:center;"><code>data-vz-dots="number" data-vz-arrows="outline bar"</code></figcaption>
+			</figure>
+		</div>
+	</section>
+
+	<!-- ========== 3. CSS only ========== -->
+	<section aria-labelledby="css-title" style="--mbe:64px;">
+		<h2 id="css-title" style="--c:var(--vz-c-dark);--fs:24px;--mbe:8px;">CSS only (no script)</h2>
+		<p style="--mbe:16px;">The same track without <code>data-varz-slider</code>: swipe, trackpad or Shift + mouse wheel; visible scrollbar.</p>
+		<div tabindex="0" role="region" aria-label="Photos, scroll sideways" style="--d:flex;--g:12px;--ox:auto;--p:0 0 12px;--sst:x mandatory;--foc-ol:3px solid var(--vz-c-accent);--foc-olo:3px;">
+			<img src="img/photo-3.svg" alt="Forest trail" loading="lazy" style="--flb:40%;--flb-m:70%;--fls:0;--miw:0;--h:auto;--ar:4/3;--obf:cover;--br:8px;--ssa:start;">
+			<img src="img/photo-4.svg" alt="Desert dunes" loading="lazy" style="--flb:40%;--flb-m:70%;--fls:0;--miw:0;--h:auto;--ar:4/3;--obf:cover;--br:8px;--ssa:start;">
+			<img src="img/photo-5.svg" alt="City lights" loading="lazy" style="--flb:40%;--flb-m:70%;--fls:0;--miw:0;--h:auto;--ar:4/3;--obf:cover;--br:8px;--ssa:start;">
+			<img src="img/photo-6.svg" alt="Sunset" loading="lazy" style="--flb:40%;--flb-m:70%;--fls:0;--miw:0;--h:auto;--ar:4/3;--obf:cover;--br:8px;--ssa:start;">
+		</div>
+	</section>
+
+	<!-- ========== reference ========== -->
+	<section aria-labelledby="ref-title">
+		<h2 id="ref-title" style="--c:var(--vz-c-dark);--fs:24px;--mbe:16px;">Markup</h2>
+		<pre style="--p:16px;--br:8px;--bgc:var(--vz-c-bg);--fs:14px;--lh:1.6;--ox:auto;--mbe:24px;"><code>&lt;div data-varz-slider data-vz-autoplay="5000" data-vz-loop aria-label="Featured"&gt;
+  &lt;div data-varz-track style="--d:flex;--ox:auto;--sst:x mandatory;--sbw:none;"&gt;
+    &lt;div style="--flb:100%;--fls:0;--ssa:start;"&gt;Slide 1&lt;/div&gt;
+    &lt;div style="--flb:100%;--fls:0;--ssa:start;"&gt;Slide 2&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button type="button" data-varz-prev&gt;&amp;lsaquo;&lt;/button&gt;
+  &lt;button type="button" data-varz-next&gt;&amp;rsaquo;&lt;/button&gt;
+  &lt;div data-varz-dots&gt;
+    &lt;button type="button" data-varz-dot hidden style="--bgc:gray;--vz-bgc:red;"&gt;&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;button type="button" data-varz-play hidden&gt;...&lt;/button&gt;
+&lt;/div&gt;
+&lt;script src="varz.js" defer&gt;&lt;/script&gt;
+&lt;script src="varz-slider.js" defer&gt;&lt;/script&gt;</code></pre>
+
+		<div style="--ox:auto;">
+			<table style="--w:100%;--fs:15px;">
+				<thead><tr><th style="--ta:start;">Attribute</th><th style="--ta:start;">On</th><th style="--ta:start;">What it does</th></tr></thead>
+				<tbody>
+					<tr><td><code>data-varz-slider</code></td><td>wrapper</td><td>Turns the block into a carousel (role region, aria-roledescription carousel).</td></tr>
+					<tr><td><code>data-vz-autoplay="ms"</code></td><td>wrapper</td><td>Next slide every ms. Pauses on hover, focus and in hidden tabs; stops for good after a swipe or the pause button. Off with prefers-reduced-motion.</td></tr>
+					<tr><td><code>data-vz-loop</code></td><td>wrapper</td><td>Arrows wrap around at the ends (autoplay always does).</td></tr>
+					<tr><td><code>data-vz-controls="arrows,dots,play"</code></td><td>wrapper</td><td>Adds the controls the markup does not have, with default looks (<code>varz.slider.styles</code>) - a bare track becomes a full slider.</td></tr>
+					<tr><td><code>data-vz-dots="pill"</code></td><td>wrapper</td><td>Look of generated dots: <code>pill</code> (default, the active one wider), <code>round</code>, <code>square</code>, <code>line</code>, <code>ring</code>, <code>number</code>.</td></tr>
+					<tr><td><code>data-vz-arrows="round"</code></td><td>wrapper</td><td>Look of generated arrows: <code>round</code> (default), <code>square</code>, <code>outline</code>, <code>plain</code>; add <code>bar</code> to place them next to the dots.</td></tr>
+					<tr><td><code>data-varz-dot-number</code></td><td>inside the dot template</td><td>Gets the dot's number (numbered dots in your own markup).</td></tr>
+					<tr><td><code>data-varz-track</code></td><td>scroller</td><td>The scroll-snap container; its children are the slides (labelled "1 of 4"). Focusable: ← → keys.</td></tr>
+					<tr><td><code>data-varz-prev</code> / <code>data-varz-next</code></td><td>button</td><td>Previous / next position, disabled at the ends without loop.</td></tr>
+					<tr><td><code>data-varz-dots</code> + <code>data-varz-dot</code></td><td>container + template</td><td>One dot per reachable position (fewer than slides when several are in view). Active dot: <code>.vz</code>, <code>aria-current</code>.</td></tr>
+					<tr><td><code>data-varz-play</code></td><td>button</td><td>Pause / play; shown only with autoplay; <code>.vz</code> while playing.</td></tr>
+				</tbody>
+			</table>
+		</div>
+		<p style="--fs:14px;--c:var(--vz-c-muted);--mbs:16px;">
+			<code>.vz</code> is added to the slides in view (style with <code>--vz-*</code>), events: <code>varz-slide</code> on the wrapper,
+			<code>varz-activated</code> / <code>varz-deactivated</code> on slides. Scroll props from VARZ: <code>--sst</code> scroll-snap-type, <code>--ssa</code> scroll-snap-align, <code>--sbw</code> scrollbar-width (responsive), <code>--osb</code> overscroll-behavior, <code>--lst</code> list-style, <code>--foc-olo</code> focus outline offset.
+		</p>
+	</section>
+</main>
+
+</body>
+</html>
