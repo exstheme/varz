@@ -458,7 +458,10 @@ varz.activator = varz.activator
 						if (target) {
 							target.focus();
 						}
-						if (!el.contains(document.activeElement) && ++tries < 20 && A.opened.indexOf(el) > -1) {
+						// until the target has it - focus already inside is not enough when the trigger itself is
+						// inside the element (a burger in the menu wrapper it opens)
+						var done = target ? document.activeElement === target : el.contains(document.activeElement);
+						if (!done && ++tries < 20 && A.opened.indexOf(el) > -1) {
 							window.requestAnimationFrame(focusIn);
 						}
 					};
@@ -490,8 +493,10 @@ varz.activator = varz.activator
 					}
 					var deactivateOn = list(data.vzDeactivateOn);
 					var selector = data.vzSelector || '';
+					// a flag: present without a value or with any value but "false"
 					var preventActivate =
-						data.vzSelfDeactivation &&
+						data.vzSelfDeactivation !== undefined &&
+						data.vzSelfDeactivation !== 'false' &&
 						(el.classList.contains(varz.className) || el.parentElement.classList.contains(varz.className));
 					// deactivate first, then toggle, finally activate
 					if (data.vzDeactivate) {
