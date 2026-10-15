@@ -1,0 +1,124 @@
+/*
+VARZ design tokens, fluid - use instead of varz-tokens.css (same token names, load only one of them).
+
+Font sizes, spacing and paddings grow smoothly with the screen from 360px to 1200px wide (CSS clamp()),
+instead of jumping at breakpoints - no media queries. Small text (--vz-fs-1..3) and the small spaces stay fixed.
+Generated with clamp(min, intercept + slope vw, max) for the 360-1200px range.
+
+Elements reference tokens with a fallback, so markup stays portable without this file:
+  <h2 style="--fs:var(--vz-fs-6, 28px);">
+Override any token in your own :root (VARZ Builder: Global -> Variables).
+*/
+:root{
+	/* ---------- scales (numbered: letter suffixes are VARZ breakpoints -g -x -l -m -s) ---------- */
+	--vz-space-1: 4px;
+	--vz-space-2: 8px;
+	--vz-space-3: 16px;
+	--vz-space-4: clamp(16px, 12.57px + .952vw, 24px);
+	--vz-space-5: clamp(28px, 22.86px + 1.429vw, 40px);
+	--vz-space-6: clamp(40px, 29.71px + 2.857vw, 64px);
+	--vz-radius-1: 4px;
+	--vz-radius-2: 8px;
+	--vz-radius-3: 16px;
+	--vz-radius-full: 999px;
+	--vz-fs-1: 12px;
+	--vz-fs-2: 14px;
+	--vz-fs-3: 16px;
+	--vz-fs-4: clamp(18px, 17.14px + .238vw, 20px);
+	--vz-fs-5: clamp(20px, 18.29px + .476vw, 24px);
+	--vz-fs-6: clamp(24px, 20.57px + .952vw, 32px);
+	--vz-fs-7: clamp(32px, 25.14px + 1.905vw, 48px);
+	--vz-shadow-1: 0 1px 3px rgba(0, 0, 0, .12);
+	--vz-shadow-2: 0 6px 20px rgba(0, 0, 0, .12);
+	--vz-shadow-3: 0 16px 48px rgba(0, 0, 0, .18);
+	--vz-transition: all .2s ease;
+	/* ---------- layout ---------- */
+	--vz-container-maw: 1200px;
+	--vz-container-p: 0 clamp(16px, 14.29px + .476vw, 20px);
+	--vz-section-p: clamp(40px, 22.86px + 4.762vw, 80px) 0;
+	/* ---------- button: primary ---------- */
+	--vz-btn-d: inline-flex;
+	--vz-btn-ai: center;
+	--vz-btn-jc: center;
+	--vz-btn-g: var(--vz-space-2);
+	--vz-btn-p: clamp(9px, 8.57px + .119vw, 10px) clamp(18px, 16.29px + .476vw, 22px);
+	--vz-btn-fs: var(--vz-fs-3);
+	--vz-btn-fw: 600;
+	--vz-btn-lh: 1.25;
+	--vz-btn-td: none;
+	--vz-btn-br: var(--vz-radius-2);
+	--vz-btn-bw: 2px;
+	--vz-btn-bs: solid;
+	--vz-btn-bc: var(--vz-c-accent);
+	--vz-btn-bgc: var(--vz-c-accent);
+	--vz-btn-c: var(--vz-c-white);
+	--vz-btn-bsh: none;
+	--vz-btn-tr: var(--vz-transition);
+	--vz-btn-hov-bc: var(--vz-c-accent2);
+	--vz-btn-hov-bgc: var(--vz-c-accent2);
+	--vz-btn-hov-c: var(--vz-c-white);
+	/* button: outline */
+	--vz-btn-outline-bc: var(--vz-c-accent);
+	--vz-btn-outline-bgc: transparent;
+	--vz-btn-outline-c: var(--vz-c-accent);
+	--vz-btn-outline-hov-bc: var(--vz-c-accent);
+	--vz-btn-outline-hov-bgc: var(--vz-c-accent);
+	--vz-btn-outline-hov-c: var(--vz-c-white);
+	/* button: secondary */
+	--vz-btn-secondary-bc: var(--vz-c-border);
+	--vz-btn-secondary-bgc: var(--vz-c-bg);
+	--vz-btn-secondary-c: var(--vz-c-dark);
+	--vz-btn-secondary-hov-bc: var(--vz-c-muted);
+	--vz-btn-secondary-hov-bgc: var(--vz-c-border);
+	--vz-btn-secondary-hov-c: var(--vz-c-dark);
+	/* ---------- form fields: input, select, textarea ---------- */
+	--vz-input-w: 100%;
+	--vz-input-mih: 42px;
+	--vz-input-p: 8px 12px;
+	--vz-input-fs: var(--vz-fs-3);
+	--vz-input-br: var(--vz-radius-1);
+	--vz-input-bw: 1px;
+	--vz-input-bs: solid;
+	--vz-input-bc: var(--vz-c-border);
+	--vz-input-bgc: var(--vz-c-light);
+	--vz-input-c: var(--vz-c-font);
+	--vz-input-tr: var(--vz-transition);
+	--vz-input-foc-bc: var(--vz-c-accent);
+	--vz-input-foc-ol: none;
+	--vz-input-foc-bs: 0 0 0 3px rgba(241, 72, 54, .2);
+	--vz-label-d: block;
+	--vz-label-fs: var(--vz-fs-2);
+	--vz-label-fw: 600;
+	--vz-label-mbe: 6px;
+	/* ---------- alerts, toasts (varz-toast.js): one hue each - background, text and border are mixed with the
+     page colors, so they follow light / dark by themselves (text 5.4:1 or more on the background, WCAG AA) ---------- */
+	--vz-alert-success: #2e9e5b;
+	--vz-alert-success-bgc: color-mix(in srgb, var(--vz-alert-success) 14%, var(--vz-c-light));
+	--vz-alert-success-c: color-mix(in srgb, var(--vz-alert-success) 60%, var(--vz-c-dark));
+	--vz-alert-success-bc: color-mix(in srgb, var(--vz-alert-success) 35%, var(--vz-c-light));
+	--vz-alert-error: #d93a2b;
+	--vz-alert-error-bgc: color-mix(in srgb, var(--vz-alert-error) 14%, var(--vz-c-light));
+	--vz-alert-error-c: color-mix(in srgb, var(--vz-alert-error) 60%, var(--vz-c-dark));
+	--vz-alert-error-bc: color-mix(in srgb, var(--vz-alert-error) 35%, var(--vz-c-light));
+	--vz-alert-warning: #c98a00;
+	--vz-alert-warning-bgc: color-mix(in srgb, var(--vz-alert-warning) 14%, var(--vz-c-light));
+	--vz-alert-warning-c: color-mix(in srgb, var(--vz-alert-warning) 60%, var(--vz-c-dark));
+	--vz-alert-warning-bc: color-mix(in srgb, var(--vz-alert-warning) 35%, var(--vz-c-light));
+	--vz-alert-info: #2f7fc1;
+	--vz-alert-info-bgc: color-mix(in srgb, var(--vz-alert-info) 14%, var(--vz-c-light));
+	--vz-alert-info-c: color-mix(in srgb, var(--vz-alert-info) 60%, var(--vz-c-dark));
+	--vz-alert-info-bc: color-mix(in srgb, var(--vz-alert-info) 35%, var(--vz-c-light));
+	/* ---------- card ---------- */
+	--vz-card-d: flex;
+	--vz-card-fld: column;
+	--vz-card-g: 12px;
+	--vz-card-p: clamp(16px, 12.57px + .952vw, 24px);
+	--vz-card-br: var(--vz-radius-2);
+	--vz-card-bw: 1px;
+	--vz-card-bs: solid;
+	--vz-card-bc: var(--vz-c-border);
+	--vz-card-bgc: var(--vz-c-light);
+	--vz-card-bsh: none;
+	--vz-card-tr: var(--vz-transition);
+	--vz-card-hov-bs: var(--vz-shadow-2);
+}

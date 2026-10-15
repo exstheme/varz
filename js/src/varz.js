@@ -15,8 +15,13 @@
  * ACCESSIBILITY (see varz.activator.a11y): ARIA states follow the class; data-vz-focus, data-vz-trap,
  *   data-vz-lock on the element that opens
  * SCROLL (varz.scroll): data-vz-event="inview" | "scrolled" | "spy"
- * KEYBOARD (varz.keys): arrow keys in role="tablist" (automatic) and data-vz-keys groups
+ * KEYBOARD (varz.keys): arrow keys in role="tablist" and role="menu" (automatic, menus: a letter jumps too)
+ *   and data-vz-keys groups
  * SIZE (varz.size): data-vz-size="--name" - the element's height as a CSS variable on <html>
+ * THEME (varz.ui): data-vz-theme - a light / dark switch (<html data-theme>, remembered)
+ * DETAILS (varz.ui): <details> gets .vz while open
+ * DIALOG (varz.ui): data-vz-dialog="#id" opens a native modal <dialog>; data-vz-close closes it, so does the backdrop
+ * FIT (varz.ui): data-vz-fit - an opened popup / tooltip is moved back into the window
  *
  * Events on every element whose class changes: "varz-activated" / "varz-deactivated" - they do not bubble
  * (listen on the element, or on document in the capture phase).
@@ -741,7 +746,10 @@ varz.scroll.init();
  * Arrow keys between the items of a group (WAI-ARIA tabs / toolbar pattern):
  * - role="tablist": automatic - ←/→ (and ↑/↓), Home, End move to a tab and select it (click);
  *   only the selected tab is in the Tab order (tabindex 0 / -1)
- * - data-vz-keys on any other group (toolbar, segmented buttons, menu): the same keys move focus only;
+ * - role="menu" / "menubar": automatic - the arrow keys, Home and End move between the [role^="menuitem"]
+ *   items, a letter moves to the next item starting with it (open the menu with data-vz-focus="[role=menuitem]"
+ *   on it, close it with data-vz-deactivate-on="esc,click" on its button)
+ * - data-vz-keys on any other group (toolbar, segmented buttons): the same keys move focus only;
  *   value = selector of the items (default: buttons and links inside)
  */
 varz.keys = varz.keys
@@ -749,13 +757,19 @@ varz.keys = varz.keys
 	: {
 			inited: false,
 
+			/** the groups the keys work in */
+			groups: '[role="tablist"],[role="menu"],[role="menubar"],[data-vz-keys]',
+
 			items: function (group) {
-				var tablist = group.getAttribute('role') === 'tablist';
-				var selector = group.getAttribute('data-vz-keys') || (tablist ? '[role="tab"]' : 'button,a[href]');
+				var role = group.getAttribute('role');
+				var selector =
+					group.getAttribute('data-vz-keys') ||
+					(role === 'tablist' ? '[role="tab"]' : /^menu/.test(role || '') ? '[role^="menuitem"]' : 'button,a[href]');
 				return Array.prototype.filter.call(group.querySelectorAll(selector), function (el) {
 					return (
 						!el.disabled &&
-						el.closest('[role="tablist"],[data-vz-keys]') === group &&
+						el.getAttribute('aria-disabled') !== 'true' &&
+						el.closest(varz.keys.groups) === group &&
 						(el.offsetWidth || el.offsetHeight || el.getClientRects().length)
 					);
 				});
@@ -787,11 +801,17 @@ varz.keys = varz.keys
 				K.inited = true;
 				document.addEventListener('keydown', function (e) {
 					var moves = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1, Home: 'first', End: 'last' };
-					if (!(e.key in moves) || e.altKey || e.ctrlKey || e.metaKey || !e.target.closest) {
+					if (e.altKey || e.ctrlKey || e.metaKey || !e.target.closest) {
 						return;
 					}
-					var group = e.target.closest('[role="tablist"],[data-vz-keys]');
+					var group = e.target.closest(K.groups);
 					if (!group || /^(INPUT|SELECT|TEXTAREA)$/.test(e.target.tagName)) {
+						return;
+					}
+					var menu = /^menu/.test(group.getAttribute('role') || '');
+					// menus: a letter - the next item whose text starts with it
+					var letter = menu && e.key.length === 1 && e.key !== ' ' ? e.key.toLowerCase() : '';
+					if (!(e.key in moves) && !letter) {
 						return;
 					}
 					var items = K.items(group);
@@ -799,8 +819,22 @@ varz.keys = varz.keys
 					if (i < 0) {
 						return;
 					}
-					var move = moves[e.key];
-					var n = move === 'first' ? 0 : move === 'last' ? items.length - 1 : (i + move + items.length) % items.length;
+					var n;
+					if (letter) {
+						for (var k = 1; k <= items.length; k++) {
+							var item = items[(i + k) % items.length];
+							if (item.textContent.trim().toLowerCase().indexOf(letter) === 0) {
+								n = (i + k) % items.length;
+								break;
+							}
+						}
+						if (n === undefined) {
+							return;
+						}
+					} else {
+						var move = moves[e.key];
+						n = move === 'first' ? 0 : move === 'last' ? items.length - 1 : (i + move + items.length) % items.length;
+					}
 					e.preventDefault();
 					items[n].focus();
 					if (group.getAttribute('role') === 'tablist' && items[n].getAttribute('aria-selected') !== 'true') {
@@ -892,3 +926,198 @@ varz.size = varz.size
 		};
 
 varz.size.init();
+
+/* ---------- theme, details, dialog, fit ---------- */
+
+/**
+ * THEME: a light / dark switch - data-vz-theme on a button: empty = toggle, "light" / "dark" / "auto" = that one.
+ *   Sets <html data-theme> (varz.css: light or dark colors whatever the system setting; "auto" removes it),
+ *   remembers it (localStorage "varz-theme"), aria-pressed="true" on the toggles while dark.
+ *   No flash on load - put this in <head> before the CSS:
+ *   <script>try{var t=localStorage.getItem('varz-theme');t&&document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+ * DETAILS: <details> gets .vz while open - style it with the VARZ state props (--vz-*, --p-vz-*);
+ *   <details name="group"> makes an accordion of them, no JavaScript.
+ * DIALOG: data-vz-dialog="#id" on a button opens that native <dialog> as a modal (focus inside, Esc closes,
+ *   focus back, the page behind is inert); .vz on it while open, the page does not scroll; a click on the
+ *   backdrop closes it unless the dialog has data-vz-static; data-vz-close on any button inside closes it.
+ *   The backdrop color: --vz-backdrop (varz.css).
+ * FIT: data-vz-fit on a popup, tooltip, dropdown: when it opens (.vz) and does not fit in the window, it is
+ *   moved back in (the CSS translate property - your transform stays).
+ */
+varz.ui = varz.ui
+	? varz.ui
+	: {
+			inited: false,
+			storageKey: 'varz-theme',
+
+			/** the scheme in use: the data-theme value or the system setting */
+			dark: function () {
+				var chosen = document.documentElement.getAttribute('data-theme');
+				return chosen ? chosen === 'dark' : !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+			},
+
+			/** light | dark | auto */
+			theme: function (value) {
+				var root = document.documentElement;
+				if (value === 'light' || value === 'dark') {
+					root.setAttribute('data-theme', value);
+				} else {
+					root.removeAttribute('data-theme');
+				}
+				try {
+					if (value === 'light' || value === 'dark') {
+						localStorage.setItem(varz.ui.storageKey, value);
+					} else {
+						localStorage.removeItem(varz.ui.storageKey);
+					}
+				} catch (e) {}
+				varz.ui.syncTheme();
+			},
+
+			syncTheme: function () {
+				var dark = varz.ui.dark();
+				document.querySelectorAll('[data-vz-theme]').forEach(function (button) {
+					var value = button.getAttribute('data-vz-theme');
+					var pressed = value ? value === (document.documentElement.getAttribute('data-theme') || 'auto') : dark;
+					button.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+				});
+			},
+
+			/** native modal dialog */
+			openDialog: function (dialog, opener) {
+				if (!dialog || dialog.open || !dialog.showModal) {
+					return;
+				}
+				dialog.vzOpener = opener || null;
+				dialog.vzUi = true;
+				dialog.showModal();
+				dialog.classList.add(varz.className);
+				document.documentElement.style.overflow = 'hidden';
+				if (opener && opener.hasAttribute('aria-expanded')) {
+					opener.setAttribute('aria-expanded', 'true');
+				}
+				dialog.dispatchEvent(new Event('varz-activated'));
+			},
+
+			/** keeps an opened element inside the window */
+			fit: function (el) {
+				el.style.translate = '';
+				window.requestAnimationFrame(function () {
+					if (!el.classList.contains(varz.className)) {
+						return;
+					}
+					var r = el.getBoundingClientRect();
+					var gap = 8;
+					var w = document.documentElement.clientWidth;
+					var h = window.innerHeight;
+					var dx = r.right > w - gap ? w - gap - r.right : 0;
+					var dy = r.bottom > h - gap ? h - gap - r.bottom : 0;
+					dx = r.left + dx < gap ? gap - r.left : dx;
+					dy = r.top + dy < gap ? gap - r.top : dy;
+					if (dx || dy) {
+						el.style.translate = Math.round(dx) + 'px ' + Math.round(dy) + 'px';
+					}
+				});
+			},
+
+			init: function () {
+				var UI = varz.ui;
+				if (UI.inited) {
+					return;
+				}
+				UI.inited = true;
+				// the remembered theme, if the <head> snippet did not set it already
+				try {
+					var saved = localStorage.getItem(UI.storageKey);
+					if (saved && !document.documentElement.hasAttribute('data-theme')) {
+						document.documentElement.setAttribute('data-theme', saved);
+					}
+				} catch (e) {}
+
+				document.addEventListener('click', function (e) {
+					var t = e.target.closest ? e.target : null;
+					if (!t) {
+						return;
+					}
+					var themeButton = t.closest('[data-vz-theme]');
+					if (themeButton) {
+						var value = themeButton.getAttribute('data-vz-theme');
+						UI.theme(value || (UI.dark() ? 'light' : 'dark'));
+					}
+					var opener = t.closest('[data-vz-dialog]');
+					if (opener) {
+						e.preventDefault();
+						UI.openDialog(document.querySelector(opener.getAttribute('data-vz-dialog')), opener);
+					}
+					var closer = t.closest('[data-vz-close]');
+					var dialog = closer && closer.closest('dialog');
+					if (dialog) {
+						dialog.close();
+					}
+					// the backdrop: the click lands on the dialog itself, outside its box
+					if (t.tagName === 'DIALOG' && t.open && t.vzUi && !t.hasAttribute('data-vz-static')) {
+						var r = t.getBoundingClientRect();
+						if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) {
+							t.close();
+						}
+					}
+				});
+				// a dialog closed any way (Esc, form method="dialog", .close())
+				document.addEventListener(
+					'close',
+					function (e) {
+						var dialog = e.target;
+						// only dialogs opened here (the lightbox has its own)
+						if (dialog.tagName !== 'DIALOG' || !dialog.vzUi) {
+							return;
+						}
+						dialog.vzUi = false;
+						dialog.classList.remove(varz.className);
+						if (!document.querySelector('dialog[open]')) {
+							document.documentElement.style.overflow = '';
+						}
+						if (dialog.vzOpener && dialog.vzOpener.hasAttribute('aria-expanded')) {
+							dialog.vzOpener.setAttribute('aria-expanded', 'false');
+						}
+						dialog.dispatchEvent(new Event('varz-deactivated'));
+					},
+					true
+				);
+				// <details>: .vz while open (toggle does not bubble - capture)
+				document.addEventListener(
+					'toggle',
+					function (e) {
+						if (e.target.tagName === 'DETAILS') {
+							e.target.classList.toggle(varz.className, e.target.open);
+						}
+					},
+					true
+				);
+				// data-vz-fit: moved into the window when it opens
+				document.addEventListener(
+					'varz-activated',
+					function (e) {
+						if (e.target.hasAttribute && e.target.hasAttribute('data-vz-fit')) {
+							UI.fit(e.target);
+						}
+					},
+					true
+				);
+				if (window.matchMedia) {
+					var mq = window.matchMedia('(prefers-color-scheme: dark)');
+					mq.addEventListener && mq.addEventListener('change', UI.syncTheme);
+				}
+				var scan = function () {
+					document.querySelectorAll('details[open]').forEach(function (d) {
+						d.classList.add(varz.className);
+					});
+					UI.syncTheme();
+				};
+				varz.util.ready(function () {
+					scan();
+					varz.util.onAdded(scan);
+				});
+			},
+		};
+
+varz.ui.init();

@@ -8,42 +8,34 @@
 }
 
 [style*="--vz-mbs:"]{
-	-webkit-margin-before: var(--vz-mbs);
 	margin-block-start: var(--vz-mbs);
 }
 
 [style*="--vz-mbe:"]{
-	-webkit-margin-after: var(--vz-mbe);
 	margin-block-end: var(--vz-mbe);
 }
 
 [style*="--vz-mis:"]{
-	-webkit-margin-start: var(--vz-mis);
 	margin-inline-start: var(--vz-mis);
 }
 
 [style*="--vz-mie:"]{
-	-webkit-margin-end: var(--vz-mie);
 	margin-inline-end: var(--vz-mie);
 }
 
 [style*="--vz-pbs:"]{
-	-webkit-padding-before: var(--vz-pbs);
 	padding-block-start: var(--vz-pbs);
 }
 
 [style*="--vz-pbe:"]{
-	-webkit-padding-after: var(--vz-pbe);
 	padding-block-end: var(--vz-pbe);
 }
 
 [style*="--vz-pis:"]{
-	-webkit-padding-start: var(--vz-pis);
 	padding-inline-start: var(--vz-pis);
 }
 
 [style*="--vz-pie:"]{
-	-webkit-padding-end: var(--vz-pie);
 	padding-inline-end: var(--vz-pie);
 }
 
@@ -233,7 +225,6 @@
 }
 
 [style*="--vz-wm:"]{
-	-ms-writing-mode: var(--vz-wm);
 	writing-mode: var(--vz-wm);
 }
 
@@ -432,7 +423,6 @@
 }
 
 [style*="--vz-sst:"]{
-	-ms-scroll-snap-type: var(--vz-sst);
 	scroll-snap-type: var(--vz-sst);
 }
 
@@ -461,7 +451,6 @@
 }
 
 [style*="--vz-osb:"]{
-	-ms-scroll-chaining: var(--vz-osb);
 	overscroll-behavior: var(--vz-osb);
 }
 
@@ -479,7 +468,6 @@
 
 [style*="--vz-us:"]{
 	-webkit-user-select: var(--vz-us);
-	-ms-user-select: var(--vz-us);
 	user-select: var(--vz-us);
 }
 
@@ -493,42 +481,34 @@
 	}
 
 	[style*="--vz-mbs-x:"]{
-		-webkit-margin-before: var(--vz-mbs-x);
 		margin-block-start: var(--vz-mbs-x);
 	}
 
 	[style*="--vz-mbe-x:"]{
-		-webkit-margin-after: var(--vz-mbe-x);
 		margin-block-end: var(--vz-mbe-x);
 	}
 
 	[style*="--vz-mis-x:"]{
-		-webkit-margin-start: var(--vz-mis-x);
 		margin-inline-start: var(--vz-mis-x);
 	}
 
 	[style*="--vz-mie-x:"]{
-		-webkit-margin-end: var(--vz-mie-x);
 		margin-inline-end: var(--vz-mie-x);
 	}
 
 	[style*="--vz-pbs-x:"]{
-		-webkit-padding-before: var(--vz-pbs-x);
 		padding-block-start: var(--vz-pbs-x);
 	}
 
 	[style*="--vz-pbe-x:"]{
-		-webkit-padding-after: var(--vz-pbe-x);
 		padding-block-end: var(--vz-pbe-x);
 	}
 
 	[style*="--vz-pis-x:"]{
-		-webkit-padding-start: var(--vz-pis-x);
 		padding-inline-start: var(--vz-pis-x);
 	}
 
 	[style*="--vz-pie-x:"]{
-		-webkit-padding-end: var(--vz-pie-x);
 		padding-inline-end: var(--vz-pie-x);
 	}
 
@@ -718,7 +698,6 @@
 	}
 
 	[style*="--vz-wm-x:"]{
-		-ms-writing-mode: var(--vz-wm-x);
 		writing-mode: var(--vz-wm-x);
 	}
 
@@ -917,7 +896,6 @@
 	}
 
 	[style*="--vz-sst-x:"]{
-		-ms-scroll-snap-type: var(--vz-sst-x);
 		scroll-snap-type: var(--vz-sst-x);
 	}
 
@@ -948,42 +926,34 @@
 	}
 
 	[style*="--vz-mbs-m:"]{
-		-webkit-margin-before: var(--vz-mbs-m);
 		margin-block-start: var(--vz-mbs-m);
 	}
 
 	[style*="--vz-mbe-m:"]{
-		-webkit-margin-after: var(--vz-mbe-m);
 		margin-block-end: var(--vz-mbe-m);
 	}
 
 	[style*="--vz-mis-m:"]{
-		-webkit-margin-start: var(--vz-mis-m);
 		margin-inline-start: var(--vz-mis-m);
 	}
 
 	[style*="--vz-mie-m:"]{
-		-webkit-margin-end: var(--vz-mie-m);
 		margin-inline-end: var(--vz-mie-m);
 	}
 
 	[style*="--vz-pbs-m:"]{
-		-webkit-padding-before: var(--vz-pbs-m);
 		padding-block-start: var(--vz-pbs-m);
 	}
 
 	[style*="--vz-pbe-m:"]{
-		-webkit-padding-after: var(--vz-pbe-m);
 		padding-block-end: var(--vz-pbe-m);
 	}
 
 	[style*="--vz-pis-m:"]{
-		-webkit-padding-start: var(--vz-pis-m);
 		padding-inline-start: var(--vz-pis-m);
 	}
 
 	[style*="--vz-pie-m:"]{
-		-webkit-padding-end: var(--vz-pie-m);
 		padding-inline-end: var(--vz-pie-m);
 	}
 
@@ -1173,7 +1143,6 @@
 	}
 
 	[style*="--vz-wm-m:"]{
-		-ms-writing-mode: var(--vz-wm-m);
 		writing-mode: var(--vz-wm-m);
 	}
 
@@ -1372,7 +1341,6 @@
 	}
 
 	[style*="--vz-sst-m:"]{
-		-ms-scroll-snap-type: var(--vz-sst-m);
 		scroll-snap-type: var(--vz-sst-m);
 	}
 
@@ -1403,42 +1371,34 @@
 	}
 
 	[style*="--vz-mbs-s:"]{
-		-webkit-margin-before: var(--vz-mbs-s);
 		margin-block-start: var(--vz-mbs-s);
 	}
 
 	[style*="--vz-mbe-s:"]{
-		-webkit-margin-after: var(--vz-mbe-s);
 		margin-block-end: var(--vz-mbe-s);
 	}
 
 	[style*="--vz-mis-s:"]{
-		-webkit-margin-start: var(--vz-mis-s);
 		margin-inline-start: var(--vz-mis-s);
 	}
 
 	[style*="--vz-mie-s:"]{
-		-webkit-margin-end: var(--vz-mie-s);
 		margin-inline-end: var(--vz-mie-s);
 	}
 
 	[style*="--vz-pbs-s:"]{
-		-webkit-padding-before: var(--vz-pbs-s);
 		padding-block-start: var(--vz-pbs-s);
 	}
 
 	[style*="--vz-pbe-s:"]{
-		-webkit-padding-after: var(--vz-pbe-s);
 		padding-block-end: var(--vz-pbe-s);
 	}
 
 	[style*="--vz-pis-s:"]{
-		-webkit-padding-start: var(--vz-pis-s);
 		padding-inline-start: var(--vz-pis-s);
 	}
 
 	[style*="--vz-pie-s:"]{
-		-webkit-padding-end: var(--vz-pie-s);
 		padding-inline-end: var(--vz-pie-s);
 	}
 
@@ -1628,7 +1588,6 @@
 	}
 
 	[style*="--vz-wm-s:"]{
-		-ms-writing-mode: var(--vz-wm-s);
 		writing-mode: var(--vz-wm-s);
 	}
 
@@ -1827,7 +1786,6 @@
 	}
 
 	[style*="--vz-sst-s:"]{
-		-ms-scroll-snap-type: var(--vz-sst-s);
 		scroll-snap-type: var(--vz-sst-s);
 	}
 
@@ -2361,260 +2319,172 @@
 	transform: var(--vz-s-ch-tf);
 }
 
-[style*="--vz-nps-c:"]:not(:-ms-input-placeholder){
-	color: var(--vz-nps-c);
-}
-
 [style*="--vz-nps-c:"]:not(:placeholder-shown){
 	color: var(--vz-nps-c);
-}
-
-[style*="--vz-nps-bc:"]:not(:-ms-input-placeholder){
-	border-color: var(--vz-nps-bc);
 }
 
 [style*="--vz-nps-bc:"]:not(:placeholder-shown){
 	border-color: var(--vz-nps-bc);
 }
 
-[style*="--vz-nps-bgc:"]:not(:-ms-input-placeholder){
-	background-color: var(--vz-nps-bgc);
-}
-
 [style*="--vz-nps-bgc:"]:not(:placeholder-shown){
 	background-color: var(--vz-nps-bgc);
-}
-
-[style*="--vz-nps-bs:"]:not(:-ms-input-placeholder){
-	box-shadow: var(--vz-nps-bs);
 }
 
 [style*="--vz-nps-bs:"]:not(:placeholder-shown){
 	box-shadow: var(--vz-nps-bs);
 }
 
-[style*="--vz-nps-ol:"]:not(:-ms-input-placeholder){
-	outline: var(--vz-nps-ol);
-}
-
 [style*="--vz-nps-ol:"]:not(:placeholder-shown){
 	outline: var(--vz-nps-ol);
-}
-
-[style*="--vz-nps-o:"]:not(:-ms-input-placeholder){
-	opacity: var(--vz-nps-o);
 }
 
 [style*="--vz-nps-o:"]:not(:placeholder-shown){
 	opacity: var(--vz-nps-o);
 }
 
-[style*="--vz-nps-of:"]:not(:-ms-input-placeholder){
-	overflow: var(--vz-nps-of);
-}
-
 [style*="--vz-nps-of:"]:not(:placeholder-shown){
 	overflow: var(--vz-nps-of);
-}
-
-[style*="--vz-nps-w:"]:not(:-ms-input-placeholder){
-	width: var(--vz-nps-w);
 }
 
 [style*="--vz-nps-w:"]:not(:placeholder-shown){
 	width: var(--vz-nps-w);
 }
 
-[style*="--vz-nps-v:"]:not(:-ms-input-placeholder){
-	visibility: var(--vz-nps-v);
-}
-
 [style*="--vz-nps-v:"]:not(:placeholder-shown){
 	visibility: var(--vz-nps-v);
-}
-
-[style*="--vz-nps-t:"]:not(:-ms-input-placeholder){
-	top: var(--vz-nps-t);
 }
 
 [style*="--vz-nps-t:"]:not(:placeholder-shown){
 	top: var(--vz-nps-t);
 }
 
-[style*="--vz-nps-r:"]:not(:-ms-input-placeholder){
-	right: var(--vz-nps-r);
-}
-
 [style*="--vz-nps-r:"]:not(:placeholder-shown){
 	right: var(--vz-nps-r);
-}
-
-[style*="--vz-nps-b:"]:not(:-ms-input-placeholder){
-	bottom: var(--vz-nps-b);
 }
 
 [style*="--vz-nps-b:"]:not(:placeholder-shown){
 	bottom: var(--vz-nps-b);
 }
 
-[style*="--vz-nps-l:"]:not(:-ms-input-placeholder){
-	left: var(--vz-nps-l);
-}
-
 [style*="--vz-nps-l:"]:not(:placeholder-shown){
 	left: var(--vz-nps-l);
-}
-
-[style*="--vz-nps-d:"]:not(:-ms-input-placeholder){
-	display: var(--vz-nps-d);
 }
 
 [style*="--vz-nps-d:"]:not(:placeholder-shown){
 	display: var(--vz-nps-d);
 }
 
-[style*="--vz-nps-z:"]:not(:-ms-input-placeholder){
-	z-index: var(--vz-nps-z);
-}
-
 [style*="--vz-nps-z:"]:not(:placeholder-shown){
 	z-index: var(--vz-nps-z);
-}
-
-[style*="--vz-nps-tf:"]:not(:-ms-input-placeholder){
-	transform: var(--vz-nps-tf);
 }
 
 [style*="--vz-nps-tf:"]:not(:placeholder-shown){
 	transform: var(--vz-nps-tf);
 }
 
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-c:"]{
-	color: var(--vz-s-nps-c);
-}
-
 :where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-c:"]{
 	color: var(--vz-s-nps-c);
-}
-
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-bc:"]{
-	border-color: var(--vz-s-nps-bc);
 }
 
 :where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-bc:"]{
 	border-color: var(--vz-s-nps-bc);
 }
 
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-bgc:"]{
-	background-color: var(--vz-s-nps-bgc);
-}
-
 :where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-bgc:"]{
 	background-color: var(--vz-s-nps-bgc);
-}
-
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-bs:"]{
-	box-shadow: var(--vz-s-nps-bs);
 }
 
 :where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-bs:"]{
 	box-shadow: var(--vz-s-nps-bs);
 }
 
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-ol:"]{
-	outline: var(--vz-s-nps-ol);
-}
-
 :where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-ol:"]{
 	outline: var(--vz-s-nps-ol);
-}
-
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-o:"]{
-	opacity: var(--vz-s-nps-o);
 }
 
 :where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-o:"]{
 	opacity: var(--vz-s-nps-o);
 }
 
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-of:"]{
-	overflow: var(--vz-s-nps-of);
-}
-
 :where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-of:"]{
 	overflow: var(--vz-s-nps-of);
-}
-
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-w:"]{
-	width: var(--vz-s-nps-w);
 }
 
 :where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-w:"]{
 	width: var(--vz-s-nps-w);
 }
 
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-v:"]{
-	visibility: var(--vz-s-nps-v);
-}
-
 :where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-v:"]{
 	visibility: var(--vz-s-nps-v);
-}
-
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-t:"]{
-	top: var(--vz-s-nps-t);
 }
 
 :where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-t:"]{
 	top: var(--vz-s-nps-t);
 }
 
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-r:"]{
-	right: var(--vz-s-nps-r);
-}
-
 :where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-r:"]{
 	right: var(--vz-s-nps-r);
-}
-
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-b:"]{
-	bottom: var(--vz-s-nps-b);
 }
 
 :where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-b:"]{
 	bottom: var(--vz-s-nps-b);
 }
 
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-l:"]{
-	left: var(--vz-s-nps-l);
-}
-
 :where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-l:"]{
 	left: var(--vz-s-nps-l);
-}
-
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-d:"]{
-	display: var(--vz-s-nps-d);
 }
 
 :where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-d:"]{
 	display: var(--vz-s-nps-d);
 }
 
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-z:"]{
-	z-index: var(--vz-s-nps-z);
-}
-
 :where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-z:"]{
 	z-index: var(--vz-s-nps-z);
 }
 
-:where(input, textarea):not(:-ms-input-placeholder) ~ [style*="--vz-s-nps-tf:"]{
+:where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-tf:"]{
 	transform: var(--vz-s-nps-tf);
 }
 
-:where(input, textarea):not(:placeholder-shown) ~ [style*="--vz-s-nps-tf:"]{
-	transform: var(--vz-s-nps-tf);
+[style*="--vz-inv-c:"]:user-invalid{
+	color: var(--vz-inv-c);
+}
+
+[style*="--vz-inv-bc:"]:user-invalid{
+	border-color: var(--vz-inv-bc);
+}
+
+[style*="--vz-inv-bgc:"]:user-invalid{
+	background-color: var(--vz-inv-bgc);
+}
+
+[style*="--vz-inv-bs:"]:user-invalid{
+	box-shadow: var(--vz-inv-bs);
+}
+
+[style*="--vz-inv-ol:"]:user-invalid{
+	outline: var(--vz-inv-ol);
+}
+
+:user-invalid ~ [style*="--vz-s-inv-d:"]{
+	display: var(--vz-s-inv-d);
+}
+
+:user-invalid ~ [style*="--vz-s-inv-c:"]{
+	color: var(--vz-s-inv-c);
+}
+
+:user-invalid ~ [style*="--vz-s-inv-bc:"]{
+	border-color: var(--vz-s-inv-bc);
+}
+
+:user-invalid ~ [style*="--vz-s-inv-o:"]{
+	opacity: var(--vz-s-inv-o);
+}
+
+:user-invalid ~ [style*="--vz-s-inv-v:"]{
+	visibility: var(--vz-s-inv-v);
 }
 
 /* custom .active CSS class - .vz */

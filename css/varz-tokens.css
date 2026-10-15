@@ -90,6 +90,24 @@ Override any token in your own :root (VARZ Builder: Global -> Variables).
 	--vz-label-fs: var(--vz-fs-2);
 	--vz-label-fw: 600;
 	--vz-label-mbe: 6px;
+	/* ---------- alerts, toasts (varz-toast.js): one hue each - background, text and border are mixed with the
+     page colors, so they follow light / dark by themselves (text 5.4:1 or more on the background, WCAG AA) ---------- */
+	--vz-alert-success: #2e9e5b;
+	--vz-alert-success-bgc: color-mix(in srgb, var(--vz-alert-success) 14%, var(--vz-c-light));
+	--vz-alert-success-c: color-mix(in srgb, var(--vz-alert-success) 60%, var(--vz-c-dark));
+	--vz-alert-success-bc: color-mix(in srgb, var(--vz-alert-success) 35%, var(--vz-c-light));
+	--vz-alert-error: #d93a2b;
+	--vz-alert-error-bgc: color-mix(in srgb, var(--vz-alert-error) 14%, var(--vz-c-light));
+	--vz-alert-error-c: color-mix(in srgb, var(--vz-alert-error) 60%, var(--vz-c-dark));
+	--vz-alert-error-bc: color-mix(in srgb, var(--vz-alert-error) 35%, var(--vz-c-light));
+	--vz-alert-warning: #c98a00;
+	--vz-alert-warning-bgc: color-mix(in srgb, var(--vz-alert-warning) 14%, var(--vz-c-light));
+	--vz-alert-warning-c: color-mix(in srgb, var(--vz-alert-warning) 60%, var(--vz-c-dark));
+	--vz-alert-warning-bc: color-mix(in srgb, var(--vz-alert-warning) 35%, var(--vz-c-light));
+	--vz-alert-info: #2f7fc1;
+	--vz-alert-info-bgc: color-mix(in srgb, var(--vz-alert-info) 14%, var(--vz-c-light));
+	--vz-alert-info-c: color-mix(in srgb, var(--vz-alert-info) 60%, var(--vz-c-dark));
+	--vz-alert-info-bc: color-mix(in srgb, var(--vz-alert-info) 35%, var(--vz-c-light));
 	/* ---------- card ---------- */
 	--vz-card-d: flex;
 	--vz-card-fld: column;

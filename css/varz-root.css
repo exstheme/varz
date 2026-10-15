@@ -1691,6 +1691,32 @@ Connect it to your project only during development so your IDE can recognize the
 	--s-nps-z: ;
 	/* *:not(:placeholder-shown) sibling transform*/
 	--s-nps-tf: ;
+	/*
+  ** selector:user-invalid (form validation)
+  */
+	/* selector:user-invalid color */
+	--inv-c: ;
+	/* selector:user-invalid border-color */
+	--inv-bc: ;
+	/* selector:user-invalid background-color */
+	--inv-bgc: ;
+	/* selector:user-invalid box-shadow */
+	--inv-bs: ;
+	/* selector:user-invalid outline */
+	--inv-ol: ;
+	/*
+  ** *:user-invalid ~ selector (error message)
+  */
+	/* *:user-invalid sibling display */
+	--s-inv-d: ;
+	/* *:user-invalid sibling color */
+	--s-inv-c: ;
+	/* *:user-invalid sibling border-color */
+	--s-inv-bc: ;
+	/* *:user-invalid sibling opacity */
+	--s-inv-o: ;
+	/* *:user-invalid sibling visibility */
+	--s-inv-v: ;
 	/*********************************/
 	/* .vz (custom active) css class */
 	/*********************************/

@@ -8,42 +8,34 @@
 }
 
 [style*="--mbs:"]{
-	-webkit-margin-before: var(--mbs);
 	margin-block-start: var(--mbs);
 }
 
 [style*="--mbe:"]{
-	-webkit-margin-after: var(--mbe);
 	margin-block-end: var(--mbe);
 }
 
 [style*="--mis:"]{
-	-webkit-margin-start: var(--mis);
 	margin-inline-start: var(--mis);
 }
 
 [style*="--mie:"]{
-	-webkit-margin-end: var(--mie);
 	margin-inline-end: var(--mie);
 }
 
 [style*="--pbs:"]{
-	-webkit-padding-before: var(--pbs);
 	padding-block-start: var(--pbs);
 }
 
 [style*="--pbe:"]{
-	-webkit-padding-after: var(--pbe);
 	padding-block-end: var(--pbe);
 }
 
 [style*="--pis:"]{
-	-webkit-padding-start: var(--pis);
 	padding-inline-start: var(--pis);
 }
 
 [style*="--pie:"]{
-	-webkit-padding-end: var(--pie);
 	padding-inline-end: var(--pie);
 }
 
@@ -233,7 +225,6 @@
 }
 
 [style*="--wm:"]{
-	-ms-writing-mode: var(--wm);
 	writing-mode: var(--wm);
 }
 
@@ -432,7 +423,6 @@
 }
 
 [style*="--sst:"]{
-	-ms-scroll-snap-type: var(--sst);
 	scroll-snap-type: var(--sst);
 }
 
@@ -461,7 +451,6 @@
 }
 
 [style*="--osb:"]{
-	-ms-scroll-chaining: var(--osb);
 	overscroll-behavior: var(--osb);
 }
 
@@ -479,7 +468,6 @@
 
 [style*="--us:"]{
 	-webkit-user-select: var(--us);
-	-ms-user-select: var(--us);
 	user-select: var(--us);
 }
 
@@ -493,42 +481,34 @@
 	}
 
 	[style*="--mbs-x:"]{
-		-webkit-margin-before: var(--mbs-x);
 		margin-block-start: var(--mbs-x);
 	}
 
 	[style*="--mbe-x:"]{
-		-webkit-margin-after: var(--mbe-x);
 		margin-block-end: var(--mbe-x);
 	}
 
 	[style*="--mis-x:"]{
-		-webkit-margin-start: var(--mis-x);
 		margin-inline-start: var(--mis-x);
 	}
 
 	[style*="--mie-x:"]{
-		-webkit-margin-end: var(--mie-x);
 		margin-inline-end: var(--mie-x);
 	}
 
 	[style*="--pbs-x:"]{
-		-webkit-padding-before: var(--pbs-x);
 		padding-block-start: var(--pbs-x);
 	}
 
 	[style*="--pbe-x:"]{
-		-webkit-padding-after: var(--pbe-x);
 		padding-block-end: var(--pbe-x);
 	}
 
 	[style*="--pis-x:"]{
-		-webkit-padding-start: var(--pis-x);
 		padding-inline-start: var(--pis-x);
 	}
 
 	[style*="--pie-x:"]{
-		-webkit-padding-end: var(--pie-x);
 		padding-inline-end: var(--pie-x);
 	}
 
@@ -718,7 +698,6 @@
 	}
 
 	[style*="--wm-x:"]{
-		-ms-writing-mode: var(--wm-x);
 		writing-mode: var(--wm-x);
 	}
 
@@ -917,7 +896,6 @@
 	}
 
 	[style*="--sst-x:"]{
-		-ms-scroll-snap-type: var(--sst-x);
 		scroll-snap-type: var(--sst-x);
 	}
 
@@ -948,42 +926,34 @@
 	}
 
 	[style*="--mbs-m:"]{
-		-webkit-margin-before: var(--mbs-m);
 		margin-block-start: var(--mbs-m);
 	}
 
 	[style*="--mbe-m:"]{
-		-webkit-margin-after: var(--mbe-m);
 		margin-block-end: var(--mbe-m);
 	}
 
 	[style*="--mis-m:"]{
-		-webkit-margin-start: var(--mis-m);
 		margin-inline-start: var(--mis-m);
 	}
 
 	[style*="--mie-m:"]{
-		-webkit-margin-end: var(--mie-m);
 		margin-inline-end: var(--mie-m);
 	}
 
 	[style*="--pbs-m:"]{
-		-webkit-padding-before: var(--pbs-m);
 		padding-block-start: var(--pbs-m);
 	}
 
 	[style*="--pbe-m:"]{
-		-webkit-padding-after: var(--pbe-m);
 		padding-block-end: var(--pbe-m);
 	}
 
 	[style*="--pis-m:"]{
-		-webkit-padding-start: var(--pis-m);
 		padding-inline-start: var(--pis-m);
 	}
 
 	[style*="--pie-m:"]{
-		-webkit-padding-end: var(--pie-m);
 		padding-inline-end: var(--pie-m);
 	}
 
@@ -1173,7 +1143,6 @@
 	}
 
 	[style*="--wm-m:"]{
-		-ms-writing-mode: var(--wm-m);
 		writing-mode: var(--wm-m);
 	}
 
@@ -1372,7 +1341,6 @@
 	}
 
 	[style*="--sst-m:"]{
-		-ms-scroll-snap-type: var(--sst-m);
 		scroll-snap-type: var(--sst-m);
 	}
 
@@ -1403,42 +1371,34 @@
 	}
 
 	[style*="--mbs-s:"]{
-		-webkit-margin-before: var(--mbs-s);
 		margin-block-start: var(--mbs-s);
 	}
 
 	[style*="--mbe-s:"]{
-		-webkit-margin-after: var(--mbe-s);
 		margin-block-end: var(--mbe-s);
 	}
 
 	[style*="--mis-s:"]{
-		-webkit-margin-start: var(--mis-s);
 		margin-inline-start: var(--mis-s);
 	}
 
 	[style*="--mie-s:"]{
-		-webkit-margin-end: var(--mie-s);
 		margin-inline-end: var(--mie-s);
 	}
 
 	[style*="--pbs-s:"]{
-		-webkit-padding-before: var(--pbs-s);
 		padding-block-start: var(--pbs-s);
 	}
 
 	[style*="--pbe-s:"]{
-		-webkit-padding-after: var(--pbe-s);
 		padding-block-end: var(--pbe-s);
 	}
 
 	[style*="--pis-s:"]{
-		-webkit-padding-start: var(--pis-s);
 		padding-inline-start: var(--pis-s);
 	}
 
 	[style*="--pie-s:"]{
-		-webkit-padding-end: var(--pie-s);
 		padding-inline-end: var(--pie-s);
 	}
 
@@ -1628,7 +1588,6 @@
 	}
 
 	[style*="--wm-s:"]{
-		-ms-writing-mode: var(--wm-s);
 		writing-mode: var(--wm-s);
 	}
 
@@ -1827,7 +1786,6 @@
 	}
 
 	[style*="--sst-s:"]{
-		-ms-scroll-snap-type: var(--sst-s);
 		scroll-snap-type: var(--sst-s);
 	}
 
