@@ -2,7 +2,7 @@
 
 **Classless CSS micro framework** — write responsive styles using CSS variables directly in HTML `style` attributes.
 
-- Extremely small (≈ 3.7–8 kB gzipped)
+- Extremely small (≈ 3.5–8.1 kB gzipped)
 - No classes needed
 - Works alongside any other CSS
 - Responsive with simple suffixes
@@ -88,9 +88,45 @@
 
 | File | Description |
 |------|-------------|
-| `varz-tokens.css` | Optional design tokens (spacing, radius, buttons, fields ...) for any variant - markup keeps working without it thanks to fallbacks |
+| `varz-tokens.css` | Optional design tokens (spacing, radius, buttons, fields, alert colors ...) for any variant - markup keeps working without it thanks to fallbacks |
+| `varz-tokens-fluid.css` | The same tokens with fluid sizes: text, spacing and paddings grow with the screen (`clamp()`, 360-1200px) instead of jumping at breakpoints - load it **instead of** `varz-tokens.css` |
+
+**Your own theme:** the [VARZ theme generator](https://varz.dev/themes/) makes a complete theme file from one color -
+light and dark, every text color checked for WCAG AA contrast, fonts, corners, shadows, fixed or fluid sizes.
+A theme file replaces `varz-tokens.css`.
 
 Every file is in `css/` (readable) and `css/min/` (minified).
+
+## Built into varz.css
+
+### Light and dark
+
+Colors follow the system setting. `<html data-theme="dark">` or `data-theme="light"` forces one (a switch:
+`data-vz-theme` in varz.js). Your own `:root` colors still override the framework's, as before.
+
+### Form validation states
+
+Like the other states (`hov-`, `foc-`, `ch-` ...), not responsive:
+
+| Prefix | When |
+|--------|------|
+| `inv-c`, `inv-bc`, `inv-bgc`, `inv-bs`, `inv-ol` | the field is invalid after the user changed it or tried to submit (`:user-invalid`) |
+| `s-inv-d`, `s-inv-c`, `s-inv-bc`, `s-inv-o`, `s-inv-v` | an element after such a field - the error message |
+
+```html
+<input type="email" required style="--bc:#ccc;--inv-bc:#d93a2b;">
+<span style="--d:none;--s-inv-d:block;--c:#d93a2b;">Enter a valid e-mail address</span>
+```
+
+### Native controls, motion, print
+
+- `<input type="checkbox" role="switch">` is a switch - no JavaScript; checkboxes, radios, ranges, `<progress>`
+  and `<meter>` take the accent color
+- `<details>` / `<summary>`: varz.js puts `.vz` on an open `<details>`; `<details name="faq">` is an accordion
+- native `<dialog>`: centered, backdrop color `--vz-backdrop`
+- `prefers-reduced-motion`: transitions, animations and smooth scrolling end at once
+- print: light colors, no shadows, fixed and sticky bars printed once, link addresses after links;
+  `--pr-d:none` hides an element on paper (`--pr-d:block` shows it)
 
 ## JavaScript (optional)
 
@@ -99,10 +135,11 @@ VARZ inline variables. Load only what you use - the components need `varz.js` lo
 
 | File | Size (min / gzip) | What it does | Example |
 |------|-------------------|--------------|---------|
-| `varz.js` | 13.7 / 4.5 kB | The `.vz` class from data attributes: tabs, accordions, dropdowns, modals, drawers - with ARIA states, focus handling, scroll events, keyboard and element sizes | |
+| `varz.js` | 17.5 / 5.5 kB | The `.vz` class from data attributes: tabs, accordions, dropdowns, modals, drawers - with ARIA states, focus handling, scroll events, keyboard (tabs, menus), element sizes, a light / dark switch, native dialogs | |
 | `varz-slider.js` | 11.7 / 3.8 kB | Accessible carousel on CSS scroll-snap: arrows, dots, autoplay, loop, drag, keyboard | [slider.html](examples/slider.html) |
 | `varz-lightbox.js` | 6.8 / 2.6 kB | Image and video viewer on the native `<dialog>`: galleries, swipe, keyboard | [lightbox.html](examples/lightbox.html) |
 | `varz-video.js` | 2.0 / 0.8 kB | Click-to-play facade for YouTube, Vimeo and video files - the player loads only on click | [video.html](examples/video.html) |
+| `varz-toast.js` | 4.9 / 2.0 kB | Notifications: "Saved", "Could not connect" - stacked, announced to screen readers, with an action button | |
 
 `js/` holds the minified files, `js/src/` the readable sources - the header comment of each source file is
 its complete reference. To try the examples, clone the repository and open `examples/` through any local server.
@@ -114,6 +151,7 @@ its complete reference. To try the examples, clone the repository and open `exam
 <script src="https://cdn.jsdelivr.net/gh/exstheme/varz@main/js/varz-slider.js" defer></script>
 <script src="https://cdn.jsdelivr.net/gh/exstheme/varz@main/js/varz-lightbox.js" defer></script>
 <script src="https://cdn.jsdelivr.net/gh/exstheme/varz@main/js/varz-video.js" defer></script>
+<script src="https://cdn.jsdelivr.net/gh/exstheme/varz@main/js/varz-toast.js" defer></script>
 ```
 
 Elements added to the page later (Ajax, frameworks) are set up by themselves. Users who prefer reduced
@@ -177,8 +215,36 @@ Opt-in attributes on the element that opens:
 #### Keyboard
 
 Arrow keys, `Home` and `End` work automatically in `role="tablist"` (moving selects the tab, only the selected
-tab is in the Tab order). `data-vz-keys` gives any other group (toolbars, segmented buttons) arrow-key focus
-moves - its value can be a selector of the items.
+tab is in the Tab order) and in `role="menu"` / `"menubar"` (between the `[role^="menuitem"]` items; a letter
+jumps to the next item starting with it). `data-vz-keys` gives any other group (toolbars, segmented buttons)
+arrow-key focus moves - its value can be a selector of the items.
+
+```html
+<button type="button" aria-expanded="false" aria-controls="actions" data-varz data-vz-toggle="next" data-vz-deactivate-on="click,esc">Actions</button>
+<div id="actions" role="menu" data-vz-focus="[role=menuitem]" style="--d:none;--vz-d:flex;--fld:column;">
+  <button type="button" role="menuitem">Copy</button>
+  <button type="button" role="menuitem">Paste</button>
+</div>
+```
+
+#### Light / dark switch
+
+`data-vz-theme` on a button toggles `<html data-theme>` between light and dark and remembers it;
+`data-vz-theme="light" | "dark" | "auto"` sets that one. The buttons get `aria-pressed`. No flash on load:
+
+```html
+<script>try{var t=localStorage.getItem('varz-theme');t&&document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<button type="button" data-vz-theme aria-label="Dark mode">🌙</button>
+```
+
+#### Dialogs, details, staying on screen
+
+- `data-vz-dialog="#id"` opens that native `<dialog>` as a modal (focus inside, Esc closes, focus returns, the
+  page behind is inert and does not scroll); `data-vz-close` on a button inside closes it, so does a click on
+  the backdrop (not with `data-vz-static`); `.vz` on it while open
+- `<details>` gets `.vz` while open - style it with `--vz-*` / `--p-vz-*`
+- `data-vz-fit` on a popup, tooltip or dropdown: when it opens and does not fit in the window, it is moved
+  back in (the CSS `translate` property - your `transform` stays)
 
 #### Element sizes
 
@@ -197,6 +263,7 @@ moves - its value can be a selector of the items.
 - `varz.className` - the active class (`vz`).
 - `varz.activator.toggle( trigger, 'next', 'activate' )` - the same as a click, from code;
   `varz.activator.close( 'esc' )` closes the groups that close on that event.
+- `varz.ui.theme( 'dark' | 'light' | 'auto' )`, `varz.ui.openDialog( dialog, opener )`.
 - `varz.util` and `varz.media` are shared helpers used by the components.
 
 ---
@@ -270,15 +337,37 @@ when its container is activated - wrap it in `data-vz-event="inview"` to play it
 Events: `varz-video-play`, `varz-video-stop` (bubbling). API: `varz.video.play( link )`, `varz.video.stop( box )`.
 Texts: `varz.video.i18n`.
 
+---
+
+### varz-toast.js
+
+```js
+varz.toast('Saved');
+varz.toast('Could not save', { type: 'error' });             // success | error | warning | info
+varz.toast('Item deleted', { action: 'Undo', onAction: restore, duration: 8000 });
+```
+
+```html
+<button type="button" data-vz-toast="Link copied" data-vz-toast-type="success">Copy link</button>
+```
+
+Options: `type`, `duration` (ms, default 4000, `0` = until closed), `action` + `onAction(toast)`, `closable`.
+Toasts stack (at most `varz.toast.max`, 4), pause while hovered or focused, and are announced by screen readers
+(errors at once). Colors from the alert tokens (`--vz-alert-success-bgc` ...), so themes restyle them.
+`varz.toast.position = 'top-right'` (and the other corners, `bottom-center`, `top-center`) before the first one.
+API: `toast.close()`, `varz.toast.clear()`; event `varz-toast` on `document`. Texts: `varz.toast.i18n`.
+
 
 ## Features
 
 - Classless – styles live directly in the `style` attribute
 - Responsive via simple suffixes (`-g`, `-x`, `-l`, `-m`, `-s`)
-- Support for hover, focus and active states
+- Support for hover, focus, active and form validation states
+- Light and dark, a light / dark switch, print and reduced-motion styles built in
 - Extremely low specificity (easy to override)
 - Easy theming with CSS variables
-- Tiny optional JS: tabs, modals, accordions, dropdowns (`varz.js`) + slider, lightbox and video components
+- Tiny optional JS: tabs, menus, modals, dialogs, accordions, dropdowns (`varz.js`) + slider, lightbox, video and toast components
+- [Theme generator](https://varz.dev/themes/): a complete, contrast-checked theme from one color
 - Multiple build variants for different needs
 - No build step required
 
