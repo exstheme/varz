@@ -86,7 +86,7 @@ var varz = varz ? varz : {};
 		var box = document.createElement('section');
 		box.className = 'varz-toasts';
 		box.setAttribute('aria-label', T.i18n.region);
-		box.setAttribute('style', T.styles.region + (T.styles.positions[T.position] || T.styles.positions['bottom-right']));
+		box.setAttribute('style', varz.vars(T.styles.region + (T.styles.positions[T.position] || T.styles.positions['bottom-right'])));
 		box.addEventListener('keydown', function (e) {
 			if (e.key === 'Escape' && T.open.length) {
 				T.open[T.open.length - 1].close();
@@ -108,9 +108,9 @@ var varz = varz ? varz : {};
 		var el = document.createElement('div');
 		// errors are announced at once, the rest when the reader is idle
 		el.setAttribute('role', type === 'error' ? 'alert' : 'status');
-		el.setAttribute('style', T.styles.toast + (type ? T.styles.types[type] : ''));
+		el.setAttribute('style', varz.vars(T.styles.toast + (type ? T.styles.types[type] : '')));
 		var text = document.createElement('div');
-		text.setAttribute('style', T.styles.message);
+		text.setAttribute('style', varz.vars(T.styles.message));
 		text.textContent = message;
 		el.appendChild(text);
 
@@ -144,7 +144,7 @@ var varz = varz ? varz : {};
 			var action = document.createElement('button');
 			action.type = 'button';
 			action.textContent = o.action;
-			action.setAttribute('style', T.styles.action);
+			action.setAttribute('style', varz.vars(T.styles.action));
 			action.addEventListener('click', function () {
 				if (typeof o.onAction === 'function') {
 					o.onAction(toast);
@@ -157,7 +157,7 @@ var varz = varz ? varz : {};
 			var close = document.createElement('button');
 			close.type = 'button';
 			close.setAttribute('aria-label', T.i18n.close);
-			close.setAttribute('style', T.styles.close);
+			close.setAttribute('style', varz.vars(T.styles.close));
 			close.innerHTML = T.icon;
 			close.addEventListener('click', toast.close);
 			el.appendChild(close);

@@ -26,7 +26,8 @@
  * Events on every element whose class changes: "varz-activated" / "varz-deactivated" - they do not bubble
  * (listen on the element, or on document in the capture phase).
  *
- * Shared by the VARZ components (varz-slider.js, varz-lightbox.js, varz-video.js): varz.util, varz.media.
+ * Shared by the VARZ components (varz-slider.js, varz-lightbox.js, varz-video.js): varz.util, varz.media,
+ * varz.vars / varz.varsHtml (prefixed builds: <html data-vz-prefix>).
  *
  * TODO: styles and props in data attributes to add and remove when toggling; delayed toggling.
  */
@@ -34,6 +35,29 @@ var varz = varz ? varz : {};
 
 /** the active class */
 varz.className = varz.className || 'vz';
+
+/* ---------- prefixed builds ---------- */
+
+/**
+ * With a prefixed build (varz-prefixed*.css: --vz-p instead of --p) mark the page: <html data-vz-prefix>.
+ * The scripts write the styles of the markup they make (slider controls, lightbox, toasts ...) in plain form;
+ * varz.vars() / varz.varsHtml() turn them into the page's form - unchanged on plain pages.
+ */
+varz.prefix = varz.prefix !== undefined ? varz.prefix : document.documentElement.hasAttribute('data-vz-prefix') ? 'vz-' : '';
+
+/** plain style declarations ("--d:flex;--p:8px") in the page's form */
+varz.vars = function (style) {
+	return varz.prefix ? String(style).replace(/(^|;)(\s*)--(?=[a-z])/g, '$1$2--' + varz.prefix) : style;
+};
+
+/** markup made by a script: the style attributes in the page's form */
+varz.varsHtml = function (html) {
+	return varz.prefix
+		? String(html).replace(/(\sstyle=")([^"]*)"/g, function (all, start, style) {
+				return start + varz.vars(style) + '"';
+			})
+		: html;
+};
 
 /* ---------- shared helpers ---------- */
 
@@ -209,7 +233,7 @@ varz.media = varz.media
 					el.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
 				}
 				el.title = title || '';
-				el.setAttribute('style', '--d:block;--w:100%;--h:100%;--bw:0;--bgc:#000;');
+				el.setAttribute('style', varz.vars('--d:block;--w:100%;--h:100%;--bw:0;--bgc:#000;'));
 				return el;
 			},
 		};

@@ -125,14 +125,16 @@ varz.slider = varz.slider
 					var wrap = track.parentElement;
 					if (wrap === el) {
 						wrap = document.createElement('div');
-						wrap.setAttribute('style', '--pos:relative;');
+						wrap.setAttribute('style', varz.vars('--pos:relative;'));
 						el.insertBefore(wrap, track);
 						wrap.appendChild(track);
 					}
 					wrap.insertAdjacentHTML(
 						'beforeend',
-						'<button type="button" data-varz-prev style="' + S.styles.arrow + S.styles.arrows[arrowLook[0]] + '--l:12px;">' + prev + '</button>' +
-							'<button type="button" data-varz-next style="' + S.styles.arrow + S.styles.arrows[arrowLook[0]] + '--r:12px;">' + next + '</button>'
+						varz.varsHtml(
+							'<button type="button" data-varz-prev style="' + S.styles.arrow + S.styles.arrows[arrowLook[0]] + '--l:12px;">' + prev + '</button>' +
+								'<button type="button" data-varz-next style="' + S.styles.arrow + S.styles.arrows[arrowLook[0]] + '--r:12px;">' + next + '</button>'
+						)
 					);
 				}
 				var dots = want.indexOf('dots') > -1 && !el.querySelector('[data-varz-dots]');
@@ -143,14 +145,16 @@ varz.slider = varz.slider
 				if (dots || play || arrows) {
 					el.insertAdjacentHTML(
 						'beforeend',
-						'<div style="' + S.styles.bar + '">' +
-							(play
-								? '<button type="button" data-varz-play style="' + S.styles.play + '">' + icon('M8 5v14l11-7z', '--d:block;--w:14px;--h:14px;--p-vz-d:none;') + icon('M6 5h4v14H6zm8 0h4v14h-4z', '--d:none;--w:14px;--h:14px;--p-vz-d:block;') + '</button>'
-								: '') +
-							(arrows ? '<button type="button" data-varz-prev style="' + arrowBar + '">' + prev + '</button>' : '') +
-							(dots ? '<div data-varz-dots style="' + S.styles.dots + '"><button type="button" data-varz-dot style="' + S.styles.dot + '">' + mark + '</button></div>' : '') +
-							(arrows ? '<button type="button" data-varz-next style="' + arrowBar + '">' + next + '</button>' : '') +
-							'</div>'
+						varz.varsHtml(
+							'<div style="' + S.styles.bar + '">' +
+								(play
+									? '<button type="button" data-varz-play style="' + S.styles.play + '">' + icon('M8 5v14l11-7z', '--d:block;--w:14px;--h:14px;--p-vz-d:none;') + icon('M6 5h4v14H6zm8 0h4v14h-4z', '--d:none;--w:14px;--h:14px;--p-vz-d:block;') + '</button>'
+									: '') +
+								(arrows ? '<button type="button" data-varz-prev style="' + arrowBar + '">' + prev + '</button>' : '') +
+								(dots ? '<div data-varz-dots style="' + S.styles.dots + '"><button type="button" data-varz-dot style="' + S.styles.dot + '">' + mark + '</button></div>' : '') +
+								(arrows ? '<button type="button" data-varz-next style="' + arrowBar + '">' + next + '</button>' : '') +
+								'</div>'
+						)
 					);
 				}
 			},

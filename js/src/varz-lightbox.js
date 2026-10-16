@@ -85,8 +85,8 @@ varz.lightbox = varz.lightbox
 				var d = document.createElement('dialog');
 				d.className = 'varz-lightbox';
 				d.setAttribute('aria-label', L.i18n.dialog);
-				d.setAttribute('style', st.dialog);
-				d.innerHTML =
+				d.setAttribute('style', varz.vars(st.dialog));
+				d.innerHTML = varz.varsHtml(
 					'<div data-varz-lightbox-stage style="' + st.stage + '">' +
 					'<img alt="" style="' + st.image + '">' +
 					'<div data-varz-lightbox-video style="' + st.video + '"></div>' +
@@ -97,7 +97,7 @@ varz.lightbox = varz.lightbox
 					'<button type="button" data-varz-lightbox-next style="' + st.button + st.next + '">' + icon('M8.6 7.4 10 6l6 6-6 6-1.4-1.4 4.6-4.6z') + '</button>' +
 					'<button type="button" data-varz-lightbox-close style="' + st.button + st.close + '">' +
 					icon('M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4l5.6 5.6L5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6z') +
-					'</button>';
+					'</button>');
 				document.body.appendChild(d);
 
 				var $ = function (sel) {

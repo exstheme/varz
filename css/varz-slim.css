@@ -1,4 +1,4 @@
-/* micro CSS reset*/
+/* color palette*/
 :root{
 	--vz-c-white: #fff;
 	--vz-c-black: #111;
@@ -37,6 +37,19 @@
 	color-scheme: light;
 }
 
+@media print {
+	:root:root,
+	:root[data-theme]{
+		color-scheme: light;
+		--vz-c-light: #fff;
+		--vz-c-dark: #111;
+		--vz-c-font: #333;
+		--vz-c-muted: #666;
+		--vz-c-bg: #fff;
+		--vz-c-border: #ccc;
+	}
+}
+/* micro CSS reset*/
 *{
 	margin: 0;
 	padding: 0;
@@ -241,17 +254,6 @@ dialog::backdrop{
 }
 
 @media print {
-	:root:root,
-	:root[data-theme]{
-		color-scheme: light;
-		--vz-c-light: #fff;
-		--vz-c-dark: #111;
-		--vz-c-font: #333;
-		--vz-c-muted: #666;
-		--vz-c-bg: #fff;
-		--vz-c-border: #ccc;
-	}
-
 	*,
 	*::before,
 	*::after{

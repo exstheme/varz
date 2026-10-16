@@ -1,3 +1,54 @@
+/* color palette*/
+:root{
+	--vz-c-white: #fff;
+	--vz-c-black: #111;
+	--vz-c-accent: #f14836;
+	--vz-c-accent2: #a12d21;
+	--vz-c-light: #fff;
+	--vz-c-dark: #111;
+	--vz-c-font: #555;
+	--vz-c-muted: #999;
+	--vz-c-bg: #f5f5f5;
+	--vz-c-border: #ddd;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root:where(:not([data-theme=light])){
+		--vz-c-light: #141a21;
+		--vz-c-dark: #fff;
+		--vz-c-font: #eee;
+		--vz-c-muted: #bbb;
+		--vz-c-bg: #1d242f;
+		--vz-c-border: #3e4e62;
+	}
+}
+
+:root:where([data-theme=dark]){
+	color-scheme: dark;
+	--vz-c-light: #141a21;
+	--vz-c-dark: #fff;
+	--vz-c-font: #eee;
+	--vz-c-muted: #bbb;
+	--vz-c-bg: #1d242f;
+	--vz-c-border: #3e4e62;
+}
+
+:root:where([data-theme=light]){
+	color-scheme: light;
+}
+
+@media print {
+	:root:root,
+	:root[data-theme]{
+		color-scheme: light;
+		--vz-c-light: #fff;
+		--vz-c-dark: #111;
+		--vz-c-font: #333;
+		--vz-c-muted: #666;
+		--vz-c-bg: #fff;
+		--vz-c-border: #ccc;
+	}
+}
 /*responsive stateless CSS styles*/
 [style*="--vz-m:"]{
 	margin: var(--vz-m);
