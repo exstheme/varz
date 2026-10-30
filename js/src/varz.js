@@ -1,4 +1,4 @@
-/*! VARZ.js | MIT | https://varz.dev */
+/*! VARZ.js 1.3.0 | MIT | https://varz.dev */
 'use strict';
 /**
  * VARZ.js - the .vz class from data attributes, no other JavaScript needed.
@@ -21,7 +21,8 @@
  * THEME (varz.ui): data-vz-theme - a light / dark switch (<html data-theme>, remembered)
  * DETAILS (varz.ui): <details> gets .vz while open
  * DIALOG (varz.ui): data-vz-dialog="#id" opens a native modal <dialog>; data-vz-close closes it, so does the backdrop
- * FIT (varz.ui): data-vz-fit - an opened popup / tooltip is moved back into the window
+ * FIT (varz.ui): data-vz-fit - an opened popup / tooltip / dropdown stays in the window: flipped to the other side
+ *   (data-vz-flip-x / data-vz-flip-y), else moved back in; data-vz-fit="hover" also for CSS hover / focus ones
  *
  * Events on every element whose class changes: "varz-activated" / "varz-deactivated" - they do not bubble
  * (listen on the element, or on document in the capture phase).
@@ -32,6 +33,8 @@
  * TODO: styles and props in data attributes to add and remove when toggling; delayed toggling.
  */
 var varz = varz ? varz : {};
+
+varz.version = '1.3.0';
 
 /** the active class */
 varz.className = varz.className || 'vz';
@@ -965,8 +968,16 @@ varz.size.init();
  *   focus back, the page behind is inert); .vz on it while open, the page does not scroll; a click on the
  *   backdrop closes it unless the dialog has data-vz-static; data-vz-close on any button inside closes it.
  *   The backdrop color: --vz-backdrop (varz.css).
- * FIT: data-vz-fit on a popup, tooltip, dropdown: when it opens (.vz) and does not fit in the window, it is
- *   moved back in (the CSS translate property - your transform stays).
+ * FIT: data-vz-fit on a popup, tooltip, dropdown - kept inside the window when it opens:
+ *   - when: it gets .vz, or its parent does (the parent opens, the child shows: --p-vz-*); data-vz-fit="hover"
+ *     also when its parent is hovered or focused (CSS dropdowns and tooltips: --p-hov-*, --p-fwi-*)
+ *   - flip: data-vz-flip-x / data-vz-flip-y - VARZ styles added to its own when it sticks out of the window on the
+ *     left or right / top or bottom: the other side for it, e.g. data-vz-flip-x="--l:auto;--r:100%;" (written like
+ *     its style attribute - the hover state too: --p-hov-l:auto;--p-hov-r:32px;). Kept when the flipped box sticks
+ *     out less. Elements inside with their own data-vz-flip-x / -y (a tooltip's corner) follow; data-vz-flipped="x",
+ *     "y" or "xy" is on it while flipped (CSS: [data-vz-flipped] - mirror an arrow).
+ *   - shift: what still sticks out is moved back in (the CSS translate property - your transform stays)
+ *   Measured from its own styles every time it opens - a resized window and a scrolled page count.
  */
 varz.ui = varz.ui
 	? varz.ui
@@ -1023,15 +1034,61 @@ varz.ui = varz.ui
 				dialog.dispatchEvent(new Event('varz-activated'));
 			},
 
-			/** keeps an opened element inside the window */
+			/** keeps an opened element inside the window: flipped (data-vz-flip-x / -y), else shifted */
 			fit: function (el) {
-				el.style.translate = '';
-				window.requestAnimationFrame(function () {
-					if (!el.classList.contains(varz.className)) {
-						return;
+				// the element and the ones inside that follow its flip (not those of a nested data-vz-fit)
+				var parts = [el].concat(
+					Array.prototype.filter.call(el.querySelectorAll('[data-vz-flip-x],[data-vz-flip-y]'), function (part) {
+						return part.closest('[data-vz-fit]') === el;
+					})
+				);
+				// their own styles + the flips of the axes given ("", "x", "y", "xy")
+				var apply = function (axes) {
+					parts.forEach(function (part) {
+						if (part.vzStyle === undefined) {
+							part.vzStyle = (part.getAttribute('style') || '').replace(/;?\s*$/, ';');
+						}
+						var style = part.vzStyle;
+						axes.split('').forEach(function (axis) {
+							style += part.getAttribute('data-vz-flip-' + axis) || '';
+						});
+						part.setAttribute('style', style);
+					});
+					if (axes) {
+						el.setAttribute('data-vz-flipped', axes);
+					} else {
+						el.removeAttribute('data-vz-flipped');
 					}
+				};
+				var gap = 8;
+				// how far the box sticks out of the window on an axis
+				var out = function (r, axis) {
+					var size = axis === 'x' ? document.documentElement.clientWidth : window.innerHeight;
+					var start = axis === 'x' ? r.left : r.top;
+					var end = axis === 'x' ? r.right : r.bottom;
+					return Math.max(0, gap - start) + Math.max(0, end - (size - gap));
+				};
+				var run = function () {
+					apply('');
 					var r = el.getBoundingClientRect();
-					var gap = 8;
+					if (!r.width && !r.height) {
+						return false; // not shown (yet)
+					}
+					var axes = '';
+					['x', 'y'].forEach(function (axis) {
+						var before = out(r, axis);
+						if (!before || !el.hasAttribute('data-vz-flip-' + axis)) {
+							return;
+						}
+						apply(axes + axis);
+						var flipped = el.getBoundingClientRect();
+						if (out(flipped, axis) < before) {
+							axes += axis;
+							r = flipped;
+						} else {
+							apply(axes);
+						}
+					});
 					var w = document.documentElement.clientWidth;
 					var h = window.innerHeight;
 					var dx = r.right > w - gap ? w - gap - r.right : 0;
@@ -1041,7 +1098,22 @@ varz.ui = varz.ui
 					if (dx || dy) {
 						el.style.translate = Math.round(dx) + 'px ' + Math.round(dy) + 'px';
 					}
-				});
+					return true;
+				};
+				if (!run()) {
+					window.requestAnimationFrame(run);
+				}
+			},
+
+			/** the data-vz-fit elements an element opens: itself, its children */
+			fitOpened: function (el) {
+				if (!el.hasAttribute) {
+					return;
+				}
+				if (el.hasAttribute('data-vz-fit')) {
+					varz.ui.fit(el);
+				}
+				el.querySelectorAll(':scope > [data-vz-fit]').forEach(varz.ui.fit);
 			},
 
 			init: function () {
@@ -1117,16 +1189,36 @@ varz.ui = varz.ui
 					},
 					true
 				);
-				// data-vz-fit: moved into the window when it opens
+				// data-vz-fit: kept in the window when it opens - on .vz (itself or its parent)
 				document.addEventListener(
 					'varz-activated',
 					function (e) {
-						if (e.target.hasAttribute && e.target.hasAttribute('data-vz-fit')) {
-							UI.fit(e.target);
-						}
+						UI.fitOpened(e.target);
 					},
 					true
 				);
+				// data-vz-fit="hover": when its parent is hovered or focused (once per parent until it changes,
+				// the page scrolls or the window is resized)
+				var hovered = null;
+				var onHover = function (e) {
+					var holder = null;
+					try {
+						holder = e.target.closest ? e.target.closest(':has(> [data-vz-fit="hover"])') : null;
+					} catch (err) {
+						return; // no :has() - clicks only
+					}
+					if (holder && holder !== hovered) {
+						hovered = holder;
+						holder.querySelectorAll(':scope > [data-vz-fit="hover"]').forEach(UI.fit);
+					}
+				};
+				var moved = function () {
+					hovered = null;
+				};
+				document.addEventListener('mouseover', onHover);
+				document.addEventListener('focusin', onHover);
+				window.addEventListener('scroll', moved, { passive: true });
+				window.addEventListener('resize', moved);
 				if (window.matchMedia) {
 					var mq = window.matchMedia('(prefers-color-scheme: dark)');
 					mq.addEventListener && mq.addEventListener('change', UI.syncTheme);
