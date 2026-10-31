@@ -1,4 +1,4 @@
-/*! VARZ.js 1.3.0 | MIT | https://varz.dev */
+/*! VARZ.js 1.4.0 | MIT | https://varz.dev */
 'use strict';
 /**
  * VARZ.js - the .vz class from data attributes, no other JavaScript needed.
@@ -8,7 +8,8 @@
  *     self, parent, grandparent, child, prev, next, children, siblings, parentSiblings, siblingsChildren,
  *     parentSiblingsChildren, selectorSiblings, selector (elements matching data-vz-selector)
  *   data-vz-selector - CSS selector for "selector" / "selectorSiblings"
- *   data-vz-deactivate-on - click (outside), esc, scroll (the page), resize (the viewport width changes)
+ *   data-vz-deactivate-on - click (outside), esc, focusout (the focus moves outside - Tab), scroll (the page),
+ *     resize (the viewport width changes)
  *   data-vz-self-deactivation - no activation when the trigger (or its parent) is already active (accordion)
  *   data-vz-prevent - no default action (a link that opens a popup still works without JavaScript)
  *
@@ -34,7 +35,7 @@
  */
 var varz = varz ? varz : {};
 
-varz.version = '1.3.0';
+varz.version = '1.4.0';
 
 /** the active class */
 varz.className = varz.className || 'vz';
@@ -69,6 +70,11 @@ varz.util = varz.util
 	: {
 			reducedMotion: function () {
 				return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+			},
+
+			/** el is shown: it has a box and is not visibility: hidden */
+			shown: function (el) {
+				return !!(el.getClientRects().length && window.getComputedStyle(el).visibility !== 'hidden');
 			},
 
 			/** visible, focusable elements inside root */
@@ -456,6 +462,12 @@ varz.activator = varz.activator
 					el.setAttribute('tabindex', active ? '0' : '-1');
 				}
 
+				// it closed with the focus on something inside that is hidden now (a dropdown's link): back to the opener
+				var focused = document.activeElement;
+				if (!active && opener && opener.focus && focused !== opener && el.contains(focused) && !varz.util.shown(focused)) {
+					opener.focus();
+				}
+
 				if (!el.hasAttribute('data-vz-focus') && !el.hasAttribute('data-vz-trap') && !el.hasAttribute('data-vz-lock')) {
 					return;
 				}
@@ -548,6 +560,19 @@ varz.activator = varz.activator
 					'click',
 					function (e) {
 						A.close('click', function (group) {
+							var inside = group.els.some(function (el) {
+								return el.contains(e.target);
+							});
+							return !inside && !(group.opener && group.opener.contains(e.target));
+						});
+					},
+					true
+				);
+				// deactivate-on: focusout - the focus moved outside the open elements and the trigger that opened them
+				document.addEventListener(
+					'focusin',
+					function (e) {
+						A.close('focusout', function (group) {
 							var inside = group.els.some(function (el) {
 								return el.contains(e.target);
 							});
