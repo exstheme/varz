@@ -1,4 +1,4 @@
-/*! VARZ.js 1.4.0 | MIT | https://varz.dev */
+/*! VARZ.js 1.4.1 | MIT | https://varz.dev */
 'use strict';
 /**
  * VARZ.js - the .vz class from data attributes, no other JavaScript needed.
@@ -35,7 +35,7 @@
  */
 var varz = varz ? varz : {};
 
-varz.version = '1.4.0';
+varz.version = '1.4.1';
 
 /** the active class */
 varz.className = varz.className || 'vz';
@@ -919,7 +919,8 @@ varz.size = varz.size
 
 			/**
 			 * writes the size of one element - its layout box (transforms are left out: a scale / slide
-			 * animation does not change the value, a height transition is followed frame by frame)
+			 * animation does not change the value, a height transition is followed frame by frame) - in whole
+			 * pixels, only when it changed: a variable on <html> restyles the whole page
 			 */
 			set: function (el, entry) {
 				var parts = (el.getAttribute('data-vz-size') || '').trim().split(/\s+/);
@@ -928,8 +929,11 @@ varz.size = varz.size
 				}
 				var width = parts[1] === 'width';
 				var box = entry && entry.borderBoxSize && entry.borderBoxSize[0];
-				var value = box ? (width ? box.inlineSize : box.blockSize) : width ? el.offsetWidth : el.offsetHeight;
-				document.documentElement.style.setProperty(parts[0], Math.round(value * 100) / 100 + 'px');
+				var value = Math.round(box ? (width ? box.inlineSize : box.blockSize) : width ? el.offsetWidth : el.offsetHeight) + 'px';
+				var root = document.documentElement.style;
+				if (root.getPropertyValue(parts[0]) !== value) {
+					root.setProperty(parts[0], value);
+				}
 			},
 
 			/** new data-vz-size elements: measured and observed */
@@ -940,9 +944,11 @@ varz.size = varz.size
 						return;
 					}
 					Z.seen.push(el);
-					Z.set(el);
+					// the observer reports the size at once when it starts observing
 					if (Z.observer) {
 						Z.observer.observe(el);
+					} else {
+						Z.set(el);
 					}
 				});
 			},
