@@ -11,6 +11,7 @@ Override any token in your own :root (VARZ Builder: Global -> Variables).
 */
 :root{
 	/* ---------- scales (numbered: letter suffixes are VARZ breakpoints -g -x -l -m -s) ---------- */
+	/* every scale grows with its number: 1 is the smallest (--vz-fs-1 is the smallest text, unlike h1) */
 	--vz-space-1: 4px;
 	--vz-space-2: 8px;
 	--vz-space-3: 16px;

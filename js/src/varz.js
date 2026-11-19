@@ -1,4 +1,4 @@
-/*! VARZ.js 1.4.1 | MIT | https://varz.dev */
+/*! VARZ.js 1.4.2 | MIT | https://varz.dev */
 'use strict';
 /**
  * VARZ.js - the .vz class from data attributes, no other JavaScript needed.
@@ -27,6 +27,8 @@
  *
  * Events on every element whose class changes: "varz-activated" / "varz-deactivated" - they do not bubble
  * (listen on the element, or on document in the capture phase).
+ * MEDIA: a closed element pauses the <video>, <audio>, Vimeo and YouTube embeds inside it (YouTube: the embed
+ *   src needs enablejsapi=1, as in the players varz.media makes) - no sound from a closed popup or tab.
  *
  * Shared by the VARZ components (varz-slider.js, varz-lightbox.js, varz-video.js): varz.util, varz.media,
  * varz.vars / varz.varsHtml (prefixed builds: <html data-vz-prefix>).
@@ -35,7 +37,7 @@
  */
 var varz = varz ? varz : {};
 
-varz.version = '1.4.1';
+varz.version = '1.4.2';
 
 /** the active class */
 varz.className = varz.className || 'vz';
@@ -186,7 +188,7 @@ varz.media = varz.media
 					var start = m ? +(m[1] || 0) * 3600 + +(m[2] || 0) * 60 + +(m[3] || 0) : 0;
 					return {
 						type: 'youtube',
-						src: 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1' + (start ? '&start=' + start : ''),
+						src: 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1&enablejsapi=1' + (start ? '&start=' + start : ''),
 					};
 				}
 				if (/^(player\.)?vimeo\.com$/.test(host)) {
@@ -200,6 +202,32 @@ varz.media = varz.media
 					return { type: 'file', src: a.href };
 				}
 				return null;
+			},
+
+			/**
+			 * Pauses the media inside root: <video>, <audio>, Vimeo and YouTube embeds (YouTube: with
+			 * enablejsapi=1 in the src). Runs for every element varz.js or a component closes ("varz-deactivated"):
+			 * a video in a closed popup, tab or slide stops instead of playing on unseen.
+			 */
+			pause: function (root) {
+				if (!root || !root.querySelectorAll) {
+					return;
+				}
+				root.querySelectorAll('video, audio, iframe').forEach(function (el) {
+					if (el.tagName !== 'IFRAME') {
+						el.pause();
+						return;
+					}
+					var src = el.getAttribute('src') || '';
+					var msg = /youtube(-nocookie)?\.com\/embed\//.test(src)
+						? '{"event":"command","func":"pauseVideo","args":""}'
+						: /player\.vimeo\.com\//.test(src)
+						? '{"method":"pause"}'
+						: '';
+					if (msg && el.contentWindow) {
+						el.contentWindow.postMessage(msg, '*');
+					}
+				});
 			},
 
 			/**
@@ -1160,6 +1188,15 @@ varz.ui = varz.ui
 						document.documentElement.setAttribute('data-theme', saved);
 					}
 				} catch (e) {}
+
+				// anything closed (popup, panel, tab, accordion, slide, dialog): its media stops (capture: no bubbling)
+				document.addEventListener(
+					'varz-deactivated',
+					function (e) {
+						varz.media.pause(e.target);
+					},
+					true
+				);
 
 				document.addEventListener('click', function (e) {
 					var t = e.target.closest ? e.target : null;
